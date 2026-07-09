@@ -1,0 +1,44 @@
+baseURL = "https://ak40u.github.io/technical-articles/"
+defaultContentLanguage = "ru"
+enableRobotsTXT = true
+
+[params]
+  author = "Pavel Volkov"
+  authorLatin = "Павел Волков"
+  authorUrl = "https://github.com/ak40u"
+  authorRole = "ИИ-архитектор и инженер"
+  bio = "Я пишу о практической инженерии: автономные ИИ-команды, продуктовая разработка, QA, релизы, инфраструктура и рабочие процессы, которые можно повторять. Мне важны не лозунги, а устройство систем: кто принимает решения, кто проверяет результат, где лежат доказательства и где автоматизация должна остановиться."
+  bioTags = ["ИИ-инженерия", "автономные команды", "QA и аудит", "релизы", "инженерный процесс"]
+  github = "https://github.com/ak40u"
+  copyright = "© 2026 Pavel Volkov"
+  defaultImage = "og/ai-tech-teams-workflow-hero.png"
+
+[languages]
+  [languages.ru]
+    label = "Русский"
+    locale = "ru"
+    contentDir = "content/ru"
+    weight = 1
+    title = "Технические статьи"
+    [languages.ru.params]
+      tagline = "Практические разборы инженерных систем, автономной разработки, QA, релизов и инфраструктуры."
+
+[outputs]
+  home = ["HTML", "RSS", "LLMS"]
+
+[outputFormats]
+  [outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
+[taxonomies]
+  tag = "tags"

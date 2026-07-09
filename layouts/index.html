@@ -1,0 +1,42 @@
+{{ define "main" }}
+<section class="hero">
+  <p class="eyebrow">Pavel Volkov · инженерная практика</p>
+  <h1>{{ .Site.Title }}</h1>
+  <p class="tagline">{{ .Site.Language.Params.tagline }}</p>
+  {{ with .Content }}<div class="intro-body">{{ . }}</div>{{ end }}
+</section>
+
+{{ with .Site.Params }}
+<section class="bio-card" aria-label="Об авторе">
+  <div class="bio-mono" aria-hidden="true">PV</div>
+  <div class="bio-body">
+    <p class="bio-name">{{ .author }} <span>· {{ .authorLatin }}</span></p>
+    {{ with .authorRole }}<p class="bio-role">{{ . }}</p>{{ end }}
+    {{ with .bio }}<p class="bio-text">{{ . }}</p>{{ end }}
+    {{ with .bioTags }}
+    <div class="bio-tags">
+      {{ range . }}<span class="bio-tag">{{ . }}</span>{{ end }}
+    </div>
+    {{ end }}
+    <div class="bio-links">
+      {{ with .github }}<a href="{{ . }}" rel="me noopener" target="_blank">GitHub</a>{{ end }}
+      <a href="{{ "about/" | relLangURL }}">{{ i18n "about" }} →</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<p class="section-label">{{ i18n "articles" }}</p>
+<section class="article-list">
+  {{ range (where .Site.RegularPages "Section" "articles").ByDate.Reverse }}
+  <a class="card-link" href="{{ .RelPermalink }}">
+    <h2>{{ .Title }}</h2>
+    <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time> · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" .ReadingTime }}</p>
+    {{ with .Summary }}<p class="summary">{{ . }}</p>{{ end }}
+    <span class="read-more">{{ i18n "read_more" }} →</span>
+  </a>
+  {{ else }}
+  <p class="empty">Пока пусто.</p>
+  {{ end }}
+</section>
+{{ end }}

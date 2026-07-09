@@ -1,0 +1,16 @@
+{{ $description := "" }}
+{{ with .Description }}{{ $description = . }}{{ else }}{{ with .Summary }}{{ $description = . | plainify | truncate 180 }}{{ else }}{{ $description = .Site.Language.Params.tagline }}{{ end }}{{ end }}
+{{ $image := .Params.image | default .Site.Params.defaultImage }}
+{{ $imageURL := "" }}
+{{ with $image }}{{ $imageURL = (absURL .) }}{{ end }}
+<meta name="description" content="{{ $description }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with $imageURL }}<meta property="og:image" content="{{ . }}">{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ with $imageURL }}<meta name="twitter:image" content="{{ . }}">{{ end }}
+{{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}">{{ end }}

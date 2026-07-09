@@ -1,0 +1,9 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Language.Params.tagline }}
+
+## Articles
+
+{{ range (where .Site.RegularPages "Section" "articles").ByDate.Reverse -}}
+- [{{ .Title }}]({{ .Permalink }}) — {{ .Description | default .Summary | plainify }}
+{{ end }}

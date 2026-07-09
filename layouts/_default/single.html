@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ $isArticle := eq .Section "articles" }}
+<article class="post">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    {{ if $isArticle }}
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+      · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" .ReadingTime }}
+      · {{ i18n "author_label" }}: {{ .Site.Params.author }}
+    </p>
+    {{ end }}
+  </header>
+
+  {{ if gt (len .TableOfContents) 60 }}
+  <nav class="toc" aria-label="Оглавление">
+    <div class="toc-title">{{ i18n "toc_title" }}</div>
+    {{ .TableOfContents }}
+  </nav>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ if $isArticle }}
+  <footer class="post-footer">
+    <a class="back" href="{{ "articles/" | relLangURL }}">{{ i18n "back_to_articles" }}</a>
+  </footer>
+  {{ end }}
+</article>
+{{ end }}

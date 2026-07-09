@@ -1,0 +1,23 @@
+[articles]
+other = "Статьи"
+
+[about]
+other = "О проекте"
+
+[reading_time]
+one = "минута чтения"
+few = "минуты чтения"
+many = "минут чтения"
+other = "минут чтения"
+
+[read_more]
+other = "Читать"
+
+[author_label]
+other = "Автор"
+
+[toc_title]
+other = "Оглавление"
+
+[back_to_articles]
+other = "К списку статей"
