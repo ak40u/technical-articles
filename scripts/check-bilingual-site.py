@@ -36,6 +36,10 @@ MERMAID_HEADINGS = {
         "3 · LEARN",
     ),
 }
+EXPECTED_ARTICLE_TITLES = {
+    "articles/autonomous-digital-employee/": "Как я создал автономного цифрового сотрудника",
+    "en/articles/autonomous-digital-employee/": "How I Built an Autonomous Digital Employee",
+}
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 
 
@@ -145,6 +149,10 @@ def validate_page(
     english_text = " ".join(parser.text_parts).replace('Павел Волков', 'Pavel Volkov')
     if locale == "en-US" and CYRILLIC.search(english_text):
         errors.append(f"{label}: English HTML contains Cyrillic text")
+
+    expected_title = EXPECTED_ARTICLE_TITLES.get(route)
+    if expected_title and expected_title not in parser.text_parts:
+        errors.append(f"{label}: expected article title is missing")
 
     if route.endswith("en/articles/autonomous-digital-employee/"):
         expected_prefix = f"{base_path}en/articles/autonomous-digital-employee/"

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
-  <title id="title">I built an employee I do not need to nudge</title>
+  <title id="title">How I built an autonomous digital employee</title>
   <desc id="desc">Technical architecture of an autonomous digital employee: scheduling, Telegram, watchdog, shifts, production, research and memory.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -32,11 +32,10 @@
   <rect class="bg" width="1920" height="1080"/>
 
   <text class="kicker" x="84" y="92">REAL SYSTEM · POLYMARKET</text>
-  <text class="headline" x="84" y="182">I BUILT AN</text>
-  <text class="headline" x="84" y="256">EMPLOYEE</text>
-  <text class="headline" x="84" y="330">WHO DOESN'T</text>
-  <text class="headline" x="84" y="404">NEED TO BE</text>
-  <text class="headline" x="84" y="478">PROMPTED</text>
+  <text class="headline" x="84" y="190">HOW I BUILT AN</text>
+  <text class="headline" x="84" y="280">AUTONOMOUS</text>
+  <text class="headline" x="84" y="370">DIGITAL</text>
+  <text class="headline" x="84" y="460">EMPLOYEE</text>
   <text class="subhead" x="84" y="548">It starts its own shifts, watches production,</text>
   <text class="subhead" x="84" y="587">tests hypotheses and builds experience.</text>
 

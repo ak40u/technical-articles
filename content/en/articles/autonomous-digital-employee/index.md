@@ -1,5 +1,5 @@
 ---
-title: "I Built an Employee I Don't Need to Keep Nudging"
+title: "How I Built an Autonomous Digital Employee"
 translationKey: "autonomous-digital-employee"
 date: 2026-07-21
 description: "How my Polymarket trading infrastructure became a proving ground for an autonomous digital employee with a charter, shifts, memory, and SRE on-call duty."

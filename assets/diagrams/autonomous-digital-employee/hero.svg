@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
-  <title id="title">Я собрал сотрудника, которого не нужно дёргать</title>
+  <title id="title">Как я создал автономного цифрового сотрудника</title>
   <desc id="desc">Техническая схема автономного цифрового сотрудника: расписание, Telegram, watchdog, смены, прод, исследования и память.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -32,11 +32,10 @@
   <rect class="bg" width="1920" height="1080"/>
 
   <text class="kicker" x="84" y="92">РЕАЛЬНАЯ СИСТЕМА · POLYMARKET</text>
-  <text class="headline" x="84" y="182">Я СОБРАЛ</text>
-  <text class="headline" x="84" y="256">СОТРУДНИКА,</text>
-  <text class="headline" x="84" y="330">КОТОРОГО</text>
-  <text class="headline" x="84" y="404">НЕ НУЖНО</text>
-  <text class="headline" x="84" y="478">ДЁРГАТЬ</text>
+  <text class="headline" x="84" y="190">КАК Я СОЗДАЛ</text>
+  <text class="headline" x="84" y="280">АВТОНОМНОГО</text>
+  <text class="headline" x="84" y="370">ЦИФРОВОГО</text>
+  <text class="headline" x="84" y="460">СОТРУДНИКА</text>
   <text class="subhead" x="84" y="548">Он сам выходит на смену, следит за продом,</text>
   <text class="subhead" x="84" y="587">проверяет гипотезы и накапливает опыт.</text>
 
