@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060" role="img" aria-labelledby="title desc">
+  <title id="title">Architecture of the autonomous digital employee</title>
+  <desc id="desc">Governance, scheduling, digital shifts, watchdog, incident shift, trading infrastructure, discovery, paper experiments and memory.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .lane { fill: #fff; stroke: #ded9cd; stroke-width: 2; }
+      .employee-lane { fill: #f7fbfc; stroke: #245f73; stroke-width: 3; }
+      .box { fill: #fff; stroke: #8b867d; stroke-width: 2; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .channel { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .research { fill: #eef0f7; stroke: #596b91; stroke-width: 3; }
+      .guard { fill: #fff5d8; stroke: #a87618; stroke-width: 3; }
+      .incident { fill: #fae9e5; stroke: #a34a3f; stroke-width: 3; }
+      .state { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 3; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #7a776f; stroke-width: 2.5; stroke-dasharray: 9 8; marker-end: url(#arrow); }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .lane-title { fill: #245f73; font: 700 18px Arial, Helvetica, sans-serif; letter-spacing: 1.8px; }
+      .label { fill: #1d1d1b; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .code { fill: #6c6860; font: 400 14px "SF Mono", Menlo, monospace; text-anchor: middle; }
+      .edge { fill: #6c6860; font: 600 14px Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1060"/>
+  <text class="title" x="60" y="62">How the digital employee works</text>
+  <text class="subtitle" x="60" y="96">The scheduler starts shifts; the watchdog monitors both trading and the employee's attendance.</text>
+
+  <text class="lane-title" x="60" y="150">CONTROL AND SCHEDULING</text>
+
+  <rect class="owner" x="60" y="174" width="330" height="126" rx="12"/>
+  <text class="label" x="225" y="213">PAVEL</text>
+  <text class="small" x="225" y="246">charter · boundaries · capital</text>
+  <text class="small" x="225" y="272">owner decisions</text>
+
+  <rect class="channel" x="430" y="174" width="330" height="126" rx="12"/>
+  <text class="label" x="595" y="213">TELEGRAM</text>
+  <text class="small" x="595" y="246">directives · questions · reports</text>
+  <text class="code" x="595" y="273">quant-desk-telegram-inbox.ts</text>
+
+  <rect class="box" x="800" y="174" width="330" height="126" rx="12"/>
+  <text class="label" x="965" y="213">LAUNCHD</text>
+  <text class="small" x="965" y="246">03:05 · 10:35 · 19:35</text>
+  <text class="code" x="965" y="273">quant-desk-*.plist</text>
+
+  <rect class="guard" x="1170" y="174" width="370" height="126" rx="12"/>
+  <text class="label" x="1355" y="213">WATCHDOG · HOURLY</text>
+  <text class="small" x="1355" y="246">prod · ledger · ERROR · shift attendance</text>
+  <text class="code" x="1355" y="273">quant-desk-watchdog.sh</text>
+
+  <rect class="employee-lane" x="60" y="354" width="1480" height="306" rx="16"/>
+  <text class="lane-title" x="90" y="392">DIGITAL EMPLOYEE · HEADLESS SHIFTS</text>
+
+  <rect class="research" x="100" y="430" width="310" height="170" rx="12"/>
+  <text class="label" x="255" y="470">RESEARCH · 03:05</text>
+  <text class="small" x="255" y="504">ideas · desk check · paper</text>
+  <text class="small" x="255" y="530">Saturday hypothesis review</text>
+  <text class="code" x="255" y="566">quant-desk-research-*.sh</text>
+
+  <rect class="core" x="450" y="430" width="310" height="170" rx="12"/>
+  <text class="label" x="605" y="470">MAIN · 10:35</text>
+  <text class="small" x="605" y="504">P&amp;L · prod · discovery</text>
+  <text class="small" x="605" y="530">gates · journal · predictions</text>
+  <text class="code" x="605" y="566">quant-desk-daily.sh</text>
+
+  <rect class="core" x="800" y="430" width="310" height="170" rx="12"/>
+  <text class="label" x="955" y="470">EVENING · 19:35</text>
+  <text class="small" x="955" y="504">prod · ledger tail</text>
+  <text class="small" x="955" y="530">day's alerts · journal</text>
+  <text class="code" x="955" y="566">quant-desk-evening.sh</text>
+
+  <rect class="incident" x="1150" y="430" width="350" height="170" rx="12"/>
+  <text class="label" x="1325" y="470">INCIDENT SHIFT</text>
+  <text class="small" x="1325" y="504">diagnosis · safe recovery</text>
+  <text class="small" x="1325" y="530">to a known-good state</text>
+  <text class="code" x="1325" y="566">quant-desk-incident-prompt.md</text>
+
+  <text class="lane-title" x="60" y="724">TOOLS, DATA AND ACCUMULATED STATE</text>
+
+  <rect class="box" x="60" y="752" width="330" height="190" rx="12"/>
+  <text class="label" x="225" y="796">PROD VM + DOCKER</text>
+  <text class="small" x="225" y="831">live copy trading</text>
+  <text class="small" x="225" y="858">containers · logs · ledger</text>
+  <text class="code" x="225" y="900">docker compose / SSH</text>
+
+  <rect class="box" x="430" y="752" width="330" height="190" rx="12"/>
+  <text class="label" x="595" y="796">DISCOVERY</text>
+  <text class="small" x="595" y="831">daily trader discovery</text>
+  <text class="small" x="595" y="858">PASS · near-miss · shadow</text>
+  <text class="code" x="595" y="900">discovery:daily</text>
+
+  <rect class="box" x="800" y="752" width="330" height="190" rx="12"/>
+  <text class="label" x="965" y="796">FORWARD PAPER</text>
+  <text class="small" x="965" y="831">live flow and executable prices</text>
+  <text class="small" x="965" y="858">zero financial risk</text>
+  <text class="code" x="965" y="900">paper collectors / JSONL</text>
+
+  <rect class="state" x="1170" y="752" width="370" height="190" rx="12"/>
+  <text class="label" x="1355" y="796">MEMORY AND DECISIONS</text>
+  <text class="small" x="1355" y="831">journal · predictions · errors</text>
+  <text class="small" x="1355" y="858">backlog · hypothesis graveyard</text>
+  <text class="code" x="1355" y="900">plans/quant-desk/</text>
+
+  <path class="dash" d="M 225 300 L 225 326 L 605 326 L 605 418"/>
+  <text class="edge" x="270" y="322">boundaries</text>
+  <path class="line" d="M 595 300 L 595 418"/>
+  <path class="line" d="M 965 300 L 965 326 L 255 326 L 255 418"/>
+  <path class="line" d="M 965 326 L 605 326 L 605 418"/>
+  <path class="line" d="M 965 326 L 955 326 L 955 418"/>
+  <path class="line" d="M 1355 300 L 1355 418"/>
+  <text class="edge" x="1372" y="343">alert</text>
+
+  <path class="line" d="M 255 600 L 255 690 L 965 690 L 965 740"/>
+  <path class="line" d="M 605 600 L 605 740"/>
+  <path class="line" d="M 955 600 L 955 680 L 225 680 L 225 740"/>
+  <path class="line" d="M 1325 600 L 1325 670 L 225 670 L 225 740"/>
+  <path class="line" d="M 760 515 L 1135 515 L 1135 720 L 1355 720 L 1355 740"/>
+  <path class="line" d="M 410 515 L 425 515 L 425 710 L 1355 710 L 1355 740"/>
+
+  <text class="subtitle" x="60" y="1010">Every shift must leave a verifiable trail: journal, state, decision and concise report.</text>
+</svg>

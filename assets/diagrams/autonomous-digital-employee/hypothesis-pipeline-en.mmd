@@ -1,0 +1,48 @@
+%%{init: {"theme":"base","look":"classic","flowchart":{"htmlLabels":true,"curve":"basis","nodeSpacing":38,"rankSpacing":48,"useMaxWidth":false},"themeCSS":".nodeLabel, .edgeLabel, .cluster-label { font-family: Arial, Helvetica, sans-serif !important; }","themeVariables":{"background":"#fcfbf7","primaryColor":"#ffffff","primaryTextColor":"#1d1d1b","primaryBorderColor":"#245f73","secondaryColor":"#f3f0e8","tertiaryColor":"#e8f2f4","lineColor":"#6c6860","fontFamily":"Arial, Helvetica, sans-serif","fontSize":"16px"}}}%%
+flowchart TB
+  subgraph design["1 · DESIGN"]
+    direction LR
+    idea["IDEA<br/>signal source + reason for the edge"]:::idea
+    survivability{"Will it survive<br/>30–60s latency<br/>and a $5–15 stake?"}:::gate
+    desk["DESK CHECK<br/>executable prices · train/test"]:::stage
+    idea --> survivability
+    survivability -->|yes| desk
+  end
+
+  subgraph proof["2 · PROOF"]
+    direction LR
+    prereg["PRE-REGISTRATION<br/>kill / promote before new data"]:::rule
+    paper["FORWARD PAPER<br/>live flow · zero capital"]:::paper
+    evidence{"Gate passed?<br/>usually n ≥ 50<br/>and positive ROI"}:::gate
+    prereg --> paper --> evidence
+  end
+
+  subgraph capital["3 · MONEY"]
+    direction LR
+    micro["LIVE MICRO<br/>minimum risk"]:::live
+    scale["SCALE<br/>Pavel decides on capital"]:::owner
+    micro --> scale
+  end
+
+  grave[("GRAVEYARD<br/>cause of death + no-revival rule")]:::grave
+  wait["NOT ENOUGH DATA<br/>continue paper until deadline"]:::wait
+
+  survivability -->|no| grave
+  desk -->|passed| prereg
+  desk -->|falsified| grave
+  evidence -->|promote| micro
+  evidence -->|kill| grave
+  evidence -->|too early| wait --> paper
+
+  classDef idea fill:#e8f2f4,stroke:#245f73,color:#1d1d1b,stroke-width:2px;
+  classDef stage fill:#ffffff,stroke:#8b867d,color:#1d1d1b;
+  classDef rule fill:#fff5d8,stroke:#a87618,color:#1d1d1b,stroke-width:2px;
+  classDef paper fill:#eef0f7,stroke:#596b91,color:#1d1d1b,stroke-width:2px;
+  classDef gate fill:#fff5d8,stroke:#a87618,color:#1d1d1b,stroke-width:2px;
+  classDef live fill:#edf6ef,stroke:#4f7b5d,color:#1d1d1b,stroke-width:2px;
+  classDef owner fill:#f7eadc,stroke:#8f4f2f,color:#1d1d1b,stroke-width:2px;
+  classDef grave fill:#fae9e5,stroke:#a34a3f,color:#1d1d1b,stroke-width:2px;
+  classDef wait fill:#f3f0e8,stroke:#776f62,color:#1d1d1b;
+  style design fill:#fbfaf6,stroke:#ded9cd,color:#6c6860
+  style proof fill:#fbfaf6,stroke:#245f73,color:#245f73,stroke-width:2px
+  style capital fill:#fbfaf6,stroke:#4f7b5d,color:#4f7b5d,stroke-width:2px

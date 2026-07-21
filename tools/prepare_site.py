@@ -692,4 +692,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(
+        "This one-off bootstrap script is retired: running it would overwrite the "
+        "current bilingual Hugo site. Edit the tracked site files directly instead."
+    )

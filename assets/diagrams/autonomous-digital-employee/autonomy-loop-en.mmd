@@ -1,0 +1,50 @@
+%%{init: {"theme":"base","look":"classic","flowchart":{"htmlLabels":true,"curve":"basis","nodeSpacing":34,"rankSpacing":44,"useMaxWidth":false},"themeCSS":".nodeLabel, .edgeLabel, .cluster-label { font-family: Arial, Helvetica, sans-serif !important; }","themeVariables":{"background":"#fcfbf7","primaryColor":"#ffffff","primaryTextColor":"#1d1d1b","primaryBorderColor":"#245f73","secondaryColor":"#f3f0e8","tertiaryColor":"#e8f2f4","lineColor":"#6c6860","fontFamily":"Arial, Helvetica, sans-serif","fontSize":"16px"}}}%%
+flowchart LR
+  subgraph sensing["1 · SENSE"]
+    direction TB
+    schedule["Shift starts on schedule<br/>without a message from a human"]:::start
+    inputs["Collect facts<br/>prod ledger · P&L · discovery · errors"]:::process
+    pulse["quant-desk-pulse.py<br/>robust z / MAD + forecast check"]:::code
+    schedule --> inputs --> pulse
+  end
+
+  subgraph judgment["2 · DECIDE"]
+    direction TB
+    top3["Select the day's top 3 anomalies"]:::process
+    retrieve["Retrieve similar episodes<br/>journal + long-term memory"]:::memory
+    verdict{"Verdict"}:::decision
+    explained["EXPLAINED<br/>cause verified"]:::ok
+    baseline["UPDATE BASELINE<br/>record the new normal"]:::warn
+    investigate["INVESTIGATE<br/>fix · roll back · escalate"]:::alert
+    top3 --> retrieve --> verdict
+    verdict --> explained
+    verdict --> baseline
+    verdict --> investigate
+  end
+
+  subgraph learning["3 · LEARN"]
+    direction TB
+    action["Execute an allowed action<br/>and verify the result"]:::process
+    write["Record the journal, decision and rule<br/>+ tomorrow's predictions"]:::memory
+    report["Send a concise report to Telegram"]:::channel
+    next["The next shift receives<br/>facts, outcomes and accumulated experience"]:::start
+    action --> write --> report --> next
+  end
+
+  pulse --> top3
+  explained --> action
+  baseline --> action
+  investigate --> action
+
+  classDef start fill:#e8f2f4,stroke:#245f73,color:#1d1d1b,stroke-width:2px;
+  classDef process fill:#ffffff,stroke:#8b867d,color:#1d1d1b;
+  classDef code fill:#edf6ef,stroke:#4f7b5d,color:#1d1d1b,stroke-width:2px;
+  classDef memory fill:#f3f0e8,stroke:#776f62,color:#1d1d1b,stroke-width:2px;
+  classDef decision fill:#fff5d8,stroke:#a87618,color:#1d1d1b,stroke-width:2px;
+  classDef ok fill:#edf6ef,stroke:#4f7b5d,color:#1d1d1b;
+  classDef warn fill:#fff5d8,stroke:#a87618,color:#1d1d1b;
+  classDef alert fill:#fae9e5,stroke:#a34a3f,color:#1d1d1b;
+  classDef channel fill:#e8f2f4,stroke:#245f73,color:#1d1d1b,stroke-width:2px;
+  style sensing fill:#fbfaf6,stroke:#ded9cd,color:#6c6860
+  style judgment fill:#fbfaf6,stroke:#245f73,color:#245f73,stroke-width:2px
+  style learning fill:#fbfaf6,stroke:#ded9cd,color:#6c6860

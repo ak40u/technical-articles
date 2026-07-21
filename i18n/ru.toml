@@ -21,3 +21,30 @@ other = "Оглавление"
 
 [back_to_articles]
 other = "К списку статей"
+
+[primary_navigation]
+other = "Основная навигация"
+
+[language_switcher]
+other = "Выбор языка"
+
+[hero_eyebrow]
+other = "Pavel Volkov · инженерная практика"
+
+[about_author]
+other = "Об авторе"
+
+[empty_articles]
+other = "Пока пусто."
+
+[footer_note]
+other = "Практические заметки об инженерных системах, ИИ-разработке и рабочих процессах."
+
+[open_diagram_aria]
+other = "Открыть схему «{{ .Alt }}» в полном размере"
+
+[open_diagram]
+other = "Открыть схему в полном размере ↗"
+
+[skip_to_content]
+other = "Перейти к содержанию"

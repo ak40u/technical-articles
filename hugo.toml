@@ -1,17 +1,13 @@
 baseURL = "https://ak40u.github.io/technical-articles/"
 defaultContentLanguage = "ru"
+defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 
 [params]
   author = "Pavel Volkov"
-  authorLatin = "Павел Волков"
   authorUrl = "https://github.com/ak40u"
-  authorRole = "ИИ-архитектор и инженер"
-  bio = "Я пишу о практической инженерии: автономные ИИ-команды, продуктовая разработка, QA, релизы, инфраструктура и рабочие процессы, которые можно повторять. Мне важны не лозунги, а устройство систем: кто принимает решения, кто проверяет результат, где лежат доказательства и где автоматизация должна остановиться."
-  bioTags = ["ИИ-инженерия", "автономные команды", "QA и аудит", "релизы", "инженерный процесс"]
   github = "https://github.com/ak40u"
   copyright = "© 2026 Pavel Volkov"
-  defaultImage = "og/ai-tech-teams-workflow-hero.png"
 
 [languages]
   [languages.ru]
@@ -22,6 +18,27 @@ enableRobotsTXT = true
     title = "Технические статьи"
     [languages.ru.params]
       tagline = "Практические разборы инженерных систем, автономной разработки, QA, релизов и инфраструктуры."
+      authorLatin = "Павел Волков"
+      authorRole = "ИИ-архитектор и инженер"
+      bio = "Я пишу о практической инженерии: автономные ИИ-команды, продуктовая разработка, QA, релизы, инфраструктура и рабочие процессы, которые можно повторять. Мне важны не лозунги, а устройство систем: кто принимает решения, кто проверяет результат, где лежат доказательства и где автоматизация должна остановиться."
+      bioTags = ["ИИ-инженерия", "автономные команды", "QA и аудит", "релизы", "инженерный процесс"]
+      dateFormat = "02.01.2006"
+      ogLocale = "ru_RU"
+      defaultImage = "og/ai-tech-teams-workflow-hero.png"
+  [languages.en]
+    label = "English"
+    locale = "en-US"
+    contentDir = "content/en"
+    weight = 2
+    title = "Technical Articles"
+    [languages.en.params]
+      tagline = "Practical explorations of engineering systems, autonomous development, QA, releases, and infrastructure."
+      authorRole = "AI architect and engineer"
+      bio = "I write about practical engineering: autonomous AI teams, product development, QA, releases, infrastructure, and repeatable workflows. I care about how systems actually work: who makes decisions, who verifies results, where the evidence lives, and where automation must stop."
+      bioTags = ["AI engineering", "autonomous teams", "QA and audits", "releases", "engineering process"]
+      dateFormat = "January 2, 2006"
+      ogLocale = "en_US"
+      defaultImage = "og/ai-tech-teams-workflow-hero-en.png"
 
 [outputs]
   home = ["HTML", "RSS", "LLMS"]

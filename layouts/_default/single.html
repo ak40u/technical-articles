@@ -5,7 +5,7 @@
     <h1>{{ .Title }}</h1>
     {{ if $isArticle }}
     <p class="meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format .Site.Language.Params.dateFormat }}</time>
       · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" .ReadingTime }}
       · {{ i18n "author_label" }}: {{ .Site.Params.author }}
     </p>
@@ -13,7 +13,7 @@
   </header>
 
   {{ if gt (len .TableOfContents) 60 }}
-  <nav class="toc" aria-label="Оглавление">
+  <nav class="toc" aria-label="{{ i18n "toc_title" }}">
     <div class="toc-title">{{ i18n "toc_title" }}</div>
     {{ .TableOfContents }}
   </nav>

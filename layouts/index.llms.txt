@@ -2,7 +2,7 @@
 
 > {{ .Site.Language.Params.tagline }}
 
-## Articles
+## {{ i18n "articles" }}
 
 {{ range (where .Site.RegularPages "Section" "articles").ByDate.Reverse -}}
 - [{{ .Title }}]({{ .Permalink }}) — {{ .Description | default .Summary | plainify }}

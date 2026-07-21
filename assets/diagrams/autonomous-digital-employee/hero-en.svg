@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">I built an employee I do not need to nudge</title>
+  <desc id="desc">Technical architecture of an autonomous digital employee: scheduling, Telegram, watchdog, shifts, production, research and memory.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#71877f"/>
+    </marker>
+    <style>
+      .bg { fill: #0d1513; }
+      .panel { fill: #101a17; stroke: #385148; stroke-width: 2; }
+      .box { fill: #15221e; stroke: #5f756d; stroke-width: 2; }
+      .core { fill: #12342d; stroke: #2dd4bf; stroke-width: 3; }
+      .research { fill: #182d35; stroke: #55b4cf; stroke-width: 3; }
+      .guard { fill: #2b2518; stroke: #e8b44e; stroke-width: 3; }
+      .incident { fill: #321c1c; stroke: #e77d6f; stroke-width: 3; }
+      .state { fill: #172722; stroke: #2dd4bf; stroke-width: 3; }
+      .owner { fill: #241f18; stroke: #d19a55; stroke-width: 2; }
+      .line { fill: none; stroke: #71877f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #71877f; stroke-width: 2.5; stroke-dasharray: 9 9; marker-end: url(#arrow); }
+      .kicker { fill: #79b7a8; font: 700 22px Arial, Helvetica, sans-serif; letter-spacing: 2.5px; }
+      .headline { fill: #f7f3e8; font: 800 68px Arial, Helvetica, sans-serif; }
+      .subhead { fill: #aebdb7; font: 400 27px Arial, Helvetica, sans-serif; }
+      .note { fill: #f7f3e8; font: 700 24px Arial, Helvetica, sans-serif; }
+      .note2 { fill: #b9c7c1; font: 400 20px Arial, Helvetica, sans-serif; }
+      .panel-title { fill: #91aaa1; font: 700 20px Arial, Helvetica, sans-serif; letter-spacing: 1.6px; }
+      .label { fill: #f7f3e8; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small { fill: #b9c7c1; font: 400 17px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .edge-label { fill: #9fb0aa; font: 600 16px Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1920" height="1080"/>
+
+  <text class="kicker" x="84" y="92">REAL SYSTEM · POLYMARKET</text>
+  <text class="headline" x="84" y="182">I BUILT AN</text>
+  <text class="headline" x="84" y="256">EMPLOYEE</text>
+  <text class="headline" x="84" y="330">WHO DOESN'T</text>
+  <text class="headline" x="84" y="404">NEED TO BE</text>
+  <text class="headline" x="84" y="478">PROMPTED</text>
+  <text class="subhead" x="84" y="548">It starts its own shifts, watches production,</text>
+  <text class="subhead" x="84" y="587">tests hypotheses and builds experience.</text>
+
+  <rect class="owner" x="84" y="640" width="500" height="170" rx="14"/>
+  <text class="note" x="116" y="690">MY ROLE</text>
+  <text class="note2" x="116" y="731">charter · boundaries · capital</text>
+  <text class="note2" x="116" y="766">constitutional decisions</text>
+
+  <rect class="panel" x="652" y="60" width="1184" height="950" rx="18"/>
+  <text class="panel-title" x="700" y="105">AUTONOMOUS SHIFT ARCHITECTURE</text>
+
+  <rect class="box" x="704" y="150" width="310" height="118" rx="12"/>
+  <text class="label" x="859" y="195">LAUNCHD</text>
+  <text class="small" x="859" y="228">03:05 · 10:35 · 19:35</text>
+
+  <rect class="box" x="1087" y="150" width="310" height="118" rx="12"/>
+  <text class="label" x="1242" y="195">TELEGRAM</text>
+  <text class="small" x="1242" y="228">directives ↔ reports</text>
+
+  <rect class="guard" x="1470" y="150" width="310" height="118" rx="12"/>
+  <text class="label" x="1625" y="195">WATCHDOG · HOURLY</text>
+  <text class="small" x="1625" y="228">prod · data · attendance</text>
+
+  <rect class="core" x="704" y="382" width="310" height="145" rx="12"/>
+  <text class="label" x="859" y="429">MAIN SHIFT</text>
+  <text class="small" x="859" y="464">P&amp;L · diagnosis · decisions</text>
+  <text class="small" x="859" y="493">discovery · gate calendar</text>
+
+  <rect class="research" x="1087" y="382" width="310" height="145" rx="12"/>
+  <text class="label" x="1242" y="429">RESEARCH SHIFT</text>
+  <text class="small" x="1242" y="464">ideas · desk check</text>
+  <text class="small" x="1242" y="493">forward paper</text>
+
+  <rect class="incident" x="1470" y="382" width="310" height="145" rx="12"/>
+  <text class="label" x="1625" y="429">INCIDENT SHIFT</text>
+  <text class="small" x="1625" y="464">diagnosis · recovery</text>
+  <text class="small" x="1625" y="493">to a known-good state</text>
+
+  <rect class="box" x="704" y="690" width="310" height="145" rx="12"/>
+  <text class="label" x="859" y="737">PROD VM · DOCKER</text>
+  <text class="small" x="859" y="772">live copy trading</text>
+  <text class="small" x="859" y="801">algorithms place trades</text>
+
+  <rect class="box" x="1087" y="690" width="310" height="145" rx="12"/>
+  <text class="label" x="1242" y="737">DISCOVERY + PAPER</text>
+  <text class="small" x="1242" y="772">trader scanners</text>
+  <text class="small" x="1242" y="801">forward experiments</text>
+
+  <rect class="state" x="1470" y="690" width="310" height="145" rx="12"/>
+  <text class="label" x="1625" y="737">MEMORY</text>
+  <text class="small" x="1625" y="772">journal · predictions</text>
+  <text class="small" x="1625" y="801">errors · graveyard</text>
+
+  <path class="line" d="M 859 268 L 859 370"/>
+  <path class="line" d="M 1014 209 L 1075 209 L 1075 370 L 1242 370"/>
+  <path class="line" d="M 1242 268 L 1242 370"/>
+  <path class="line" d="M 1397 209 L 1458 209 L 1458 370 L 1625 370"/>
+  <path class="line" d="M 1625 268 L 1625 370"/>
+  <text class="edge-label" x="1644" y="325">alert</text>
+
+  <path class="line" d="M 859 527 L 859 678"/>
+  <path class="line" d="M 1014 454 L 1055 454 L 1055 762 L 1075 762"/>
+  <path class="line" d="M 1242 527 L 1242 678"/>
+  <path class="line" d="M 1397 454 L 1438 454 L 1438 762 L 1458 762"/>
+  <path class="line" d="M 1625 527 L 1625 678"/>
+
+  <path class="dash" d="M 584 724 L 640 724 L 640 454 L 692 454"/>
+  <text class="edge-label" x="599" y="705">boundaries</text>
+
+  <text class="kicker" x="704" y="930">STARTS WORK ON ITS OWN · LEAVES ITS OWN EVIDENCE</text>
+</svg>

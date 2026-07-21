@@ -7,9 +7,9 @@
 
 {{- if $isDiagram -}}
 <figure class="diagram">
-  <a class="diagram-link" href="{{ $src | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="Открыть схему «{{ $alt }}» в полном размере">
+  <a class="diagram-link" href="{{ $src | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "open_diagram_aria" (dict "Alt" $alt) }}">
     <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
-    <span class="diagram-action" aria-hidden="true">Открыть схему в полном размере ↗</span>
+    <span class="diagram-action" aria-hidden="true">{{ i18n "open_diagram" }}</span>
   </a>
   {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
 </figure>

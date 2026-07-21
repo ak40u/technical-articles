@@ -1,0 +1,48 @@
+[articles]
+other = "Articles"
+
+[about]
+other = "About"
+
+[reading_time]
+one = "minute read"
+other = "minutes read"
+
+[read_more]
+other = "Read"
+
+[author_label]
+other = "Author"
+
+[toc_title]
+other = "Contents"
+
+[back_to_articles]
+other = "Back to articles"
+
+[primary_navigation]
+other = "Primary navigation"
+
+[language_switcher]
+other = "Choose language"
+
+[hero_eyebrow]
+other = "Pavel Volkov · engineering practice"
+
+[about_author]
+other = "About the author"
+
+[empty_articles]
+other = "No articles yet."
+
+[footer_note]
+other = "Practical notes on engineering systems, AI development, and workflows."
+
+[open_diagram_aria]
+other = "Open the “{{ .Alt }}” diagram at full size"
+
+[open_diagram]
+other = "Open diagram at full size ↗"
+
+[skip_to_content]
+other = "Skip to content"

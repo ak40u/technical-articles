@@ -1,9 +1,12 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-    <nav class="site-nav" aria-label="Основная навигация">
-      <a href="{{ "articles/" | relLangURL }}">{{ i18n "articles" }}</a>
-      <a href="{{ "about/" | relLangURL }}">{{ i18n "about" }}</a>
-    </nav>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="{{ i18n "primary_navigation" }}">
+        <a href="{{ "articles/" | relLangURL }}">{{ i18n "articles" }}</a>
+        <a href="{{ "about/" | relLangURL }}">{{ i18n "about" }}</a>
+      </nav>
+      {{ partial "language-switcher.html" . }}
+    </div>
   </div>
 </header>

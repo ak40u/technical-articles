@@ -1,16 +1,16 @@
 {{ define "main" }}
 <section class="hero">
-  <p class="eyebrow">Pavel Volkov · инженерная практика</p>
+  <p class="eyebrow">{{ i18n "hero_eyebrow" }}</p>
   <h1>{{ .Site.Title }}</h1>
   <p class="tagline">{{ .Site.Language.Params.tagline }}</p>
   {{ with .Content }}<div class="intro-body">{{ . }}</div>{{ end }}
 </section>
 
 {{ with .Site.Params }}
-<section class="bio-card" aria-label="Об авторе">
+<section class="bio-card" aria-label="{{ i18n "about_author" }}">
   <div class="bio-mono" aria-hidden="true">PV</div>
   <div class="bio-body">
-    <p class="bio-name">{{ .author }} <span>· {{ .authorLatin }}</span></p>
+    <p class="bio-name">{{ .author }}{{ with .authorLatin }} <span>· {{ . }}</span>{{ end }}</p>
     {{ with .authorRole }}<p class="bio-role">{{ . }}</p>{{ end }}
     {{ with .bio }}<p class="bio-text">{{ . }}</p>{{ end }}
     {{ with .bioTags }}
@@ -31,12 +31,12 @@
   {{ range (where .Site.RegularPages "Section" "articles").ByDate.Reverse }}
   <a class="card-link" href="{{ .RelPermalink }}">
     <h2>{{ .Title }}</h2>
-    <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time> · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" .ReadingTime }}</p>
+    <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format .Site.Language.Params.dateFormat }}</time> · {{ .ReadingTime }}&nbsp;{{ i18n "reading_time" .ReadingTime }}</p>
     {{ with .Summary }}<p class="summary">{{ . }}</p>{{ end }}
     <span class="read-more">{{ i18n "read_more" }} →</span>
   </a>
   {{ else }}
-  <p class="empty">Пока пусто.</p>
+  <p class="empty">{{ i18n "empty_articles" }}</p>
   {{ end }}
 </section>
 {{ end }}
