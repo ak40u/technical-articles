@@ -1,0 +1,48 @@
+%%{init: {"theme":"base","look":"classic","flowchart":{"htmlLabels":true,"curve":"basis","nodeSpacing":38,"rankSpacing":48,"useMaxWidth":false},"themeVariables":{"background":"#fcfbf7","primaryColor":"#ffffff","primaryTextColor":"#1d1d1b","primaryBorderColor":"#245f73","secondaryColor":"#f3f0e8","tertiaryColor":"#e8f2f4","lineColor":"#6c6860","fontFamily":"Arial, Helvetica, sans-serif","fontSize":"16px"}}}%%
+flowchart TB
+  subgraph design["1 · ДИЗАЙН"]
+    direction LR
+    idea["ИДЕЯ<br/>источник сигнала + причина эджа"]:::idea
+    survivability{"Выживет при<br/>латентности 30–60с<br/>и ставке $5–15?"}:::gate
+    desk["DESK-CHECK<br/>исполнимые цены · train/test"]:::stage
+    idea --> survivability
+    survivability -->|да| desk
+  end
+
+  subgraph proof["2 · ДОКАЗАТЕЛЬСТВО"]
+    direction LR
+    prereg["ПРЕ-РЕГИСТРАЦИЯ<br/>kill / promote до новых данных"]:::rule
+    paper["FORWARD PAPER<br/>реальный поток · ноль денег"]:::paper
+    evidence{"Гейт выполнен?<br/>обычно n ≥ 50<br/>и положительный ROI"}:::gate
+    prereg --> paper --> evidence
+  end
+
+  subgraph capital["3 · РЕАЛЬНЫЕ ДЕНЬГИ"]
+    direction LR
+    micro["LIVE MICRO<br/>минимальный риск"]:::live
+    scale["МАСШТАБИРОВАНИЕ<br/>капитал решает Павел"]:::owner
+    micro --> scale
+  end
+
+  grave[("КЛАДБИЩЕ<br/>причина смерти + запрет реанимации")]:::grave
+  wait["ДАННЫХ МАЛО<br/>продолжить paper до срока"]:::wait
+
+  survivability -->|нет| grave
+  desk -->|прошёл| prereg
+  desk -->|опровергнут| grave
+  evidence -->|promote| micro
+  evidence -->|kill| grave
+  evidence -->|рано| wait --> paper
+
+  classDef idea fill:#e8f2f4,stroke:#245f73,color:#1d1d1b,stroke-width:2px;
+  classDef stage fill:#ffffff,stroke:#8b867d,color:#1d1d1b;
+  classDef rule fill:#fff5d8,stroke:#a87618,color:#1d1d1b,stroke-width:2px;
+  classDef paper fill:#eef0f7,stroke:#596b91,color:#1d1d1b,stroke-width:2px;
+  classDef gate fill:#fff5d8,stroke:#a87618,color:#1d1d1b,stroke-width:2px;
+  classDef live fill:#edf6ef,stroke:#4f7b5d,color:#1d1d1b,stroke-width:2px;
+  classDef owner fill:#f7eadc,stroke:#8f4f2f,color:#1d1d1b,stroke-width:2px;
+  classDef grave fill:#fae9e5,stroke:#a34a3f,color:#1d1d1b,stroke-width:2px;
+  classDef wait fill:#f3f0e8,stroke:#776f62,color:#1d1d1b;
+  style design fill:#fbfaf6,stroke:#ded9cd,color:#6c6860
+  style proof fill:#fbfaf6,stroke:#245f73,color:#245f73,stroke-width:2px
+  style capital fill:#fbfaf6,stroke:#4f7b5d,color:#4f7b5d,stroke-width:2px
