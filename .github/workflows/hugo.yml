@@ -32,6 +32,8 @@ jobs:
         uses: actions/configure-pages@v6
       - name: Build
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Check diagram UX
+        run: python3 scripts/check-diagram-ux.py public/articles/autonomous-digital-employee/index.html assets/css/main.css
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

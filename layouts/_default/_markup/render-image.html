@@ -1,0 +1,18 @@
+{{- $src := .Destination -}}
+{{- with .Page.Resources.GetMatch .Destination -}}
+  {{- $src = .RelPermalink -}}
+{{- end -}}
+{{- $alt := .Text | plainify -}}
+{{- $isDiagram := strings.HasSuffix (lower .Destination) ".svg" -}}
+
+{{- if $isDiagram -}}
+<figure class="diagram">
+  <a class="diagram-link" href="{{ $src | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="Открыть схему «{{ $alt }}» в полном размере">
+    <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+    <span class="diagram-action" aria-hidden="true">Открыть схему в полном размере ↗</span>
+  </a>
+  {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>
+{{- else -}}
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async"{{ with .Title }} title="{{ . }}"{{ end }}>
+{{- end -}}

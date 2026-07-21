@@ -195,10 +195,52 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border: 1px solid var(--line);
   border-radius: 8px;
 }
-.post-content p:has(> img:only-child) + p:has(> em:only-child) {
-  margin: 0 8px 30px;
+.diagram {
+  width: min(1200px, calc(100vw - 40px));
+  max-width: none;
+  margin: 36px 50%;
+  transform: translateX(-50%);
+}
+.diagram-link {
+  display: block;
+  overflow: hidden;
+  color: var(--accent);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: zoom-in;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.diagram-link:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  box-shadow: 0 16px 34px -26px rgba(36, 95, 115, .75);
+}
+.diagram-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.post-content .diagram img {
+  width: 100%;
+  margin: 0;
+  padding: 18px;
+  border: 0;
+  border-radius: 0;
+}
+.diagram-action {
+  display: block;
+  padding: 10px 14px;
+  text-align: center;
+  background: var(--soft);
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+.diagram figcaption {
+  margin: 10px 8px 0;
   color: var(--muted);
   font-size: 0.88rem;
+  font-style: italic;
   line-height: 1.5;
   text-align: center;
 }
@@ -233,5 +275,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .bio-card { flex-direction: column; padding: 22px; }
   .post-header h1 { font-size: 1.72rem; }
   .post-content h2 { font-size: 1.32rem; }
+  .diagram { width: calc(100vw - 24px); margin-top: 28px; margin-bottom: 30px; }
+  .post-content .diagram img { padding: 8px; }
+  .diagram-action { padding: 9px 10px; font-size: 0.78rem; }
   .post-content table { display: block; overflow-x: auto; white-space: nowrap; }
 }
