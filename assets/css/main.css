@@ -301,6 +301,8 @@ a:focus-visible {
 }
 .post-content th { border-bottom-width: 2px; font-weight: 750; }
 .post-footer { margin-top: 46px; padding-top: 24px; border-top: 1px solid var(--line); }
+.telegram-note { margin: 0 0 18px; color: var(--muted); font-size: .94rem; }
+.telegram-cta { font-weight: 750; }
 .back { font-size: .94rem; font-weight: 700; }
 
 .site-footer { margin-top: 64px; padding: 28px 0 40px; border-top: 1px solid var(--line); }

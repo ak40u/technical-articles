@@ -41,6 +41,7 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/autonomous-digital-employee/": "How I Built an Autonomous Digital Employee",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
+TELEGRAM_URL = "https://t.me/sueta_localna"
 
 
 class PageParser(HTMLParser):
@@ -53,6 +54,8 @@ class PageParser(HTMLParser):
         self.og_image = ""
         self.rss = ""
         self.language_options: list[dict[str, str]] = []
+        self.links: list[dict[str, str]] = []
+        self.telegram_ctas: list[dict[str, str]] = []
         self.images: list[str] = []
         self.text_parts: list[str] = []
 
@@ -75,8 +78,12 @@ class PageParser(HTMLParser):
                 self.og_locale = attrs.get("content", "")
             elif attrs.get("property") == "og:image":
                 self.og_image = attrs.get("content", "")
-        elif tag == "a" and "language-option" in classes:
-            self.language_options.append(attrs)
+        elif tag == "a":
+            self.links.append(attrs)
+            if "language-option" in classes:
+                self.language_options.append(attrs)
+            if "telegram-cta" in classes:
+                self.telegram_ctas.append(attrs)
         elif tag == "img":
             self.images.append(attrs.get("src", ""))
 
@@ -98,6 +105,48 @@ def parse_page(path: Path) -> tuple[PageParser, str]:
 
 def expected_url(base_url: str, route: str) -> str:
     return f"{base_url}{route}"
+
+
+def validate_telegram_ctas(public: Path) -> list[str]:
+    errors: list[str] = []
+    article_roots = ((public / "articles", True), (public / "en" / "articles", False))
+
+    for article_root, should_have_cta in article_roots:
+        if not article_root.is_dir():
+            continue
+        for path in sorted(article_root.rglob("index.html")):
+            if path.parent == article_root:
+                continue
+            parser, _ = parse_page(path)
+            label = path.relative_to(public)
+            telegram_links = [link for link in parser.links if link.get("href") == TELEGRAM_URL]
+            if should_have_cta:
+                if len(telegram_links) != 1:
+                    errors.append(f"{label}: expected exactly one link to {TELEGRAM_URL}")
+                if len(parser.telegram_ctas) != 1:
+                    errors.append(f"{label}: expected exactly one Telegram CTA")
+                    continue
+                cta = parser.telegram_ctas[0]
+                if cta.get("href") != TELEGRAM_URL:
+                    errors.append(f"{label}: incorrect Telegram CTA URL {cta.get('href')!r}")
+                if cta.get("target") != "_blank":
+                    errors.append(f"{label}: Telegram CTA must open in a new tab")
+                rel = set(cta.get("rel", "").split())
+                if not {"noopener", "noreferrer"}.issubset(rel):
+                    errors.append(f"{label}: Telegram CTA has unsafe rel {cta.get('rel')!r}")
+            elif telegram_links or parser.telegram_ctas:
+                errors.append(f"{label}: English article contains the Russian Telegram link")
+
+    for route in ("", "about/", "articles/"):
+        path = page_file(public, route)
+        if not path.is_file():
+            continue
+        parser, _ = parse_page(path)
+        telegram_links = [link for link in parser.links if link.get("href") == TELEGRAM_URL]
+        if telegram_links or parser.telegram_ctas:
+            errors.append(f"{route or '/'}: non-article page contains the Telegram link")
+
+    return errors
 
 
 def validate_page(
@@ -176,6 +225,8 @@ def main() -> int:
     for ru_route, en_route in PAGE_PAIRS:
         errors.extend(validate_page(public, base_url, base_path, ru_route, en_route, "ru", "ru_RU"))
         errors.extend(validate_page(public, base_url, base_path, en_route, ru_route, "en-US", "en_US"))
+
+    errors.extend(validate_telegram_ctas(public))
 
     expected_assets = (
         *RU_DIAGRAMS,

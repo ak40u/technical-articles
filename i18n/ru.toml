@@ -22,6 +22,9 @@ other = "Оглавление"
 [back_to_articles]
 other = "К списку статей"
 
+[telegram_cta]
+other = "Больше моих статей и заметок — в Telegram-канале"
+
 [primary_navigation]
 other = "Основная навигация"
 

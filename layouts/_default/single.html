@@ -25,6 +25,12 @@
 
   {{ if $isArticle }}
   <footer class="post-footer">
+    {{ if and $isArticle (eq .Language.Lang "ru") }}
+    <p class="telegram-note">
+      {{ i18n "telegram_cta" }}
+      <a class="telegram-cta" href="https://t.me/sueta_localna" target="_blank" rel="noopener noreferrer">@sueta_localna</a>.
+    </p>
+    {{ end }}
     <a class="back" href="{{ "articles/" | relLangURL }}">{{ i18n "back_to_articles" }}</a>
   </footer>
   {{ end }}
