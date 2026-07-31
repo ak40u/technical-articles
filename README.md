@@ -25,4 +25,10 @@ python3 scripts/check-diagram-ux.py \
 python3 scripts/check-diagram-ux.py \
   public/en/articles/autonomous-digital-employee/index.html \
   assets/css/main.css
+python3 scripts/check-diagram-ux.py \
+  public/articles/claude-codex-concierge/index.html \
+  assets/css/main.css 2
+python3 scripts/check-diagram-ux.py \
+  public/en/articles/claude-codex-concierge/index.html \
+  assets/css/main.css 2
 ```
