@@ -8,7 +8,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 
-EXPECTED_DIAGRAMS = 3
+DEFAULT_EXPECTED_DIAGRAMS = 3
 
 
 class DiagramParser(HTMLParser):
@@ -53,13 +53,13 @@ def read_html(source: str) -> str:
     return Path(source).read_text(encoding="utf-8")
 
 
-def validate(source: str, css_source: str) -> list[str]:
+def validate(source: str, css_source: str, expected_diagrams: int) -> list[str]:
     parser = DiagramParser()
     parser.feed(read_html(source))
     errors: list[str] = []
 
-    if len(parser.diagrams) != EXPECTED_DIAGRAMS:
-        errors.append(f"expected {EXPECTED_DIAGRAMS} zoomable diagrams, found {len(parser.diagrams)}")
+    if len(parser.diagrams) != expected_diagrams:
+        errors.append(f"expected {expected_diagrams} zoomable diagrams, found {len(parser.diagrams)}")
 
     css = Path(css_source).read_text(encoding="utf-8")
     required_css = {
@@ -105,17 +105,29 @@ def validate(source: str, css_source: str) -> list[str]:
 
 
 def main() -> int:
-    if len(sys.argv) != 3:
-        print(f"usage: {Path(sys.argv[0]).name} HTML_FILE|- CSS_FILE", file=sys.stderr)
+    if len(sys.argv) not in (3, 4):
+        print(
+            f"usage: {Path(sys.argv[0]).name} HTML_FILE|- CSS_FILE [EXPECTED_DIAGRAMS]",
+            file=sys.stderr,
+        )
         return 2
 
-    errors = validate(sys.argv[1], sys.argv[2])
+    try:
+        expected_diagrams = int(sys.argv[3]) if len(sys.argv) == 4 else DEFAULT_EXPECTED_DIAGRAMS
+    except ValueError:
+        print("EXPECTED_DIAGRAMS must be an integer", file=sys.stderr)
+        return 2
+    if expected_diagrams < 1:
+        print("EXPECTED_DIAGRAMS must be positive", file=sys.stderr)
+        return 2
+
+    errors = validate(sys.argv[1], sys.argv[2], expected_diagrams)
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
 
-    print(f"OK: {EXPECTED_DIAGRAMS} diagrams link to their full-size SVGs")
+    print(f"OK: {expected_diagrams} diagrams link to their full-size SVGs")
     return 0
 
 

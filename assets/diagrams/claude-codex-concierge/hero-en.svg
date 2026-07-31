@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">How I Built a Concierge for Claude Code and Codex</title>
+  <desc id="desc">The concierge receives Telegram requests, finds the right Claude Code or Codex project session, watches the work, and returns the result.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#71877f"/>
+    </marker>
+    <style>
+      .bg { fill: #0d1513; }
+      .halo { fill: #12342d; opacity: .34; }
+      .panel { fill: #101a17; stroke: #385148; stroke-width: 2; }
+      .box { fill: #15221e; stroke: #5f756d; stroke-width: 2; }
+      .core { fill: #12342d; stroke: #2dd4bf; stroke-width: 3; }
+      .channel { fill: #182d35; stroke: #55b4cf; stroke-width: 3; }
+      .owner { fill: #2b2518; stroke: #e8b44e; stroke-width: 3; }
+      .watch { fill: #321c1c; stroke: #e77d6f; stroke-width: 3; }
+      .line { fill: none; stroke: #71877f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .kicker { fill: #79b7a8; font: 700 22px Arial, Helvetica, sans-serif; letter-spacing: 2.5px; }
+      .headline { fill: #f7f3e8; font: 800 68px Arial, Helvetica, sans-serif; }
+      .subhead { fill: #aebdb7; font: 400 26px Arial, Helvetica, sans-serif; }
+      .stat { fill: #f7f3e8; font: 800 46px Arial, Helvetica, sans-serif; }
+      .stat-label { fill: #9fb0aa; font: 400 16px Arial, Helvetica, sans-serif; }
+      .panel-title { fill: #91aaa1; font: 700 20px Arial, Helvetica, sans-serif; letter-spacing: 1.6px; }
+      .label { fill: #f7f3e8; font: 700 22px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small { fill: #b9c7c1; font: 400 17px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .principle { fill: #f7f3e8; font: 700 20px Arial, Helvetica, sans-serif; }
+      .principle2 { fill: #b9c7c1; font: 400 18px Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1920" height="1080"/>
+  <circle class="halo" cx="1400" cy="540" r="650"/>
+
+  <text class="kicker" x="84" y="92">CONCIERGE · CLAUDE CODE + CODEX</text>
+  <text class="headline" x="84" y="194">HOW I BUILT</text>
+  <text class="headline" x="84" y="284">A CONCIERGE</text>
+  <text class="headline" x="84" y="374">FOR AI AGENTS</text>
+  <text class="subhead" x="84" y="468">When tasks reached the hundreds,</text>
+  <text class="subhead" x="84" y="507">I delegated their management.</text>
+
+  <rect class="box" x="84" y="610" width="160" height="130" rx="12"/>
+  <text class="stat" x="116" y="674">12</text>
+  <text class="stat-label" x="116" y="711">projects</text>
+
+  <rect class="box" x="264" y="610" width="160" height="130" rx="12"/>
+  <text class="stat" x="296" y="674">38</text>
+  <text class="stat-label" x="296" y="711">sessions</text>
+
+  <rect class="box" x="444" y="610" width="190" height="130" rx="12"/>
+  <text class="stat" x="476" y="674">4,246</text>
+  <text class="stat-label" x="476" y="711">indexed decisions</text>
+
+  <rect class="panel" x="690" y="60" width="1146" height="950" rx="18"/>
+  <text class="panel-title" x="738" y="106">MANAGEMENT LOOP</text>
+
+  <rect class="owner" x="738" y="154" width="300" height="122" rx="12"/>
+  <text class="label" x="888" y="201">ME</text>
+  <text class="small" x="888" y="236">goals · risk · priorities</text>
+
+  <rect class="channel" x="1180" y="154" width="300" height="122" rx="12"/>
+  <text class="label" x="1330" y="201">TELEGRAM</text>
+  <text class="small" x="1330" y="236">questions · context · decisions</text>
+
+  <rect class="core" x="959" y="374" width="300" height="154" rx="12"/>
+  <text class="label" x="1109" y="421">CONCIERGE</text>
+  <text class="small" x="1109" y="456">context · routing</text>
+  <text class="small" x="1109" y="487">memory · schedules</text>
+
+  <rect class="box" x="738" y="674" width="300" height="142" rx="12"/>
+  <text class="label" x="888" y="724">CLAUDE CODE</text>
+  <text class="small" x="888" y="759">existing sessions</text>
+  <text class="small" x="888" y="788">project memory</text>
+
+  <rect class="box" x="1180" y="674" width="300" height="142" rx="12"/>
+  <text class="label" x="1330" y="724">CODEX</text>
+  <text class="small" x="1330" y="759">existing sessions</text>
+  <text class="small" x="1330" y="788">project memory</text>
+
+  <rect class="watch" x="1512" y="374" width="260" height="154" rx="12"/>
+  <text class="label" x="1642" y="421">TASK TRACKER</text>
+  <text class="small" x="1642" y="456">progress · blockers</text>
+  <text class="small" x="1642" y="487">final result</text>
+
+  <path class="line" d="M 1038 215 L 1168 215"/>
+  <path class="line" d="M 1330 276 L 1330 326 L 1109 326 L 1109 362"/>
+  <path class="line" d="M 1109 528 L 1109 598 L 888 598 L 888 662"/>
+  <path class="line" d="M 1109 598 L 1330 598 L 1330 662"/>
+  <path class="line" d="M 1480 745 L 1642 745 L 1642 540"/>
+  <path class="line" d="M 1038 745 L 690 745 L 690 878 L 1642 878 L 1642 540"/>
+  <path class="line" d="M 1512 451 L 1330 451 L 1330 288"/>
+
+  <rect class="box" x="738" y="894" width="1034" height="76" rx="12"/>
+  <text class="principle" x="774" y="940">THE NEXT LEVEL:</text>
+  <text class="principle2" x="972" y="940">delegate project management while keeping goals and boundaries human</text>
+</svg>

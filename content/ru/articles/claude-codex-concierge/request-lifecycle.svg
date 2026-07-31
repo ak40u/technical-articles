@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="780" viewBox="0 0 1600 780" role="img" aria-labelledby="title desc">
+  <title id="title">Путь одного поручения</title>
+  <desc id="desc">Telegram-сообщения собираются в один ход, Консьерж находит проект и прежнюю сессию, проектный агент работает, наблюдатель возвращает финальный результат.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .lane { fill: #f7fbfc; stroke: #245f73; stroke-width: 3; }
+      .box { fill: #fff; stroke: #8b867d; stroke-width: 2; }
+      .channel { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .decision { fill: #fff5d8; stroke: #a87618; stroke-width: 3; }
+      .work { fill: #eef0f7; stroke: #596b91; stroke-width: 3; }
+      .watch { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 3; }
+      .danger { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2.5; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #a34a3f; stroke-width: 2.5; stroke-dasharray: 9 8; marker-end: url(#arrow); }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .lane-title { fill: #245f73; font: 700 18px Arial, Helvetica, sans-serif; letter-spacing: 1.8px; }
+      .label { fill: #1d1d1b; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .edge { fill: #6c6860; font: 600 14px Arial, Helvetica, sans-serif; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="780"/>
+  <text class="title" x="60" y="62">Путь одного поручения</text>
+  <text class="subtitle" x="60" y="98">Модель понимает и маршрутизирует. Доставка, наблюдение и повторные попытки работают отдельно.</text>
+
+  <rect class="lane" x="60" y="142" width="1480" height="520" rx="16"/>
+  <text class="lane-title" x="92" y="184">ОТ СООБЩЕНИЯ ДО ПРОВЕРЯЕМОГО РЕЗУЛЬТАТА</text>
+
+  <rect class="channel" x="100" y="248" width="220" height="132" rx="12"/>
+  <text class="label" x="210" y="290">TELEGRAM</text>
+  <text class="small" x="210" y="322">текст · голос · файл</text>
+  <text class="small" x="210" y="350">соседние сообщения</text>
+
+  <rect class="core" x="382" y="248" width="230" height="132" rx="12"/>
+  <text class="label" x="497" y="290">КОНСЬЕРЖ</text>
+  <text class="small" x="497" y="322">понять запрос</text>
+  <text class="small" x="497" y="350">найти проект</text>
+
+  <polygon class="decision" points="724,230 818,314 724,398 630,314"/>
+  <text class="label" x="724" y="307">ЕСТЬ</text>
+  <text class="small" x="724" y="334">сессия?</text>
+
+  <rect class="work" x="858" y="218" width="240" height="118" rx="12"/>
+  <text class="label" x="978" y="260">ПРОДОЛЖИТЬ</text>
+  <text class="small" x="978" y="292">прежний Claude</text>
+  <text class="small" x="978" y="318">или Codex</text>
+
+  <rect class="work" x="858" y="386" width="240" height="118" rx="12"/>
+  <text class="label" x="978" y="428">СОЗДАТЬ</text>
+  <text class="small" x="978" y="460">провайдер из истории</text>
+  <text class="small" x="978" y="486">проектный контекст</text>
+
+  <rect class="watch" x="1160" y="248" width="230" height="132" rx="12"/>
+  <text class="label" x="1275" y="290">НАБЛЮДАТЕЛЬ</text>
+  <text class="small" x="1275" y="322">прогресс · блокировка</text>
+  <text class="small" x="1275" y="350">финальное состояние</text>
+
+  <rect class="channel" x="1160" y="488" width="230" height="100" rx="12"/>
+  <text class="label" x="1275" y="528">НОВОЕ СООБЩЕНИЕ</text>
+  <text class="small" x="1275" y="558">результат + техотчёт</text>
+
+  <rect class="danger" x="382" y="488" width="300" height="100" rx="12"/>
+  <text class="label" x="532" y="528">ОПАСНОЕ ДЕЙСТВИЕ</text>
+  <text class="small" x="532" y="558">отдельное подтверждение</text>
+
+  <path class="line" d="M 320 314 L 370 314"/>
+  <path class="line" d="M 612 314 L 618 314"/>
+  <path class="line" d="M 818 282 L 846 282"/>
+  <text class="edge" x="823" y="270">да</text>
+  <path class="line" d="M 724 398 L 724 445 L 846 445"/>
+  <text class="edge" x="742" y="432">нет</text>
+  <path class="line" d="M 1098 277 L 1148 277"/>
+  <path class="line" d="M 1098 445 L 1128 445 L 1128 351 L 1148 351"/>
+  <path class="line" d="M 1275 380 L 1275 476"/>
+  <path class="dash" d="M 497 380 L 497 476"/>
+  <path class="dash" d="M 682 538 L 738 538 L 738 380"/>
+
+  <text class="footer" x="800" y="724">ПОРУЧЕНИЕ ЗАКАНЧИВАЕТСЯ, КОГДА РЕЗУЛЬТАТ ВЕРНУЛСЯ В TELEGRAM</text>
+</svg>

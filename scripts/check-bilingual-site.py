@@ -17,13 +17,22 @@ PAGE_PAIRS = (
     ("articles/", "en/articles/"),
     ("articles/ai-tech-teams-workflow/", "en/articles/ai-tech-teams-workflow/"),
     ("articles/autonomous-digital-employee/", "en/articles/autonomous-digital-employee/"),
+    ("articles/claude-codex-concierge/", "en/articles/claude-codex-concierge/"),
 )
 EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg",
     "en/articles/autonomous-digital-employee/system-architecture.svg",
     "en/articles/autonomous-digital-employee/autonomy-loop.svg",
+    "en/articles/claude-codex-concierge/delegation-levels.svg",
+    "en/articles/claude-codex-concierge/request-lifecycle.svg",
 )
 RU_DIAGRAMS = tuple(path.removeprefix("en/") for path in EN_DIAGRAMS)
+BUNDLE_DIAGRAM_COUNTS = {
+    "articles/autonomous-digital-employee/": 3,
+    "en/articles/autonomous-digital-employee/": 3,
+    "articles/claude-codex-concierge/": 2,
+    "en/articles/claude-codex-concierge/": 2,
+}
 MERMAID_HEADINGS = {
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg": (
         "1 · DESIGN",
@@ -39,6 +48,8 @@ MERMAID_HEADINGS = {
 EXPECTED_ARTICLE_TITLES = {
     "articles/autonomous-digital-employee/": "Как я создал автономного цифрового сотрудника",
     "en/articles/autonomous-digital-employee/": "How I Built an Autonomous Digital Employee",
+    "articles/claude-codex-concierge/": "Как я сделал консьержа для Claude Code и Codex",
+    "en/articles/claude-codex-concierge/": "How I Built a Concierge for Claude Code and Codex",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
@@ -203,11 +214,14 @@ def validate_page(
     if expected_title and expected_title not in parser.text_parts:
         errors.append(f"{label}: expected article title is missing")
 
-    if route.endswith("en/articles/autonomous-digital-employee/"):
-        expected_prefix = f"{base_path}en/articles/autonomous-digital-employee/"
+    expected_diagram_count = BUNDLE_DIAGRAM_COUNTS.get(route)
+    if expected_diagram_count is not None:
+        expected_prefix = f"{base_path}{route}"
         diagram_sources = [src for src in parser.images if src.endswith(".svg")]
-        if len(diagram_sources) != 3 or any(not src.startswith(expected_prefix) for src in diagram_sources):
-            errors.append(f"{label}: English diagrams do not use the English page bundle")
+        if len(diagram_sources) != expected_diagram_count or any(
+            not src.startswith(expected_prefix) for src in diagram_sources
+        ):
+            errors.append(f"{label}: diagrams do not use the article page bundle")
 
     return errors
 
@@ -235,6 +249,8 @@ def main() -> int:
         "og/ai-tech-teams-workflow-hero-en.png",
         "og/autonomous-digital-employee-hero.png",
         "og/autonomous-digital-employee-hero-en.png",
+        "og/claude-codex-concierge-hero.png",
+        "og/claude-codex-concierge-hero-en.png",
         "index.xml",
         "en/index.xml",
         "llms.txt",
@@ -295,11 +311,13 @@ def main() -> int:
         "articles/": "og/ai-tech-teams-workflow-hero.png",
         "articles/ai-tech-teams-workflow/": "og/ai-tech-teams-workflow-hero.png",
         "articles/autonomous-digital-employee/": "og/autonomous-digital-employee-hero.png",
+        "articles/claude-codex-concierge/": "og/claude-codex-concierge-hero.png",
         "en/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/about/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/articles/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/articles/ai-tech-teams-workflow/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/articles/autonomous-digital-employee/": "og/autonomous-digital-employee-hero-en.png",
+        "en/articles/claude-codex-concierge/": "og/claude-codex-concierge-hero-en.png",
     }
     for route, image in page_og.items():
         path = page_file(public, route)
