@@ -14,11 +14,13 @@ Claude Code writes code, Codex reviews the changes, another session looks for th
 
 I started confusing which agent I had answered, what each one was waiting for, and where the finished result was hiding. The sessions did not forget their tasks. I did.
 
-Once I asked a Telegram bot what was happening in one project. It looked at the timestamp of the last log entry and confidently reported that the session had been stuck for an hour and a half. At that exact moment, the screen on my Mac said `2 running tasks`. Another time I delegated work through the same bot. The agent finished, the result was already in the dashboard, and Telegram remained silent. Twenty minutes later I wrote: “Well?”
+My first attempt to solve the problem was Agent Dashboard, a separate Electron application showing projects, sessions, and recent events. It removed some of the load while I was at the computer: ten windows became one screen.
 
-I needed an assistant that would remember the agents for me: know who was doing what, resume the right session, pass in new information, and come back with the result on its own.
+Next, I connected a Telegram bot to it. From a phone, I could ask one question: “What is happening with Logicore?” Or forward a colleague's message and say, “Pass this to the project.” I expected a mobile entry point into the same dashboard to be enough.
 
-I first built Agent Dashboard, a separate Electron application showing projects, sessions, and recent events. That was enough while I was at the computer. From a phone, I wanted to ask one question: “What is happening with Logicore?” Or forward a colleague's message and say, “Pass this to the project.”
+The first prototype exposed the difference between having access to events and understanding the work. Once I asked the bot what was happening in one project. It looked at the timestamp of the last log entry and confidently reported that the session had been stuck for an hour and a half. At that exact moment, the screen on my Mac said `2 running tasks`. Another time I delegated work through the same bot. The agent finished, the result was already in the dashboard, and Telegram remained silent. Twenty minutes later I wrote: “Well?”
+
+I did not need a mobile log viewer. I needed an assistant that would remember the agents for me: know who was doing what, resume the right session, pass in new information, and come back with the result on its own.
 
 That is how the Concierge appeared.
 
