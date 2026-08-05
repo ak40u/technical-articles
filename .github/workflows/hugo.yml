@@ -40,6 +40,8 @@ jobs:
           python3 scripts/check-diagram-ux.py public/en/articles/autonomous-digital-employee/index.html assets/css/main.css
           python3 scripts/check-diagram-ux.py public/articles/claude-codex-concierge/index.html assets/css/main.css 2
           python3 scripts/check-diagram-ux.py public/en/articles/claude-codex-concierge/index.html assets/css/main.css 2
+          python3 scripts/check-diagram-ux.py public/articles/digital-employee-18-days/index.html assets/css/main.css 1
+          python3 scripts/check-diagram-ux.py public/en/articles/digital-employee-18-days/index.html assets/css/main.css 1
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

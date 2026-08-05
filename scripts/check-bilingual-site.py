@@ -18,6 +18,7 @@ PAGE_PAIRS = (
     ("articles/ai-tech-teams-workflow/", "en/articles/ai-tech-teams-workflow/"),
     ("articles/autonomous-digital-employee/", "en/articles/autonomous-digital-employee/"),
     ("articles/claude-codex-concierge/", "en/articles/claude-codex-concierge/"),
+    ("articles/digital-employee-18-days/", "en/articles/digital-employee-18-days/"),
 )
 EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg",
@@ -25,6 +26,7 @@ EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/autonomy-loop.svg",
     "en/articles/claude-codex-concierge/delegation-levels.svg",
     "en/articles/claude-codex-concierge/request-lifecycle.svg",
+    "en/articles/digital-employee-18-days/hypothesis-fate.svg",
 )
 RU_DIAGRAMS = tuple(path.removeprefix("en/") for path in EN_DIAGRAMS)
 BUNDLE_DIAGRAM_COUNTS = {
@@ -32,6 +34,8 @@ BUNDLE_DIAGRAM_COUNTS = {
     "en/articles/autonomous-digital-employee/": 3,
     "articles/claude-codex-concierge/": 2,
     "en/articles/claude-codex-concierge/": 2,
+    "articles/digital-employee-18-days/": 1,
+    "en/articles/digital-employee-18-days/": 1,
 }
 MERMAID_HEADINGS = {
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg": (
@@ -50,6 +54,8 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/autonomous-digital-employee/": "How I Built an Autonomous Digital Employee",
     "articles/claude-codex-concierge/": "Как я сделал консьержа для Claude Code и Codex",
     "en/articles/claude-codex-concierge/": "How I Built a Concierge for Claude Code and Codex",
+    "articles/digital-employee-18-days/": "18 дней без единой задачи от меня",
+    "en/articles/digital-employee-18-days/": "18 Days Without a Single Task From Me",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
@@ -251,6 +257,8 @@ def main() -> int:
         "og/autonomous-digital-employee-hero-en.png",
         "og/claude-codex-concierge-hero.png",
         "og/claude-codex-concierge-hero-en.png",
+        "og/digital-employee-18-days-hero.png",
+        "og/digital-employee-18-days-hero-en.png",
         "index.xml",
         "en/index.xml",
         "llms.txt",
@@ -312,12 +320,14 @@ def main() -> int:
         "articles/ai-tech-teams-workflow/": "og/ai-tech-teams-workflow-hero.png",
         "articles/autonomous-digital-employee/": "og/autonomous-digital-employee-hero.png",
         "articles/claude-codex-concierge/": "og/claude-codex-concierge-hero.png",
+        "articles/digital-employee-18-days/": "og/digital-employee-18-days-hero.png",
         "en/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/about/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/articles/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/articles/ai-tech-teams-workflow/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/articles/autonomous-digital-employee/": "og/autonomous-digital-employee-hero-en.png",
         "en/articles/claude-codex-concierge/": "og/claude-codex-concierge-hero-en.png",
+        "en/articles/digital-employee-18-days/": "og/digital-employee-18-days-hero-en.png",
     }
     for route, image in page_og.items():
         path = page_file(public, route)

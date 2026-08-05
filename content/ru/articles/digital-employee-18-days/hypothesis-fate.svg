@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Судьба одиннадцати гипотез за 18 дней</title>
+  <desc id="desc">Одиннадцать гипотез, открытых за восемнадцать дней, распределены по четырём исходам: семь закрыты целиком с записанной причиной, у одной убита главная ветвь и ядро ждёт данных, две проверяются форвардом на бумаге с назначенными датами приговора, одна стоит в очереди конвейера.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8d887e"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#fcfbf7"/>
+
+  <text x="60" y="72" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="bold" letter-spacing="2.6" fill="#245f73">КОНВЕЙЕР ГИПОТЕЗ · 18 ДНЕЙ</text>
+  <text x="60" y="108" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#6c6860">Нормальный результат конвейера — мёртвая идея с записанной причиной</text>
+
+  <!-- вход -->
+  <rect x="60" y="352" width="300" height="196" rx="14" fill="#ffffff" stroke="#245f73" stroke-width="2.5"/>
+  <text x="210" y="438" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="bold" fill="#1d1d1b">11</text>
+  <text x="210" y="478" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" letter-spacing="1.4" fill="#1d1d1b">ГИПОТЕЗ</text>
+  <text x="210" y="512" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#6c6860">открыто за 18 дней</text>
+
+  <!-- шина -->
+  <path d="M 360 450 L 420 450" stroke="#8d887e" stroke-width="2" fill="none"/>
+  <path d="M 420 235 L 420 665" stroke="#8d887e" stroke-width="2" fill="none"/>
+  <path d="M 420 235 L 500 235" stroke="#8d887e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 420 378 L 500 378" stroke="#8d887e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 420 521 L 500 521" stroke="#8d887e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 420 664 L 500 664" stroke="#8d887e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- исход 1 -->
+  <rect x="510" y="170" width="1030" height="130" rx="14" fill="#f3f0e8" stroke="#ded9cd" stroke-width="2"/>
+  <text x="580" y="252" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="bold" fill="#1d1d1b">7</text>
+  <text x="670" y="219" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" letter-spacing="1.2" fill="#1d1d1b">ЗАКРЫТЫ ЦЕЛИКОМ</text>
+  <text x="670" y="256" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#6c6860">Причина смерти записана. Реанимация — только с новым структурным фактом</text>
+
+  <!-- исход 2 -->
+  <rect x="510" y="313" width="1030" height="130" rx="14" fill="#f3f0e8" stroke="#ded9cd" stroke-width="2"/>
+  <text x="580" y="395" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="bold" fill="#1d1d1b">1</text>
+  <text x="670" y="362" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" letter-spacing="1.2" fill="#1d1d1b">ГЛАВНАЯ ВЕТВЬ УБИТА</text>
+  <text x="670" y="399" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#6c6860">Остаток ждёт объёма данных: наблюдений мало, возврат к вопросу осенью</text>
+
+  <!-- исход 3 -->
+  <rect x="510" y="456" width="1030" height="130" rx="14" fill="#e8f2f4" stroke="#245f73" stroke-width="2.5"/>
+  <text x="580" y="538" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="bold" fill="#245f73">2</text>
+  <text x="670" y="505" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" letter-spacing="1.2" fill="#1d1d1b">ПРОВЕРЯЮТСЯ ФОРВАРДОМ</text>
+  <text x="670" y="542" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#4a5f66">Даты приговора назначены заранее: 8 и 15 августа. Денег в них нет</text>
+
+  <!-- исход 4 -->
+  <rect x="510" y="599" width="1030" height="130" rx="14" fill="#f3f0e8" stroke="#ded9cd" stroke-width="2"/>
+  <text x="580" y="681" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="bold" fill="#1d1d1b">1</text>
+  <text x="670" y="648" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" letter-spacing="1.2" fill="#1d1d1b">В ОЧЕРЕДИ</text>
+  <text x="670" y="685" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#6c6860">Конвейер занят верхними: ops и активные гипотезы имеют приоритет</text>
+
+  <line x1="60" y1="790" x2="1540" y2="790" stroke="#ded9cd" stroke-width="2"/>
+  <text x="60" y="838" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" letter-spacing="1.2" fill="#245f73">9 ИЗ 11 ОПРОВЕРЖЕНИЙ ТУРНИРА — НА ЖИВОМ ЗАМЕРЕ</text>
+  <text x="60" y="872" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#6c6860">Судьи открывали биржевые стаканы и ленты сделок, а не рассуждали о правдоподобии</text>
+</svg>
