@@ -31,4 +31,10 @@ python3 scripts/check-diagram-ux.py \
 python3 scripts/check-diagram-ux.py \
   public/en/articles/claude-codex-concierge/index.html \
   assets/css/main.css 2
+python3 scripts/check-diagram-ux.py \
+  public/articles/digital-employee-18-days/index.html \
+  assets/css/main.css 1
+python3 scripts/check-diagram-ux.py \
+  public/en/articles/digital-employee-18-days/index.html \
+  assets/css/main.css 1
 ```
