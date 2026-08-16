@@ -6,9 +6,7 @@ author: "Pavel Volkov"
 image: "og/sdd-in-production-hero.png"
 ---
 
-A colleague sent me a screenshot of a chat: "Have you read about SDD? Implement me."
-
-In the Findrates.ai project, Spec-Driven Development runs every day. We have closed over 240 plans through this pipeline. And our approach is radically different from the beautiful conference slides that describe SDD as a silver bullet.
+In the Findrates.ai project, Spec-Driven Development runs every day: we have closed over 240 plans through this pipeline. But our real-world process is radically different from the pristine conference slides that present SDD as a silver bullet.
 
 ## The Death of Vibecoding
 
