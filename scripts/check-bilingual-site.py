@@ -269,8 +269,6 @@ def main() -> int:
         "og/digital-employee-18-days-hero-en.png",
         "og/sdd-in-production-hero.png",
         "og/sdd-in-production-hero-en.png",
-        "og/agentic-sdd-in-production-hero.png",
-        "og/agentic-sdd-in-production-hero-en.png",
         "articles/sdd-in-production/sdd-pipeline.svg",
         "en/articles/sdd-in-production/sdd-pipeline.svg",
         "articles/sdd-in-production/spec-synthesis.svg",
