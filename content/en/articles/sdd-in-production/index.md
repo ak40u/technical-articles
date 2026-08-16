@@ -29,10 +29,10 @@ To understand the chasm between theory and practice, look at this table:
 | Characteristic | Canonical SDD (in articles) | SDD in Findrates.ai (reality) |
 | :--- | :--- | :--- |
 | **Source of Value** | The client provides a ready task and spec | Backlog from business, PO, and operators + Producer's filter |
-| **Reconnaissance** | Code is written from scratch or by guessing | The Scout agent builds a `scout-map.log` before planning |
+| **Reconnaissance** | Code is written from scratch or by guessing | The Orchestrator isolates context and slices the task (`<slug>-slices.md`) |
 | **Writing Criteria** | Written by the code author (self-checking) | Written by an independent analyst (Agent Olga) |
 | **Plan Review** | A human skims the Markdown | Adversarial review by Codex/Opus down to zero findings |
-| **Verification (TDD)** | Tests are written post-implementation | `failing-first-ledger.md`: tests MUST fail before code |
+| **Verification (TDD)** | Tests are written post-implementation | Strict BDD before code + Stryker (mutation testing) |
 | **QA and Deploy** | Manual handoff to a tester | Marina's QA loop: 5 rounds of `fix -> retest` autonomously |
 
 ---
@@ -53,7 +53,7 @@ It applies a CPO-lens value filter and outputs the **Top-5 Tasks**. Every task m
 
 Once a task is selected, the Orchestrator agent takes over. Its job is to drive the feature from idea to staging without stopping.
 
-The specification starts with gathering facts. A Scout agent explores the codebase before creating the first line of the plan. It builds a map of relationships: file paths, line numbers, table schemas, and current invariants. The result settles in the `scout-map.log` artifact. You cannot describe a system without being tightly bound to the project's current state.
+The specification starts with context isolation and decomposition (Preflight). The Orchestrator spins up a clean git worktree to avoid crossing paths with neighbors, and slices the task into independent increments (`plans/<feature-slug>-slices.md`). You cannot describe a system entirely — planning is only done for one small, independent slice at a time.
 
 Next, Agent Olga (the business analyst) independently forms `acceptance-criteria.md`. She writes not only what should work, but also "Must Not" lists — things the code is strictly forbidden to do.
 
@@ -78,7 +78,7 @@ The existing method requires passing a `tenantId`. The plan will break the build
 
 The specification is approved. The Orchestrator writes the code.
 
-Here, `failing-first-ledger.md` comes into effect. A TDD check guarantees that the written tests failed *before* edits were made to the main code, rather than being written to fit an already completed implementation. If a test is instantly green, the code is rolled back.
+Here, strict BDD (Behavior-Driven Development) and Stryker come into effect. We do not allow writing tests "from code" — they are written strictly according to the specification before implementation. And mutation testing (Stryker) ensures the tests aren't empty shells: if the logic can be broken but the tests remain green, the build fails.
 
 After writing, the `code-vs-plan` barrier triggers. A separate agent verifies the finished code against Olga's original criteria. Any deviation from the plan blocks branch merging.
 
