@@ -10,6 +10,12 @@ A colleague recently sent me a screenshot of a chat: "Have you read about SDD? I
 
 In the Findrates.ai project, Spec-Driven Development runs every day. We have closed over 240 plans through this pipeline. And our approach is radically different from the beautiful conference slides that describe SDD as a silver bullet.
 
+## What is SDD and Why Was It Invented?
+
+Spec-Driven Development (SDD) is an approach where the specification (an API contract, an OpenAPI schema, or a Markdown file with rules) is written before programming begins and strictly dictates the implementation. In this paradigm, code is merely a byproduct of the specification.
+
+SDD was invented to solve two problems: contract drift and code becoming a "black box." In a traditional process, a developer writes logic first and then (perhaps) updates the documentation. Over time, the code drifts away from the initial business requirements, and undocumented features emerge. SDD forces teams to agree on an ironclad contract first—allowing frontend, backend, and QA to work in parallel—before a single line of code is written.
+
 ## The Illusion of Canonical SDD
 
 Tutorials promise a straightforward path. You write a specification in OpenAPI, JSON Schema, or Markdown. You hand it to an AI agent. The agent writes a ready-made service. The specification becomes the single source of truth.
