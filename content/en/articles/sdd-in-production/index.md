@@ -112,8 +112,8 @@ Across **240+ closed plans**:
 
 Production deployment is always executed manually by a human engineer. The pipeline automates development and verification while keeping release authority with the team.
 
-## Key Takeaway
+## Conclusion
 
-A specification in AI-driven development only functions reliably when planning, implementation, and testing are strictly isolated from one another.
+The difference between vibecoding chaos and a functioning pipeline comes down to one rule: **never allow a model to evaluate its own output**.
 
-Without codebase reconnaissance, independent acceptance criteria, BDD, and adversarial review, specifications immediately drift from production reality. An automated pipeline with rigid quality gates solves the core challenge of delegating engineering work to LLMs: it forces models to cross-verify each other before changes ever reach master.
+When planning is isolated in a clean worktree, criteria are formulated by an independent agent, and an adversarial model eliminates phantom calls before a single line of code is written—SDD stops being a theoretical concept and becomes a reliable system running hundreds of production tasks.
