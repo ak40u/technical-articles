@@ -70,7 +70,7 @@ The business analyst agent forms `acceptance-criteria.md`. The golden rule is th
 If the slice touches the UI, the UX designer Eva steps in. She analyzes the project's existing design system and writes a strict UX contract: required states (loading, empty, error, success), components to reuse, and accessibility requirements.
 
 **Step 5. The Hard Plan and Blind Jury**
-Only now does the Tech-Lead agent (a sub-persona of the Orchestrator) generate the actual `plan.md`. The plan is physically split into phase files (`phase-1.md`, `phase-2.md`) to isolate context during implementation. The plan contains zero code—only the algorithm, research, and red-team analysis.
+Only now does the Tech-Lead agent (a sub-persona of the Orchestrator) generate the actual `plan.md`. The plan is physically split into phase files (`phase-1.md`, `phase-2.md`) to isolate context during implementation. The plan contains zero code—only the algorithm, research, and red-team analysis. This rigorous, verified contract is the very core of SDD in our understanding; programming becomes merely the mechanical execution of the specification.
 The plan must include:
 - **Foundations**: a list of business concepts the feature expects from the core. If something is missing, it is explicitly recorded as architectural debt rather than hacked together.
 - **State Machine**: if entity statuses change, the Tech-Lead writes a `state × event × guard × write` table. No status transitions without explicit condition checks.
