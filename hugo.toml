@@ -5,8 +5,10 @@ enableRobotsTXT = true
 
 [params]
   author = "Pavel Volkov"
+  authorLatin = "Павел Волков"
   authorUrl = "https://github.com/ak40u"
   github = "https://github.com/ak40u"
+  linkedin = "https://www.linkedin.com/in/psvolkov/"
   copyright = "© 2026 Pavel Volkov"
 
 [languages]

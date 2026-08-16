@@ -51,3 +51,15 @@ other = "Открыть схему в полном размере ↗"
 
 [skip_to_content]
 other = "Перейти к содержанию"
+
+[featured_article]
+other = "Флагманский разбор"
+
+[key_focus_areas]
+other = "Ключевые направления"
+
+[engineering_principles]
+other = "Инженерные принципы"
+
+[view_all_articles]
+other = "Все статьи"

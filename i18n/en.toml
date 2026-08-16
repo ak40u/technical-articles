@@ -46,3 +46,15 @@ other = "Open diagram at full size ↗"
 
 [skip_to_content]
 other = "Skip to content"
+
+[featured_article]
+other = "Featured Deep-Dive"
+
+[key_focus_areas]
+other = "Core Architectural Focus"
+
+[engineering_principles]
+other = "Engineering Principles"
+
+[view_all_articles]
+other = "All Articles"
