@@ -23,6 +23,7 @@ PAGE_PAIRS = (
 )
 EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg",
+    "en/articles/sdd-in-production/sdd-pipeline.svg",
     "en/articles/autonomous-digital-employee/system-architecture.svg",
     "en/articles/autonomous-digital-employee/autonomy-loop.svg",
     "en/articles/claude-codex-concierge/delegation-levels.svg",
@@ -264,6 +265,8 @@ def main() -> int:
         "og/digital-employee-18-days-hero-en.png",
         "og/sdd-in-production-hero.png",
         "og/sdd-in-production-hero-en.png",
+        "articles/sdd-in-production/sdd-pipeline-ru.svg",
+        "en/articles/sdd-in-production/sdd-pipeline.svg",
         "index.xml",
         "en/index.xml",
         "llms.txt",
