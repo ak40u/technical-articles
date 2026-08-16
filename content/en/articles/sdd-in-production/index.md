@@ -10,21 +10,19 @@ A colleague recently sent me a screenshot of a chat: "Have you read about SDD? I
 
 In the Findrates.ai project, Spec-Driven Development runs every day. We have closed over 240 plans through this pipeline. And our approach is radically different from the beautiful conference slides that describe SDD as a silver bullet.
 
-## What is SDD and Why Was It Invented?
+## The Evolution from Vibecoding to SDD
 
-Spec-Driven Development (SDD) is an approach where the specification (an API contract, an OpenAPI schema, or a Markdown file with rules) is written before programming begins and strictly dictates the implementation. In this paradigm, code is merely a byproduct of the specification.
+In the early days of AI programming, "vibecoding" ruled—an intuitive, chat-driven approach where a developer simply asks a bot to "build feature X." This worked for rapid prototypes, but on complex systems, it led to spaghetti code and context drift. The AI would forget requirements between sessions.
 
-SDD was invented to solve two problems: contract drift and code becoming a "black box." In a traditional process, a developer writes logic first and then (perhaps) updates the documentation. Over time, the code drifts away from the initial business requirements, and undocumented features emerge. SDD forces teams to agree on an ironclad contract first—allowing frontend, backend, and QA to work in parallel—before a single line of code is written.
+The industry's answer was Spec-Driven Development (SDD). The idea is to first write a strict, structured specification (e.g., in Markdown) that becomes the single source of truth. This specification is meant to be grounded in existing knowledge of the codebase and database, serving as an ironclad contract for the AI (in tools like Cursor or Claude) to execute.
 
 ## The Illusion of Canonical SDD
 
-Tutorials promise a straightforward path. You write a specification in OpenAPI, JSON Schema, or Markdown. You hand it to an AI agent. The agent writes a ready-made service. The specification becomes the single source of truth.
+In theory, it sounds perfect. But how do vibecoders actually implement SDD in practice? A developer drafts a plan or asks an LLM to generate a spec, feeds it into Cursor, and hits "Apply."
 
-On a live, legacy codebase, this process breaks immediately.
+The problem is that even if a human tries to ground the spec in reality, without systemic isolation and hard barriers, the specification is still written in a vacuum of partial context. The author (or their AI assistant) inevitably invents non-existent database methods and breaks the contracts of neighboring modules. When the AI writes tests for its own code, it merely verifies its own hallucinations. The endless `fix -> error -> fix` loop begins, the specification becomes obsolete two commits later, and unmanageable technical debt (drift) takes over.
 
-In theory, a specification should be grounded in reality. But in practice (especially in AI tutorials), it is often generated in a vacuum. If you write a spec without tightly coupling it to the current state of a legacy codebase, the author inevitably invents non-existent database methods and breaks the contracts of neighboring modules. When that same author writes tests for their own code, they verify their own hallucinations. The specification becomes obsolete two commits later, and unmanageable technical debt (drift) begins.
-
-We abandoned specs from thin air and built a rigorous, multi-layered pipeline.
+We abandoned "trust-based" specs and built a rigorous, multi-layered pipeline.
 
 ![SDD Pipeline](/en/articles/sdd-in-production/sdd-pipeline.svg)
 
