@@ -3,7 +3,7 @@ title: "Agentic SDD: Forcing AI Agents to Write Code by Strict Contract"
 date: 2026-08-16
 description: "Why canonical SDD turns into dead documentation, and how we built a working Agentic SDD pipeline based on production signals, adversarial model reviews, and BDD checks."
 author: "Pavel Volkov"
-image: "og/sdd-in-production-hero.png"
+image: "og/sdd-in-production-hero-en.png"
 ---
 
 In Findrates.ai, **Agentic SDD** (autonomous spec-driven development) runs every day: we have closed over 240 plans through this pipeline. Our actual process differs significantly from conference slides where classical SDD is presented as an effortless silver bullet.
