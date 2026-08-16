@@ -14,7 +14,7 @@ In the Findrates.ai project, Spec-Driven Development runs every day. We have clo
 
 In the early days of AI programming, "vibecoding" ruled—an intuitive, chat-driven approach where a developer simply asks a bot to "build feature X." For rapid prototypes, this worked brilliantly. But on complex legacy systems, vibecoding quickly led to spaghetti code and context drift. The models would forget requirements between sessions, and the developer lost control of the architecture.
 
-The industry's answer was Spec-Driven Development (SDD). The idea is simple: first, write a strict, structured specification (e.g., in Markdown) that becomes the "single source of truth." This specification is grounded in existing knowledge of the codebase and database, serving as an ironclad contract for the AI (in tools like Cursor or Claude) to execute mechanically.
+As an answer to this chaos, engineers began shifting toward Spec-Driven Development (SDD). The idea is simple: first, write a strict, structured specification (e.g., in Markdown) that becomes the "single source of truth." This specification is grounded in existing knowledge of the codebase and database, serving as an ironclad contract for the AI (in tools like Cursor or Claude) to execute mechanically.
 
 ## The Illusion of Canonical SDD
 
