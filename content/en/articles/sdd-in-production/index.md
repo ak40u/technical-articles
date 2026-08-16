@@ -6,69 +6,69 @@ author: "Pavel Volkov"
 image: "og/sdd-in-production-hero.png"
 ---
 
-In the Findrates.ai project, Spec-Driven Development runs every day: we have closed over 240 plans through this pipeline. But our real-world process is radically different from the pristine conference slides that present SDD as a silver bullet.
+In Findrates.ai, Spec-Driven Development runs every day: we have closed over 240 plans through this pipeline. Our actual process differs significantly from conference slides where SDD is presented as an effortless silver bullet.
 
-## The Death of Vibecoding
+## The Limits of Vibecoding
 
-In the early days of AI programming, "vibecoding" ruled—an intuitive, chat-driven approach where a developer simply asks a bot to "build feature X." For rapid prototypes, this worked brilliantly. But on complex legacy systems, vibecoding quickly led to spaghetti code and context drift. The models would forget requirements between sessions, and the developer lost control of the architecture.
+With the rise of LLMs, developers initially relied on "vibecoding"—prompting a chatbot to "build feature X." For quick scripts and prototypes, this was enough. On an existing codebase, however, vibecoding quickly caused loss of context: models forgot constraints between sessions, broke neighboring modules, and generated unmanaged technical debt.
 
-As an answer to this chaos, engineers began shifting toward Spec-Driven Development (SDD). The idea is simple: first, write a strict, structured specification (e.g., in Markdown) that becomes the "single source of truth." This specification is grounded in existing knowledge of the codebase and database, serving as an ironclad contract for the AI (in tools like Cursor or Claude) to execute mechanically.
+To regain control over architecture, teams started adopting Spec-Driven Development (SDD): first writing a Markdown specification defining all requirements, then having an agent in Cursor or Claude implement it step by step.
 
-## The Illusion of Canonical SDD
+## Why Canonical SDD Fails in Practice
 
-In theory, it sounds perfect. But how do vibecoders actually implement SDD in practice? A developer drafts a plan, feeds it into Cursor, and hits "Apply."
+On paper, the workflow looks straightforward: a developer writes a spec, feeds it to an agent, and clicks "Apply."
 
-The problem is that even if a human sincerely tries to ground the spec in reality, without systemic isolation and hard barriers, the specification is still written in a vacuum of partial context. The author (or their AI assistant) inevitably invents non-existent database methods and breaks the contracts of neighboring modules. When the AI then writes tests for its own code, it merely validates its own hallucinations. The endless `fix -> error -> fix` loop begins, the specification becomes obsolete two commits later, and the project drowns in technical debt.
+In practice, a specification written by a human or generated in a single chat session is disconnected from the real codebase. The author inevitably references non-existent database methods and ignores contracts of adjacent modules. When the AI generates code and writes its own tests, it simply verifies its own hallucinations. The project gets trapped in a `fix -> error -> fix` loop, and the specification becomes obsolete within two commits.
 
-We abandoned "trust-based" specs and built a rigorous, multi-layered pipeline where agents keep each other in check.
+We abandoned "trust-based" specs and built a pipeline where agents are strictly isolated and cross-check results at every stage.
 
 ![SDD Pipeline](/en/articles/sdd-in-production/sdd-pipeline.svg)
 
-To understand the chasm between theory and practice, look at this table:
+Theory vs. Production:
 
-| Characteristic | Canonical SDD (in tutorials) | SDD in Findrates.ai (in reality) |
+| Parameter | Canonical SDD (in tutorials) | SDD in Findrates.ai (in production) |
 | :--- | :--- | :--- |
-| **Source of Value** | The client provides a ready-made task and spec | Backlog from business, product, and operators + Producer's filter |
-| **Reconnaissance** | Code is written from scratch or guesswork | Orchestrator isolates context and slices the task (`<slug>-slices.md`) |
-| **Acceptance Criteria** | Written by the code author (checking themselves) | Written by an independent analyst (Agent Olga) with Must-Not lists |
-| **Plan Review** | A human skims the Markdown | Adversarial review by independent LLMs down to zero findings |
-| **Verification (TDD)** | Tests are written after implementation | Strict BDD before code + Stryker (mutation testing) |
-| **QA and Deploy** | Manual handoff to a tester | Marina's QA cycle: up to 5 rounds of `fix -> retest` (prod is manual only) |
+| **Source of Value** | Static task description from customer | Backlog from business, product, and operators + Producer filter |
+| **Reconnaissance** | Code written from scratch or assumptions | Orchestrator isolates context in a worktree and slices tasks (`<slug>-slices.md`) |
+| **Acceptance Criteria** | Written by the code author | Written by an independent analyst (Agent Olga) with Must-Not rules |
+| **Plan Review** | Manual skimming of Markdown | Adversarial review by independent LLMs until all issues are resolved |
+| **Verification (TDD)** | Tests written after implementation | Strict BDD before implementation + mutation testing (Stryker) |
+| **QA and Deployment** | Manual handoff to a QA engineer | Autonomous QA loop by Marina: up to 5 rounds of `fix -> retest` (prod is manual) |
 
 ---
 
-## The Value Filter: Don't Burn the Machine
+## Value Filter: Preventing Wasteful Runs
 
-A full SDD cycle (with reconnaissance, adversarial review, mutation testing, and E2E QA) is a resource-intensive pipeline. A single slice execution consumes between $2 and $6 in API tokens and takes 15–25 minutes of model run-time. That is an order of magnitude cheaper and faster than an hour of senior engineer time, but feeding the whole backlog into it indiscriminately is the fastest way to burn your compute budget on tasks nobody needs.
+A full SDD cycle is resource-intensive. Running a single slice costs $2–$6 in API tokens and takes 15–25 minutes of model compute. That is cheaper than an hour of senior engineer time, but feeding backlog items indiscriminately into the pipeline wastes compute budget on low-priority tasks.
 
-Value in Findrates.ai comes from real people: the Product Owner, business stakeholders, and platform operators file tasks in ClickUp, while researchers request new features. To avoid taking everything into work blindly, we created the Producer agent (the `producer` skill).
+In Findrates.ai, tasks arrive in ClickUp from the Product Owner, business stakeholders, platform operators, and researchers. To filter out noise before triggering the heavy pipeline, we use the Producer agent (the `producer` skill).
 
-Before a single line of spec is written, the Producer analyzes:
-1. The full backlog.
-2. The goals of the current release (MUST / SHOULD).
-3. Lessons learned from past releases (`retro.md`).
-4. Production signals (error alerts).
+Before any specification is drafted, the Producer analyzes:
+1. The active backlog.
+2. Release goals (MUST / SHOULD).
+3. Lessons learned from previous releases (`retro.md`).
+4. Production telemetry and error alerts.
 
-It applies a value filter (CPO-lens) and yields the **Top-5 tasks**. Every task must answer the question "why now?". If a task does not solve an acute platform pain, it is deferred.
+The Producer evaluates product impact and selects the **Top-5 tasks**. If a task does not address an immediate platform problem, it is deferred.
 
-## How the Contract is Actually Born
+## How the Specification is Formed
 
-Once a task is selected, the Orchestrator agent takes over. Writing the specification is not just generating one big Markdown file; it is a rigorous, isolated process of five steps.
+Once a task is selected, the Orchestrator initiates specification preparation. Rather than drafting a single document, it executes a step-by-step requirements workflow:
 
-> **A Note on Agent Personas:** Names like "Olga", "Eva", or "Marina" are not roleplay. They represent strict architectural isolation of contexts and prompt rubrics. The AC agent knows nothing about code to prevent expectation bias (anti-anchoring), while the QA agent has zero access to backend source files, ensuring the system is tested as a strict "black box."
+*Agent names (Olga, Eva, Marina) represent architectural isolation of context and prompt instructions. The acceptance criteria agent cannot view source code to prevent bias (anti-anchoring), while the QA agent has no access to backend code, testing the application strictly as a black box.*
 
-**1. Isolation and Slicing**
-The Orchestrator spins up a clean git worktree to avoid crossing paths with neighbors and forcibly slices the task into atomic increments (`plans/<feature-slug>-slices.md`). Planning is always done for only one small slice at a time. If it's a bug fix, a mandatory *Baseline Repro* step is triggered: the QA agent (Marina) attempts to reproduce the bug on the current build. Writing a fix without a confirmed red E2E test is strictly prohibited.
+**1. Isolation and Slicing**  
+The Orchestrator spins up an isolated git worktree and divides the feature into independent slices (`plans/<feature-slug>-slices.md`). Only one atomic increment is planned at a time. For bug fixes, a strict rule applies: Agent Marina must first reproduce the defect on the current build (Baseline Repro). No fix is written without a confirmed red E2E test.
 
-**2. Pre-plan Scout**
-Before writing the plan, a read-only script scans the source code to gather exact file paths, dependencies, and current contracts. The plan is always grounded in real code, not LLM fantasies.
+**2. Codebase Reconnaissance (Pre-plan Scout)**  
+A read-only script scans the repository for target files, imports, data types, and method signatures. The plan relies on actual codebase structure rather than LLM assumptions.
 
-**3. Independent Acceptance Criteria (Agent Olga)**
-The business analyst agent forms `acceptance-criteria.md`. The golden rule is that she works independently of the code author (anti-anchoring). Olga explicitly writes positive scenarios and mandatory "Must Not" invariants:
+**3. Independent Acceptance Criteria (Agent Olga)**  
+The business analyst agent creates `acceptance-criteria.md`, defining positive test cases and mandatory constraints (Must-Not):
 
 ```markdown
 ### Acceptance Criteria
-- [ ] When currency changes, recalculate rate using Central Bank rate on creation date.
+- [ ] When currency changes, recalculate rate using Central Bank rate on request creation date.
 - [ ] Display currency indicator in rate card and comparison table.
 
 ### Must-Not Invariants
@@ -76,43 +76,42 @@ The business analyst agent forms `acceptance-criteria.md`. The golden rule is th
 - [ ] MUST NOT invoke `recalculateTotal()` without operator permissions check.
 ```
 
-**4. UX Contract (Agent Eva)**
-If the slice touches the UI, the UX designer Eva steps in. She analyzes the project's existing design system and writes a strict UX contract: required states (loading, empty, error, success), components to reuse, and accessibility requirements.
+**4. UX Contract (Agent Eva)**  
+For frontend tasks, designer Eva produces a contract based on the design system: defining required states (loading, empty, error, success), reusable components, and accessibility requirements.
 
-**5. The Hard Plan and Blind Jury**
-Only now does the Tech-Lead agent (a sub-persona of the Orchestrator) generate the actual `plan.md`. The plan is physically split into phase files (`phase-1.md`, `phase-2.md`) to artificially isolate context during future coding. 
-The plan contains zero code—only the algorithm, research, and red-team analysis. This rigorous, verified contract is the very core of SDD in our understanding; programming becomes merely the mechanical execution of the specification.
+**5. Structured Plan (Tech-Lead)**  
+The Tech-Lead compiles the final `plan.md` and divides it into phases (`phase-1.md`, `phase-2.md`). The plan contains no implementation code—only algorithms, dependency verification, and architectural choices. This verified document serves as the specification.
 
-The plan must include:
-- **Foundations**: a list of business concepts the feature expects from the core. If something is missing, it is explicitly recorded as architectural debt rather than hacked together.
-- **State Machine**: if entity statuses change, the Tech-Lead writes a `state × event × guard × write` table. No status transitions without explicit condition checks.
-- **Blind Jury**: for complex tasks, 2-3 alternative architectural solutions are generated (without stating preferences) and sent to an independent "blind" LLM judge to avoid anchoring on the first idea that comes to mind.
+Required sections:
+- **Foundations:** Core system entities assumed to exist. Missing entities are logged to the architectural debt registry.
+- **State Machine:** When entity states change, a transition table is required: `state × event × guard condition × DB write`.
+- **Blind Jury:** For ambiguous architectural choices, 2–3 unlabeled alternatives are generated and evaluated by an independent LLM judge.
 
-All architectural crossroads are forcibly documented in a separate `decisions.md` file. There are zero "on the fly" architectural decisions during coding.
+All trade-offs are recorded in `decisions.md`. Architectural choices are never made on the fly during coding.
 
-## Running the Gauntlet: From Plan to Staging
+## From Plan to Implementation and Verification
 
-The specification is written, but the author of the plan never verifies their own plan. That is the law.
+The plan author is not permitted to review their own plan.
 
-The finished text goes to an independent opposing model (Codex, Tencent Hunyuan 3, or Claude Opus). The reviewer looks for contract mismatches, phantom calls, and missing DB migrations. Development halts until the reviewer issues zero blocking findings.
+The completed plan is sent to an independent reviewer model (Codex, Tencent Hunyuan 3, or Claude Opus). The reviewer checks for mismatched types, missing functions, and unhandled DB migrations. Implementation is blocked until all issues are resolved.
 
-Here is a real snippet from the reviewer log `codex-plan-review.log`:
+Sample finding from `codex-plan-review.log`:
 ```markdown
 [CRITICAL] Phantom DB method in Phase 2.
 Call `db.rates.updateStatus()` does not exist in `src/db/rates.ts`. 
 Existing method requires explicit `tenantId`. The plan will break build on step 3.
 ```
 
-Only after the specification is approved does the Orchestrator write code. Here, strict BDD (Behavior-Driven Development) and Stryker come into play. We do not allow writing tests "to the code"—they are written strictly to the specification before implementation. Mutation testing (Stryker) ensures the tests aren't empty shells: if the logic can be broken and the tests are still green, the build fails. Once the code is written, a separate `code-vs-plan` gate checks the finished code against Olga's original criteria. Any deviation blocks the branch merge.
+Only after plan approval does the Orchestrator generate code. We enforce BDD (Behavior-Driven Development): tests are written to the specification before implementation. Mutation testing (Stryker) verifies test quality—if code changes pass without failing tests, the build is rejected. After code generation, the `code-vs-plan` gate validates the implementation against Olga's criteria.
 
-Finally, the code is deployed to local staging, and Agent Marina (QA) takes the baton. She runs E2E scenarios (Telethon, Playwright). The Orchestrator has a hard limit—**5 rounds to fix it**. If the feature doesn't run cleanly after 5 iterations of `fix -> retest`, the pipeline stops and calls a human in Telegram.
+The code is then deployed to local staging. Agent Marina executes E2E scenarios via Telethon and Playwright. The pipeline has a hard limit of **5 repair rounds**. If tests fail after 5 `fix -> retest` cycles, execution stops and alerts an engineer on Telegram.
 
-Across **240+ closed plans**, our operational metrics show:
-- **~84% of tasks** converge entirely autonomously from backlog to staging-verified state.
-- **~16% of tasks** require human escalation (predominantly due to undocumented legacy debt, third-party API mismatches, or ambiguous product decisions).
+Across **240+ closed plans**:
+- **~84% of tasks** pass through the pipeline fully autonomously to verified staging.
+- **~16% of tasks** require human intervention (due to undocumented legacy debt, third-party API divergences, or ambiguous ticket requirements).
 
-Deploying to production **remains a strictly manual human action**. Autonomy liberates developers from the tedious prep and verification loop, but the team retains ultimate accountability for the product.
+Production deployment is always executed manually by a human engineer. The pipeline automates development and verification while keeping release authority with the team.
 
-## Conclusion
+## Key Takeaway
 
-Making SDD work in the AI era means moving beyond writing Markdown files. It requires building a pipeline of hard barriers where agents keep each other in check. Without the Producer, independent reconnaissance, and adversarial review, a specification remains dead text. But with them, it transforms into an executable contract that moves the business forward without accumulating debt.
+Effective SDD in the AI era is not about writing Markdown documents, but establishing mutual verification between isolated models. Without codebase reconnaissance, independent criteria definition, and adversarial review, specifications quickly drift from production reality. A pipeline with strict verification gates turns specifications into enforceable contracts, making AI-driven development predictable and safe.
