@@ -55,13 +55,28 @@ It applies a CPO-lens value filter and outputs the **Top-5 Tasks**. Every task m
 
 ## Stage 1: Reconnaissance and Planning (The Orchestrator)
 
-Once a task is selected, the Orchestrator agent takes over. Its job is to drive the feature from idea to staging without stopping. But writing the spec itself isn't just generating one big file; it's a strict multi-step process.
+Writing the specification is not just generating one big Markdown file; it is a rigorous process of several isolated steps. The Orchestrator spins up a clean git worktree, reads all task comments, and begins reconnaissance.
 
-**Step 1. Isolation and Slicing (Preflight).** The Orchestrator spins up a clean git worktree to avoid crossing paths with neighbors and reads all comments on the task. Large features are never planned as a monolith. The Orchestrator forcibly slices the task into independent, ship-and-go increments (`plans/<feature-slug>-slices.md`). The specification is written for only one atomic increment at a time.
+**Step 1. Isolation and Slicing**
+The Orchestrator forcibly slices the task into atomic increments (`plans/<feature-slug>-slices.md`). Planning is done for only one small slice at a time. If it's a bug fix, a mandatory *Baseline Repro* step is triggered: the QA agent (Marina) attempts to reproduce the bug on the current build. Writing a fix without a confirmed red E2E test is strictly prohibited.
 
-**Step 2. Independent Acceptance Criteria.** Agent Olga (the business analyst) forms `acceptance-criteria.md`. The golden rule is that she works independently from the code author to avoid cognitive anchoring. Olga explicitly writes both positive scenarios and "Must Not" invariants—things the code is strictly forbidden to do.
+**Step 2. Pre-plan Scout**
+Before writing the plan, a read-only script scans the source code to gather exact file paths, dependencies, and current contracts. The plan is always grounded in real code, not LLM fantasies.
 
-**Step 3. The Hard Plan.** Only now is the actual `plan.md` generated. This isn't just a feature description; it is a step-by-step algorithm for a robot: Phase 1 (create tables), Phase 2 (write DTOs), Phase 3 (integration). All architectural crossroads and chosen tradeoffs are forcibly documented in a separate `decisions.md` file. There are zero "on the fly" architectural decisions during coding.
+**Step 3. Independent Acceptance Criteria (Agent Olga)**
+The business analyst agent forms `acceptance-criteria.md`. The golden rule is that she works independently of the code author (anti-anchoring). Olga explicitly writes positive scenarios and "Must Not" invariants—things the code is absolutely forbidden to do.
+
+**Step 4. UX Contract (Agent Eva)**
+If the slice touches the UI, the UX designer Eva steps in. She analyzes the project's existing design system and writes a strict UX contract: required states (loading, empty, error, success), components to reuse, and accessibility requirements.
+
+**Step 5. The Hard Plan and Blind Jury**
+Only now is the actual `plan.md` generated (via `/ck:plan --hard`). This is a step-by-step execution algorithm for a robot.
+The plan must include:
+- **Foundations**: a list of concepts the feature expects from the core. If something is missing, it is recorded as architectural debt.
+- **State Machine**: if entity statuses change, the Orchestrator writes a `state × event × guard × write` table. No status transitions without explicit condition checks.
+- **Blind Jury**: for complex tasks, 2-3 alternative architectural solutions are generated (without stating preferences) and sent to a "blind" LLM judge to avoid anchoring on the first idea that comes to mind.
+
+All architectural crossroads are forcibly documented in a separate `decisions.md` file. There are zero "on the fly" architectural decisions during coding. Finally, the finished plan goes through several rounds of adversarial review (Codex) until the judge says `NO ISSUES`.
 
 ## Stage 2: Adversarial Review
 
