@@ -53,7 +53,7 @@ The Producer evaluates product impact and selects the **Top-5 tasks**. If a task
 
 ## How the Specification is Formed
 
-Once a task is selected, the Orchestrator initiates specification preparation. Rather than drafting a single document, it executes a step-by-step requirements workflow:
+Once a task is selected, the Orchestrator does not attempt to write the specification in a single prompt. It synthesizes an executable contract across isolated stages:
 
 *Agent names (Olga, Eva, Marina) represent architectural isolation of context and prompt instructions. The acceptance criteria agent cannot view source code to prevent bias (anti-anchoring), while the QA agent has no access to backend code, testing the application strictly as a black box.*
 
