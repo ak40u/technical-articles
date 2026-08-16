@@ -55,13 +55,13 @@ It applies a CPO-lens value filter and outputs the **Top-5 Tasks**. Every task m
 
 ## Stage 1: Reconnaissance and Planning (The Orchestrator)
 
-Once a task is selected, the Orchestrator agent takes over. Its job is to drive the feature from idea to staging without stopping.
+Once a task is selected, the Orchestrator agent takes over. Its job is to drive the feature from idea to staging without stopping. But writing the spec itself isn't just generating one big file; it's a strict multi-step process.
 
-The specification starts with context isolation and decomposition (Preflight). The Orchestrator spins up a clean git worktree to avoid crossing paths with neighbors, and slices the task into independent increments (`plans/<feature-slug>-slices.md`). You cannot describe a system entirely — planning is only done for one small, independent slice at a time.
+**Step 1. Isolation and Slicing (Preflight).** The Orchestrator spins up a clean git worktree to avoid crossing paths with neighbors and reads all comments on the task. Large features are never planned as a monolith. The Orchestrator forcibly slices the task into independent, ship-and-go increments (`plans/<feature-slug>-slices.md`). The specification is written for only one atomic increment at a time.
 
-Next, Agent Olga (the business analyst) independently forms `acceptance-criteria.md`. She writes not only what should work, but also "Must Not" lists — things the code is strictly forbidden to do.
+**Step 2. Independent Acceptance Criteria.** Agent Olga (the business analyst) forms `acceptance-criteria.md`. The golden rule is that she works independently from the code author to avoid cognitive anchoring. Olga explicitly writes both positive scenarios and "Must Not" invariants—things the code is strictly forbidden to do.
 
-Only then is `plan.md` born — a document with rigid execution phases and a `decisions.md` file, where all architectural crossroads are recorded (why we chose option A instead of B).
+**Step 3. The Hard Plan.** Only now is the actual `plan.md` generated. This isn't just a feature description; it is a step-by-step algorithm for a robot: Phase 1 (create tables), Phase 2 (write DTOs), Phase 3 (integration). All architectural crossroads and chosen tradeoffs are forcibly documented in a separate `decisions.md` file. There are zero "on the fly" architectural decisions during coding.
 
 ## Stage 2: Adversarial Review
 
