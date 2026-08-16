@@ -28,7 +28,7 @@ To understand the chasm between theory and practice, look at this table:
 
 | Characteristic | Canonical SDD (in articles) | SDD in Findrates.ai (reality) |
 | :--- | :--- | :--- |
-| **Source of Value** | The client provides a ready task and spec | The Producer agent scans the backlog and error logs |
+| **Source of Value** | The client provides a ready task and spec | Backlog from business, PO, and operators + Producer's filter |
 | **Reconnaissance** | Code is written from scratch or by guessing | The Scout agent builds a `scout-map.log` before planning |
 | **Writing Criteria** | Written by the code author (self-checking) | Written by an independent analyst (Agent Olga) |
 | **Plan Review** | A human skims the Markdown | Adversarial review by Codex/Opus down to zero findings |
@@ -39,10 +39,10 @@ To understand the chasm between theory and practice, look at this table:
 
 ## Stage 0: Finding Value (The Producer Agent)
 
-The main problem with SDD is writing a perfect specification for a feature that nobody needs. To avoid this, we created the Producer agent (the `producer` skill).
+The main problem with SDD is writing a perfect specification for a feature that nobody needs. Value in our project comes from real people: the Product Owner, business stakeholders, and platform operators file tasks in ClickUp (bugs and wishes), while researchers request new features.
 
-Before a single line of spec is written, the Producer analyzes:
-1. The full backlog (hundreds of tasks).
+To avoid taking everything into work blindly, we created the Producer agent (the `producer` skill). Before a single line of spec is written, the Producer analyzes:
+1. The full backlog (wishes and bugs from people).
 2. The goals of the current pilot (MUST / SHOULD).
 3. Lessons learned from past releases (`retro.md`).
 4. Production signals (error alerts).
