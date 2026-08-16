@@ -43,9 +43,9 @@ To understand the chasm between theory and practice, look at this table:
 
 ## Stage 0: Finding Value (The Producer Agent)
 
-The main problem with SDD is writing a perfect specification for a feature that nobody needs. Value in our project comes from real people: the Product Owner, business stakeholders, and platform operators file tasks in ClickUp (bugs and wishes), while researchers request new features.
+A full SDD cycle (with reconnaissance, review, and TDD) is an expensive pipeline. The main mistake is feeding everything from the backlog into it blindly. Value in our project comes from real people: the Product Owner, business stakeholders, and platform operators file tasks in ClickUp (bugs and wishes), while researchers request new features.
 
-To avoid taking everything into work blindly, we created the Producer agent (the `producer` skill). Before a single line of spec is written, the Producer analyzes:
+To avoid burning the Orchestrator's resources on tasks that aren't needed right now, we created the Producer agent (the `producer` skill). Before a single line of spec is written, the Producer analyzes:
 1. The full backlog (wishes and bugs from people).
 2. The goals of the current pilot (MUST / SHOULD).
 3. Lessons learned from past releases (`retro.md`).
