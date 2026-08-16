@@ -34,7 +34,7 @@
 
     <!-- Phase 1: Autopilot / Scout -->
     <rect class="agent" x="270" y="120" width="160" height="60"/>
-    <text class="text-title" x="350" y="145">Autopilot: Scout</text>
+    <text class="text-title" x="350" y="145">Orchestrator: Scout</text>
     <text class="text-sub" x="350" y="165">Maps the territory</text>
 
     <!-- Artifact: Scout Log & AC -->

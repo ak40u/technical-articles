@@ -49,9 +49,9 @@ To avoid taking everything into work blindly, we created the Producer agent (the
 
 It applies a CPO-lens value filter and outputs the **Top-5 Tasks**. Every task must answer the question "why now?". If a task does not alleviate user pain, it gets deferred.
 
-## Stage 1: Reconnaissance and Planning (Autopilot)
+## Stage 1: Reconnaissance and Planning (The Orchestrator)
 
-Once a task is selected, the Orchestrator agent (the `autopilot` skill) takes over. Its job is to drive the feature from idea to staging without stopping.
+Once a task is selected, the Orchestrator agent takes over. Its job is to drive the feature from idea to staging without stopping.
 
 The specification starts with gathering facts. A Scout agent explores the codebase before creating the first line of the plan. It builds a map of relationships: file paths, line numbers, table schemas, and current invariants. The result settles in the `scout-map.log` artifact. You cannot describe a system without being tightly bound to the project's current state.
 
@@ -63,7 +63,7 @@ Only then is `plan.md` born — a document with rigid execution phases and a `de
 
 The author of the plan never checks their own plan. That is a strict rule.
 
-The finished specification text goes to an independent opposing model (Codex, DeepSeek V4 Pro, or Claude Opus). The reviewer looks for contract inconsistencies, phantom calls, and missing database migrations.
+The finished specification text goes to an independent opposing model (Codex, Tencent Hunyuan 3, or Claude Opus). The reviewer looks for contract inconsistencies, phantom calls, and missing database migrations.
 
 A cycle of checks begins. Development halts until the reviewer issues zero blocking findings. On complex tasks, this takes two to four iterations.
 
@@ -84,9 +84,9 @@ After writing, the `code-vs-plan` barrier triggers. A separate agent verifies th
 
 ## Stage 4: Marina's QA Loop
 
-If the code passes all gates, Autopilot deploys it to local staging and passes the baton to Agent Marina (QA skill).
+If the code passes all gates, the Orchestrator deploys it to local staging and passes the baton to Agent Marina (QA skill).
 
-Marina runs e2e scenarios (Telethon, Playwright). If she finds a bug, she returns it to Autopilot. Autopilot has a limit — **5 rounds to fix it**. If the feature does not run cleanly after 5 `fix -> retest` iterations, Autopilot surrenders and pages a human on Telegram.
+Marina runs e2e scenarios (Telethon, Playwright). If she finds a bug, she returns it to the Orchestrator. The Orchestrator has a limit — **5 rounds to fix it**. If the feature does not run cleanly after 5 `fix -> retest` iterations, the Orchestrator surrenders and pages a human on Telegram.
 
 ## Conclusion
 
