@@ -1,12 +1,12 @@
 ---
-title: "Spec-Driven Development in the AI Era: Forcing Agents to Write Code by Contract"
+title: "Agentic SDD: Forcing AI Agents to Write Code by Strict Contract"
 date: 2026-08-16
-description: "Why canonical SDD turns into dead documentation, and how we built a working process based on production signals, adversarial model reviews, and TDD checks."
+description: "Why canonical SDD turns into dead documentation, and how we built a working Agentic SDD pipeline based on production signals, adversarial model reviews, and BDD checks."
 author: "Pavel Volkov"
 image: "og/sdd-in-production-hero.png"
 ---
 
-In Findrates.ai, Spec-Driven Development runs every day: we have closed over 240 plans through this pipeline. Our actual process differs significantly from conference slides where SDD is presented as an effortless silver bullet.
+In Findrates.ai, **Agentic SDD** (autonomous spec-driven development) runs every day: we have closed over 240 plans through this pipeline. Our actual process differs significantly from conference slides where classical SDD is presented as an effortless silver bullet.
 
 ## The Limits of Vibecoding
 
@@ -16,17 +16,17 @@ To regain control over architecture, teams started adopting Spec-Driven Developm
 
 ## Why Canonical SDD Fails in Practice
 
-On paper, the workflow looks straightforward: a developer writes a spec, feeds it to an agent, and clicks "Apply."
+On paper, the workflow looks straightforward: a developer manually writes a spec, feeds it to an agent, and clicks "Apply."
 
 In practice, a specification written by a human or generated in a single chat session is disconnected from the real codebase. The author inevitably references non-existent database methods and ignores contracts of adjacent modules. When the AI generates code and writes its own tests, it simply verifies its own hallucinations. The project gets trapped in a `fix -> error -> fix` loop, and the specification becomes obsolete within two commits.
 
-We abandoned "trust-based" specs and built a pipeline where agents are strictly isolated and cross-check results at every stage.
+We abandoned "trust-based" specs and built **Agentic SDD**—a multi-layered pipeline where specialized agents prepare, review, and execute specifications across strictly isolated stages.
 
 ![SDD Pipeline](/en/articles/sdd-in-production/sdd-pipeline.svg)
 
 Theory vs. Production:
 
-| Parameter | Canonical SDD (in tutorials) | SDD in Findrates.ai (in production) |
+| Parameter | Canonical SDD (in tutorials) | Agentic SDD in Findrates.ai (in production) |
 | :--- | :--- | :--- |
 | **Source of Value** | Static task description from customer | Backlog from business, product, and operators + Producer filter |
 | **Reconnaissance** | Code written from scratch or assumptions | Orchestrator isolates context in a worktree and slices tasks (`<slug>-slices.md`) |
@@ -116,4 +116,4 @@ Production deployment is always executed manually by a human engineer. The pipel
 
 The difference between vibecoding chaos and a functioning pipeline comes down to one rule: **never allow a model to evaluate its own output**.
 
-When planning is isolated in a clean worktree, criteria are formulated by an independent agent, and an adversarial model eliminates phantom calls before a single line of code is written—SDD stops being a theoretical concept and becomes a reliable system running hundreds of production tasks.
+When planning is isolated in a clean worktree, criteria are formulated by an independent agent, and an adversarial model eliminates phantom calls before a single line of code is written—**Agentic SDD** stops being a theoretical concept and becomes a reliable system running hundreds of production tasks.

@@ -58,8 +58,8 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/claude-codex-concierge/": "How I Built a Concierge for Claude Code and Codex",
     "articles/digital-employee-18-days/": "18 дней без единой задачи от меня",
     "en/articles/digital-employee-18-days/": "18 Days Without a Single Task From Me",
-    "articles/sdd-in-production/": "Spec-Driven Development в эпоху ИИ: как заставить агентов писать код по контракту",
-    "en/articles/sdd-in-production/": "Spec-Driven Development in the AI Era: Forcing Agents to Write Code by Contract",
+    "articles/sdd-in-production/": "Agentic SDD: как заставить нейросети писать код по жестким спецификациям",
+    "en/articles/sdd-in-production/": "Agentic SDD: Forcing AI Agents to Write Code by Strict Contract",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
