@@ -8,7 +8,7 @@ image: "og/sdd-in-production-hero-en.png"
 
 A colleague recently sent me a screenshot of a chat: "Have you read about SDD? Implement it for me."
 
-In the `logicore-platform` project, Spec-Driven Development runs every day. We have closed over 240 plans through this pipeline. And our approach is radically different from the beautiful conference slides that describe SDD as a silver bullet.
+In the Findrates.ai project, Spec-Driven Development runs every day. We have closed over 240 plans through this pipeline. And our approach is radically different from the beautiful conference slides that describe SDD as a silver bullet.
 
 ## The Illusion of Canonical SDD
 
@@ -26,7 +26,7 @@ We abandoned specs from thin air and built a rigorous, multi-layered pipeline.
 
 To understand the chasm between theory and practice, look at this table:
 
-| Characteristic | Canonical SDD (in articles) | SDD in `logicore-platform` (reality) |
+| Characteristic | Canonical SDD (in articles) | SDD in Findrates.ai (reality) |
 | :--- | :--- | :--- |
 | **Source of Value** | The client provides a ready task and spec | The Producer agent scans the backlog and error logs |
 | **Reconnaissance** | Code is written from scratch or by guessing | The Scout agent builds a `scout-map.log` before planning |
