@@ -47,7 +47,7 @@ A full SDD cycle (with reconnaissance, review, and TDD) is an expensive pipeline
 
 To avoid burning the Orchestrator's resources on tasks that aren't needed right now, we created the Producer agent (the `producer` skill). Before a single line of spec is written, the Producer analyzes:
 1. The full backlog (wishes and bugs from people).
-2. The goals of the current pilot (MUST / SHOULD).
+2. The goals of the current release (MUST / SHOULD).
 3. Lessons learned from past releases (`retro.md`).
 4. Production signals (error alerts).
 
