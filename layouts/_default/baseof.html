@@ -7,6 +7,7 @@
   {{ partial "head-seo.html" . }}
   {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="78889464-6572-484d-bf1f-ddd627cf59e1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">{{ i18n "skip_to_content" }}</a>
