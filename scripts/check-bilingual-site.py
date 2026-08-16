@@ -19,10 +19,6 @@ PAGE_PAIRS = (
     ("articles/autonomous-digital-employee/", "en/articles/autonomous-digital-employee/"),
     ("articles/claude-codex-concierge/", "en/articles/claude-codex-concierge/"),
     ("articles/digital-employee-18-days/", "en/articles/digital-employee-18-days/"),
-    (
-        "articles/business-idea-validation-savings/",
-        "en/articles/business-idea-validation-savings/",
-    ),
 )
 EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg",
@@ -60,12 +56,6 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/claude-codex-concierge/": "How I Built a Concierge for Claude Code and Codex",
     "articles/digital-employee-18-days/": "18 дней без единой задачи от меня",
     "en/articles/digital-employee-18-days/": "18 Days Without a Single Task From Me",
-    "articles/business-idea-validation-savings/": (
-        "Как заказчик проверил бизнес-идею за $45 000 вместо $1,6 млн"
-    ),
-    "en/articles/business-idea-validation-savings/": (
-        "How a Client Tested a Business Idea for $45,000 Instead of $1.6 Million"
-    ),
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
@@ -269,8 +259,6 @@ def main() -> int:
         "og/claude-codex-concierge-hero-en.png",
         "og/digital-employee-18-days-hero.png",
         "og/digital-employee-18-days-hero-en.png",
-        "og/business-idea-validation-savings-hero.png",
-        "og/business-idea-validation-savings-hero-en.png",
         "index.xml",
         "en/index.xml",
         "llms.txt",
@@ -333,9 +321,6 @@ def main() -> int:
         "articles/autonomous-digital-employee/": "og/autonomous-digital-employee-hero.png",
         "articles/claude-codex-concierge/": "og/claude-codex-concierge-hero.png",
         "articles/digital-employee-18-days/": "og/digital-employee-18-days-hero.png",
-        "articles/business-idea-validation-savings/": (
-            "og/business-idea-validation-savings-hero.png"
-        ),
         "en/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/about/": "og/ai-tech-teams-workflow-hero-en.png",
         "en/articles/": "og/ai-tech-teams-workflow-hero-en.png",
@@ -343,9 +328,6 @@ def main() -> int:
         "en/articles/autonomous-digital-employee/": "og/autonomous-digital-employee-hero-en.png",
         "en/articles/claude-codex-concierge/": "og/claude-codex-concierge-hero-en.png",
         "en/articles/digital-employee-18-days/": "og/digital-employee-18-days-hero-en.png",
-        "en/articles/business-idea-validation-savings/": (
-            "og/business-idea-validation-savings-hero-en.png"
-        ),
     }
     for route, image in page_og.items():
         path = page_file(public, route)
