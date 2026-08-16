@@ -24,6 +24,8 @@ PAGE_PAIRS = (
 EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg",
     "en/articles/sdd-in-production/sdd-pipeline.svg",
+    "en/articles/sdd-in-production/spec-synthesis.svg",
+    "en/articles/sdd-in-production/qa-verification-loop.svg",
     "en/articles/autonomous-digital-employee/system-architecture.svg",
     "en/articles/autonomous-digital-employee/autonomy-loop.svg",
     "en/articles/claude-codex-concierge/delegation-levels.svg",
@@ -38,6 +40,8 @@ BUNDLE_DIAGRAM_COUNTS = {
     "en/articles/claude-codex-concierge/": 2,
     "articles/digital-employee-18-days/": 1,
     "en/articles/digital-employee-18-days/": 1,
+    "articles/sdd-in-production/": 3,
+    "en/articles/sdd-in-production/": 3,
 }
 MERMAID_HEADINGS = {
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg": (
@@ -267,6 +271,10 @@ def main() -> int:
         "og/sdd-in-production-hero-en.png",
         "articles/sdd-in-production/sdd-pipeline-ru.svg",
         "en/articles/sdd-in-production/sdd-pipeline.svg",
+        "articles/sdd-in-production/spec-synthesis-ru.svg",
+        "en/articles/sdd-in-production/spec-synthesis.svg",
+        "articles/sdd-in-production/qa-verification-loop-ru.svg",
+        "en/articles/sdd-in-production/qa-verification-loop.svg",
         "index.xml",
         "en/index.xml",
         "llms.txt",

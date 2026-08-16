@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 440">
+    <!-- Background -->
+    <rect width="1140" height="440" fill="#f8fafc" rx="8"/>
+    
+    <!-- Definitions -->
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,1 L9,5 L0,9" fill="none" stroke="#64748b" stroke-width="2"/>
+        </marker>
+        <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,1 L9,5 L0,9" fill="none" stroke="#16a34a" stroke-width="2"/>
+        </marker>
+        <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,1 L9,5 L0,9" fill="none" stroke="#ef4444" stroke-width="2"/>
+        </marker>
+        <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,1 L9,5 L0,9" fill="none" stroke="#f59e0b" stroke-width="2"/>
+        </marker>
+        <style>
+            .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2px; rx: 6px; }
+            .agent-box { fill: #eff6ff; stroke: #93c5fd; stroke-width: 2px; rx: 6px; }
+            .artifact-box { fill: #f0fdf4; stroke: #86efac; stroke-width: 2px; rx: 6px; }
+            .gate-box { fill: #fef2f2; stroke: #fca5a5; stroke-width: 2px; rx: 6px; }
+            .amber-box { fill: #fffbeb; stroke: #fde68a; stroke-width: 2px; rx: 6px; }
+            
+            .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: bold; font-size: 13px; fill: #0f172a; text-anchor: middle; }
+            .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #475569; text-anchor: middle; }
+            .badge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: bold; fill: #334155; text-anchor: middle; }
+            .label-green { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: bold; fill: #15803d; text-anchor: middle; }
+            .label-red { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: bold; fill: #b91c1c; text-anchor: middle; }
+            .label-amber { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: bold; fill: #d97706; text-anchor: middle; }
+        </style>
+    </defs>
+
+    <!-- Header Labels -->
+    <text class="badge" x="140" y="35">1. Code &amp; TDD</text>
+    <text class="badge" x="425" y="35">2. Compliance Gate</text>
+    <text class="badge" x="710" y="35">3. Marina QA Pipeline</text>
+    <text class="badge" x="995" y="35">4. Verification Outcome</text>
+
+    <!-- Column 1: Cook & Tests -->
+    <rect class="agent-box" x="30" y="60" width="220" height="60"/>
+    <text class="title" x="140" y="85">Code Generation</text>
+    <text class="subtitle" x="140" y="103">Cooked via plan.md phases</text>
+
+    <line x1="140" y1="120" x2="140" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect class="artifact-box" x="30" y="150" width="220" height="70"/>
+    <text class="title" x="140" y="175">BDD + Stryker</text>
+    <text class="subtitle" x="140" y="193">Tests written before code</text>
+    <text class="subtitle" x="140" y="208">Mutation testing gate</text>
+
+    <!-- Connection to Column 2 -->
+    <path d="M 250 185 L 315 185" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Column 2: code-vs-plan gate -->
+    <rect class="gate-box" x="315" y="145" width="220" height="80"/>
+    <text class="title" x="425" y="173">code-vs-plan Gate</text>
+    <text class="subtitle" x="425" y="193">Diff checked against spec</text>
+    <text class="subtitle" x="425" y="209">Blocks contract deviations</text>
+
+    <!-- Connection to Column 3 -->
+    <path d="M 535 185 L 600 185" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Column 3: Local Staging & Marina QA Loop -->
+    <rect class="box" x="600" y="60" width="220" height="55"/>
+    <text class="title" x="710" y="83">Local Staging</text>
+    <text class="subtitle" x="710" y="101">Isolated ephemeral deploy</text>
+
+    <line x1="710" y1="115" x2="710" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect class="agent-box" x="600" y="150" width="220" height="75"/>
+    <text class="title" x="710" y="175">Agent Marina (QA)</text>
+    <text class="subtitle" x="710" y="193">E2E scenarios (Playwright)</text>
+    <text class="subtitle" x="710" y="209">Telethon &amp; API tests</text>
+
+    <!-- Loop: fix -> retest (Cap = 5) -->
+    <path d="M 710 225 C 710 290, 140 290, 140 220" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-amber)"/>
+    <text class="label-amber" x="425" y="280">E2E failure: fix -> retest loop (Cap = 5)</text>
+
+    <!-- Branch A: Success (~84%) -->
+    <path d="M 820 170 C 850 170, 850 110, 885 110" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text class="label-green" x="850" y="130">GO (~84%)</text>
+
+    <rect class="artifact-box" x="885" y="80" width="220" height="60" stroke="#16a34a" stroke-width="2"/>
+    <text class="title" x="995" y="105" fill="#15803d">Green Staging</text>
+    <text class="subtitle" x="995" y="125">Ready for manual prod release</text>
+
+    <!-- Branch B: Escalation (~16%) -->
+    <path d="M 820 205 C 850 205, 850 260, 885 260" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text class="label-red" x="850" y="245">5 rounds (~16%)</text>
+
+    <rect class="gate-box" x="885" y="230" width="220" height="60" stroke="#ef4444" stroke-width="2"/>
+    <text class="title" x="995" y="255" fill="#b91c1c">Telegram Alert</text>
+    <text class="subtitle" x="995" y="275">Escalates to human engineer</text>
+
+    <!-- Bottom note -->
+    <rect class="amber-box" x="270" y="340" width="600" height="50"/>
+    <text class="subtitle" x="570" y="362" font-weight="bold" fill="#78350f">Release Authority: Prod release is always manual by a human.</text>
+    <text class="subtitle" x="570" y="377" fill="#92400e">Autonomy operates strictly from "Backlog to Staging".</text>
+
+</svg>

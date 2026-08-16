@@ -57,6 +57,8 @@ Once a task is selected, the Orchestrator does not attempt to write the specific
 
 *Agent names (Olga, Eva, Marina) represent architectural isolation of context and prompt instructions. The acceptance criteria agent cannot view source code to prevent bias (anti-anchoring), while the QA agent has no access to backend code, testing the application strictly as a black box.*
 
+![Spec Synthesis Loop](/en/articles/sdd-in-production/spec-synthesis.svg)
+
 **1. Isolation and Slicing**  
 The Orchestrator spins up an isolated git worktree and divides the feature into independent slices (`plans/<feature-slug>-slices.md`). Only one atomic increment is planned at a time. For bug fixes, a strict rule applies: Agent Marina must first reproduce the defect on the current build (Baseline Repro). No fix is written without a confirmed red E2E test.
 
@@ -105,6 +107,8 @@ Existing method requires explicit `tenantId`. The plan will break build on step 
 Only after plan approval does the Orchestrator generate code. We enforce BDD (Behavior-Driven Development): tests are written to the specification before implementation. Mutation testing (Stryker) verifies test quality—if code changes pass without failing tests, the build is rejected. After code generation, the `code-vs-plan` gate validates the implementation against Olga's criteria.
 
 The code is then deployed to local staging. Agent Marina executes E2E scenarios via Telethon and Playwright. The pipeline has a hard limit of **5 repair rounds**. If tests fail after 5 `fix -> retest` cycles, execution stops and alerts an engineer on Telegram.
+
+![QA Verification Loop](/en/articles/sdd-in-production/qa-verification-loop.svg)
 
 Across **240+ closed plans**:
 - **~84% of tasks** pass through the pipeline fully autonomously to verified staging.
