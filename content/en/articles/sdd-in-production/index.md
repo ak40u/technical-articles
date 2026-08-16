@@ -70,7 +70,7 @@ The business analyst agent forms `acceptance-criteria.md`. The golden rule is th
 If the slice touches the UI, the UX designer Eva steps in. She analyzes the project's existing design system and writes a strict UX contract: required states (loading, empty, error, success), components to reuse, and accessibility requirements.
 
 **Step 5. The Hard Plan and Blind Jury**
-Only now is the actual `plan.md` generated (via `/ck:plan --hard`). This is a step-by-step execution algorithm for a robot.
+Only now is the actual `plan.md` generated. This is a step-by-step execution algorithm for a robot.
 The plan must include:
 - **Foundations**: a list of concepts the feature expects from the core. If something is missing, it is recorded as architectural debt.
 - **State Machine**: if entity statuses change, the Orchestrator writes a `state × event × guard × write` table. No status transitions without explicit condition checks.
