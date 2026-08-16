@@ -114,4 +114,6 @@ Production deployment is always executed manually by a human engineer. The pipel
 
 ## Key Takeaway
 
-Effective SDD in the AI era is not about writing Markdown documents, but establishing mutual verification between isolated models. Without codebase reconnaissance, independent criteria definition, and adversarial review, specifications quickly drift from production reality. A pipeline with strict verification gates turns specifications into enforceable contracts, making AI-driven development predictable and safe.
+A specification in AI-driven development only functions reliably when planning, implementation, and testing are strictly isolated from one another.
+
+Without codebase reconnaissance, independent acceptance criteria, BDD, and adversarial review, specifications immediately drift from production reality. An automated pipeline with rigid quality gates solves the core challenge of delegating engineering work to LLMs: it forces models to cross-verify each other before changes ever reach master.
