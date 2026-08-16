@@ -22,7 +22,7 @@ Tutorials promise a straightforward path. You write a specification in OpenAPI, 
 
 On a live, legacy codebase, this process breaks immediately.
 
-If an agent (or a human programmer) conjures a specification "out of thin air," they invent database methods and break the contracts of neighboring modules. When that same agent writes tests for its own code, it verifies its own hallucinations. The specification becomes obsolete two commits later, and unmanageable technical debt (drift) begins.
+In theory, a specification should be grounded in reality. But in practice (especially in AI tutorials), it is often generated in a vacuum. If you write a spec without tightly coupling it to the current state of a legacy codebase, the author inevitably invents non-existent database methods and breaks the contracts of neighboring modules. When that same author writes tests for their own code, they verify their own hallucinations. The specification becomes obsolete two commits later, and unmanageable technical debt (drift) begins.
 
 We abandoned specs from thin air and built a rigorous, multi-layered pipeline.
 
