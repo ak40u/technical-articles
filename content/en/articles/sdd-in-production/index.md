@@ -32,16 +32,16 @@ To understand the chasm between theory and practice, look at this table:
 | :--- | :--- | :--- |
 | **Source of Value** | The client provides a ready-made task and spec | Backlog from business, product, and operators + Producer's filter |
 | **Reconnaissance** | Code is written from scratch or guesswork | Orchestrator isolates context and slices the task (`<slug>-slices.md`) |
-| **Acceptance Criteria** | Written by the code author (checking themselves) | Written by an independent analyst (Agent Olga) |
+| **Acceptance Criteria** | Written by the code author (checking themselves) | Written by an independent analyst (Agent Olga) with Must-Not lists |
 | **Plan Review** | A human skims the Markdown | Adversarial review by independent LLMs down to zero findings |
 | **Verification (TDD)** | Tests are written after implementation | Strict BDD before code + Stryker (mutation testing) |
-| **QA and Deploy** | Manual handoff to a tester | Marina's QA cycle: 5 rounds of `fix -> retest` without humans |
+| **QA and Deploy** | Manual handoff to a tester | Marina's QA cycle: up to 5 rounds of `fix -> retest` (prod is manual only) |
 
 ---
 
 ## The Value Filter: Don't Burn the Machine
 
-A full SDD cycle (with reconnaissance, adversarial review, mutation testing, and E2E QA) is an extremely expensive pipeline. The main mistake is feeding everything from the backlog into it blindly. If you run every minor wish through it, you will simply burn computational resources and time.
+A full SDD cycle (with reconnaissance, adversarial review, mutation testing, and E2E QA) is a resource-intensive pipeline. A single slice execution consumes between $2 and $6 in API tokens and takes 15–25 minutes of model run-time. That is an order of magnitude cheaper and faster than an hour of senior engineer time, but feeding the whole backlog into it indiscriminately is the fastest way to burn your compute budget on tasks nobody needs.
 
 Value in Findrates.ai comes from real people: the Product Owner, business stakeholders, and platform operators file tasks in ClickUp, while researchers request new features. To avoid taking everything into work blindly, we created the Producer agent (the `producer` skill).
 
@@ -57,6 +57,8 @@ It applies a value filter (CPO-lens) and yields the **Top-5 tasks**. Every task 
 
 Once a task is selected, the Orchestrator agent takes over. Writing the specification is not just generating one big Markdown file; it is a rigorous, isolated process of five steps.
 
+> **A Note on Agent Personas:** Names like "Olga", "Eva", or "Marina" are not roleplay. They represent strict architectural isolation of contexts and prompt rubrics. The AC agent knows nothing about code to prevent expectation bias (anti-anchoring), while the QA agent has zero access to backend source files, ensuring the system is tested as a strict "black box."
+
 **1. Isolation and Slicing**
 The Orchestrator spins up a clean git worktree to avoid crossing paths with neighbors and forcibly slices the task into atomic increments (`plans/<feature-slug>-slices.md`). Planning is always done for only one small slice at a time. If it's a bug fix, a mandatory *Baseline Repro* step is triggered: the QA agent (Marina) attempts to reproduce the bug on the current build. Writing a fix without a confirmed red E2E test is strictly prohibited.
 
@@ -64,7 +66,17 @@ The Orchestrator spins up a clean git worktree to avoid crossing paths with neig
 Before writing the plan, a read-only script scans the source code to gather exact file paths, dependencies, and current contracts. The plan is always grounded in real code, not LLM fantasies.
 
 **3. Independent Acceptance Criteria (Agent Olga)**
-The business analyst agent forms `acceptance-criteria.md`. The golden rule is that she works independently of the code author (anti-anchoring). Olga explicitly writes positive scenarios and "Must Not" invariants—things the code is absolutely forbidden to do.
+The business analyst agent forms `acceptance-criteria.md`. The golden rule is that she works independently of the code author (anti-anchoring). Olga explicitly writes positive scenarios and mandatory "Must Not" invariants:
+
+```markdown
+### Acceptance Criteria
+- [ ] When currency changes, recalculate rate using Central Bank rate on creation date.
+- [ ] Display currency indicator in rate card and comparison table.
+
+### Must-Not Invariants
+- [ ] MUST NOT finalize request with status EXPIRED.
+- [ ] MUST NOT invoke `recalculateTotal()` without operator permissions check.
+```
 
 **4. UX Contract (Agent Eva)**
 If the slice touches the UI, the UX designer Eva steps in. She analyzes the project's existing design system and writes a strict UX contract: required states (loading, empty, error, success), components to reuse, and accessibility requirements.
@@ -84,11 +96,24 @@ All architectural crossroads are forcibly documented in a separate `decisions.md
 
 The specification is written, but the author of the plan never verifies their own plan. That is the law.
 
-The finished text goes to an independent opposing model (Codex, Tencent Hunyuan 3, or Claude Opus). The reviewer looks for contract mismatches, phantom calls, and missing DB migrations. Development halts until the reviewer issues zero blocking findings. On complex tasks, this takes several iterations.
+The finished text goes to an independent opposing model (Codex, Tencent Hunyuan 3, or Claude Opus). The reviewer looks for contract mismatches, phantom calls, and missing DB migrations. Development halts until the reviewer issues zero blocking findings.
+
+Here is a real snippet from the reviewer log `codex-plan-review.log`:
+```markdown
+[CRITICAL] Phantom DB method in Phase 2.
+Call `db.rates.updateStatus()` does not exist in `src/db/rates.ts`. 
+Existing method requires explicit `tenantId`. The plan will break build on step 3.
+```
 
 Only after the specification is approved does the Orchestrator write code. Here, strict BDD (Behavior-Driven Development) and Stryker come into play. We do not allow writing tests "to the code"—they are written strictly to the specification before implementation. Mutation testing (Stryker) ensures the tests aren't empty shells: if the logic can be broken and the tests are still green, the build fails. Once the code is written, a separate `code-vs-plan` gate checks the finished code against Olga's original criteria. Any deviation blocks the branch merge.
 
 Finally, the code is deployed to local staging, and Agent Marina (QA) takes the baton. She runs E2E scenarios (Telethon, Playwright). The Orchestrator has a hard limit—**5 rounds to fix it**. If the feature doesn't run cleanly after 5 iterations of `fix -> retest`, the pipeline stops and calls a human in Telegram.
+
+Across **240+ closed plans**, our operational metrics show:
+- **~84% of tasks** converge entirely autonomously from backlog to staging-verified state.
+- **~16% of tasks** require human escalation (predominantly due to undocumented legacy debt, third-party API mismatches, or ambiguous product decisions).
+
+Deploying to production **remains a strictly manual human action**. Autonomy liberates developers from the tedious prep and verification loop, but the team retains ultimate accountability for the product.
 
 ## Conclusion
 
