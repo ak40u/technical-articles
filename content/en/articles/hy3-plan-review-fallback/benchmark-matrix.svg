@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 380">
+    <rect width="1140" height="380" fill="#f8fafc" rx="8"/>
+    <style>
+        .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2px; rx: 8px; }
+        .card-winner { fill: #f0fdf4; stroke: #22c55e; stroke-width: 2.5px; rx: 8px; }
+        .card-primary { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2px; rx: 8px; }
+        
+        .header { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: bold; font-size: 15px; fill: #0f172a; }
+        .metric-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; }
+        .metric-val { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: bold; font-size: 18px; fill: #0f172a; }
+        .metric-val-winner { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: bold; font-size: 20px; fill: #16a34a; }
+        .subtext { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #475569; }
+        .badge-winner { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; font-weight: bold; fill: #16a34a; }
+        .badge-primary { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; font-weight: bold; fill: #2563eb; }
+        .bar-bg { fill: #e2e8f0; rx: 3px; }
+        .bar-fill { fill: #22c55e; rx: 3px; }
+        .bar-fill-blue { fill: #3b82f6; rx: 3px; }
+        .bar-fill-gray { fill: #94a3b8; rx: 3px; }
+    </style>
+
+    <!-- Card 1: Tencent Hunyuan 3 (Winner) -->
+    <rect class="card-winner" x="30" y="30" width="255" height="320"/>
+    <text class="badge-winner" x="50" y="58">WINNER · DEFAULT FALLBACK</text>
+    <text class="header" x="50" y="82">Tencent Hunyuan 3</text>
+    <text class="subtext" x="50" y="100">MoE · 262k context · OpenRouter</text>
+
+    <text class="metric-title" x="50" y="130">FLAWS DETECTED</text>
+    <text class="metric-val-winner" x="50" y="155">9 of 9 (100%)</text>
+    <rect class="bar-bg" x="50" y="165" width="215" height="6"/>
+    <rect class="bar-fill" x="50" y="165" width="215" height="6"/>
+
+    <text class="metric-title" x="50" y="195">CONSISTENCY (4 RUNS)</text>
+    <text class="metric-val" x="50" y="215">4 / 4 (100%)</text>
+
+    <text class="metric-title" x="50" y="245">REASONING DURATION</text>
+    <text class="metric-val" x="50" y="265">12–18 min</text>
+
+    <text class="metric-title" x="50" y="295">TOKEN PRICING (1M)</text>
+    <text class="metric-val-winner" x="50" y="318">$0.13 in / $0.53 out</text>
+
+    <!-- Card 2: OpenAI Codex GPT-5.6-sol -->
+    <rect class="card-primary" x="305" y="30" width="255" height="320"/>
+    <text class="badge-primary" x="325" y="58">PRIMARY WORKHORSE</text>
+    <text class="header" x="325" y="82">Codex (GPT-5.6-sol)</text>
+    <text class="subtext" x="325" y="100">Reasoning effort = "xhigh"</text>
+
+    <text class="metric-title" x="325" y="130">FLAWS DETECTED</text>
+    <text class="metric-val" x="325" y="155">8 of 9 (89%)</text>
+    <rect class="bar-bg" x="325" y="165" width="215" height="6"/>
+    <rect class="bar-fill-blue" x="325" y="165" width="191" height="6"/>
+
+    <text class="metric-title" x="325" y="195">CONSISTENCY (4 RUNS)</text>
+    <text class="metric-val" x="325" y="215">4 / 4 (100%)</text>
+
+    <text class="metric-title" x="325" y="245">REASONING DURATION</text>
+    <text class="metric-val" x="325" y="265">4–7 min</text>
+
+    <text class="metric-title" x="325" y="295">TOKEN PRICING (1M)</text>
+    <text class="metric-val" x="325" y="318">Pro Tier (Quotas)</text>
+
+    <!-- Card 3: DeepSeek V4 Reasoning -->
+    <rect class="card" x="580" y="30" width="255" height="320"/>
+    <text class="subtext" x="600" y="58" font-weight="bold">FAST PRE-FILTER</text>
+    <text class="header" x="600" y="82">DeepSeek V4</text>
+    <text class="subtext" x="600" y="100">Reasoning / OpenRouter</text>
+
+    <text class="metric-title" x="600" y="130">FLAWS DETECTED</text>
+    <text class="metric-val" x="600" y="155">6 of 9 (67%)</text>
+    <rect class="bar-bg" x="600" y="165" width="215" height="6"/>
+    <rect class="bar-fill-gray" x="600" y="165" width="144" height="6"/>
+
+    <text class="metric-title" x="600" y="195">CONSISTENCY (4 RUNS)</text>
+    <text class="metric-val" x="600" y="215">3 / 4 (75%)</text>
+
+    <text class="metric-title" x="600" y="245">REASONING DURATION</text>
+    <text class="metric-val" x="600" y="265">2–4 min</text>
+
+    <text class="metric-title" x="600" y="295">TOKEN PRICING (1M)</text>
+    <text class="metric-val" x="600" y="318">$0.14 in / $0.28 out</text>
+
+    <!-- Card 4: Claude Sonnet 4.6 & Gemini 2.5 Pro -->
+    <rect class="card" x="855" y="30" width="255" height="320"/>
+    <text class="subtext" x="875" y="58" font-weight="bold">FRONTIER GENERALISTS</text>
+    <text class="header" x="875" y="82">Sonnet 4.6 / Gemini</text>
+    <text class="subtext" x="875" y="100">General Purpose Frontier LLMs</text>
+
+    <text class="metric-title" x="875" y="130">FLAWS DETECTED</text>
+    <text class="metric-val" x="875" y="155">6–7 of 9 (67–78%)</text>
+    <rect class="bar-bg" x="875" y="165" width="215" height="6"/>
+    <rect class="bar-fill-gray" x="875" y="165" width="160" height="6"/>
+
+    <text class="metric-title" x="875" y="195">CONSISTENCY (4 RUNS)</text>
+    <text class="metric-val" x="875" y="215">2–3 / 4 (50–75%)</text>
+
+    <text class="metric-title" x="875" y="245">REASONING DURATION</text>
+    <text class="metric-val" x="875" y="265">1–3 min</text>
+
+    <text class="metric-title" x="875" y="295">TOKEN PRICING (1M)</text>
+    <text class="metric-val" x="875" y="318">$1.25–$3.00 in / $5–$15 out</text>
+</svg>

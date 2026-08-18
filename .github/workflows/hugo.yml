@@ -42,6 +42,10 @@ jobs:
           python3 scripts/check-diagram-ux.py public/en/articles/claude-codex-concierge/index.html assets/css/main.css 2
           python3 scripts/check-diagram-ux.py public/articles/digital-employee-18-days/index.html assets/css/main.css 1
           python3 scripts/check-diagram-ux.py public/en/articles/digital-employee-18-days/index.html assets/css/main.css 1
+          python3 scripts/check-diagram-ux.py public/articles/sdd-in-production/index.html assets/css/main.css 3
+          python3 scripts/check-diagram-ux.py public/en/articles/sdd-in-production/index.html assets/css/main.css 3
+          python3 scripts/check-diagram-ux.py public/articles/hy3-plan-review-fallback/index.html assets/css/main.css 2
+          python3 scripts/check-diagram-ux.py public/en/articles/hy3-plan-review-fallback/index.html assets/css/main.css 2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

@@ -20,12 +20,15 @@ PAGE_PAIRS = (
     ("articles/claude-codex-concierge/", "en/articles/claude-codex-concierge/"),
     ("articles/digital-employee-18-days/", "en/articles/digital-employee-18-days/"),
     ("articles/sdd-in-production/", "en/articles/sdd-in-production/"),
+    ("articles/hy3-plan-review-fallback/", "en/articles/hy3-plan-review-fallback/"),
 )
 EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg",
     "en/articles/sdd-in-production/sdd-pipeline.svg",
     "en/articles/sdd-in-production/spec-synthesis.svg",
     "en/articles/sdd-in-production/qa-verification-loop.svg",
+    "en/articles/hy3-plan-review-fallback/fallback-architecture.svg",
+    "en/articles/hy3-plan-review-fallback/benchmark-matrix.svg",
     "en/articles/autonomous-digital-employee/system-architecture.svg",
     "en/articles/autonomous-digital-employee/autonomy-loop.svg",
     "en/articles/claude-codex-concierge/delegation-levels.svg",
@@ -42,6 +45,8 @@ BUNDLE_DIAGRAM_COUNTS = {
     "en/articles/digital-employee-18-days/": 1,
     "articles/sdd-in-production/": 3,
     "en/articles/sdd-in-production/": 3,
+    "articles/hy3-plan-review-fallback/": 2,
+    "en/articles/hy3-plan-review-fallback/": 2,
 }
 MERMAID_HEADINGS = {
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg": (
@@ -64,6 +69,8 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/digital-employee-18-days/": "18 Days Without a Single Task From Me",
     "articles/sdd-in-production/": "Agentic SDD: как заставить нейросети писать код по жестким спецификациям",
     "en/articles/sdd-in-production/": "Agentic SDD: Forcing AI Agents to Write Code by Strict Contract",
+    "articles/hy3-plan-review-fallback/": "Выбор модели-фолбека для ревью планов: бенчмарк 12 LLM и внедрение Tencent Hunyuan 3",
+    "en/articles/hy3-plan-review-fallback/": "Choosing a Fallback LLM for Plan Review: Benchmarking 12 Models and Adopting Tencent Hunyuan 3",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
@@ -346,6 +353,8 @@ def main() -> int:
         "en/articles/digital-employee-18-days/": "og/digital-employee-18-days-hero-en.png",
         "articles/sdd-in-production/": "og/sdd-in-production-hero.png",
         "en/articles/sdd-in-production/": "og/sdd-in-production-hero-en.png",
+        "articles/hy3-plan-review-fallback/": "og/sdd-in-production-hero.png",
+        "en/articles/hy3-plan-review-fallback/": "og/sdd-in-production-hero-en.png",
     }
     for route, image in page_og.items():
         path = page_file(public, route)
