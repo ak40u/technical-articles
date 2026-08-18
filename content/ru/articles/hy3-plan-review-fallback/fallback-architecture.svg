@@ -29,7 +29,7 @@
 
     <!-- Column 1: Pipeline Orchestrator -->
     <rect class="box" x="30" y="60" width="220" height="70"/>
-    <text class="title" x="140" y="88">Автопилот: Этап 3</text>
+    <text class="title" x="140" y="88">Оркестратор: Этап 3</text>
     <text class="subtitle" x="140" y="106">Ревью спецификации plan.md</text>
     <text class="subtitle" x="140" y="120">до написания кода</text>
 

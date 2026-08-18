@@ -33,7 +33,7 @@
     <line x1="145" y1="180" x2="145" y2="205" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
     <path d="M 250 240 C 285 240, 285 147, 310 147" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
 
-    <!-- Phase 1: Autopilot / Scout -->
+    <!-- Phase 1: Orchestrator / Scout -->
     <text class="label" x="425" y="90">Этап 1: Разведка</text>
     <rect class="agent" x="320" y="115" width="210" height="65"/>
     <text class="text-title" x="425" y="140">Оркестратор: Скаут</text>

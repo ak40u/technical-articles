@@ -29,7 +29,7 @@
 
     <!-- Column 1: Pipeline Orchestrator -->
     <rect class="box" x="30" y="60" width="220" height="70"/>
-    <text class="title" x="140" y="88">Autopilot: Stage 3</text>
+    <text class="title" x="140" y="88">Orchestrator: Stage 3</text>
     <text class="subtitle" x="140" y="106">Plan review for plan.md</text>
     <text class="subtitle" x="140" y="120">Prior to implementation</text>
 

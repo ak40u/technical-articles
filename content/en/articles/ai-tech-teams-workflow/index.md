@@ -16,7 +16,7 @@ I stopped treating an AI agent as a lone contributor who just needs a good instr
 
 Instead I built a repeatable template for a small engineering team. One run takes a task or a coherent part of one, splits the work, separates responsibility, and goes through PR, CI, staging, QA and a QA audit. Only then does it report the outcome: done or blocked. Production release is automated too, but it lives outside the development cycle.
 
-A run has six permanent roles: orchestrator tech lead, plan reviewer, QA agent, QA auditor, UX reviewer, environment engineer. They do not own the product; they own stages. Product boundaries, contested decisions and starting the release autopilot stay with me. Along the way these roles pull in extra checks: security, accessibility, data, CI, browser scenarios, visual inspection.
+A run has six permanent roles: orchestrator tech lead, plan reviewer, QA agent, QA auditor, UX reviewer, environment engineer. They do not own the product; they own stages. Product boundaries, contested decisions and starting the release pipeline stay with me. Along the way these roles pull in extra checks: security, accessibility, data, CI, browser scenarios, visual inspection.
 
 The main rule is simple. No "done" is taken on faith. An author does not verify itself, a separate auditor verifies QA, and closure is decided by a service check that reads files. Missing verdict or wrong type of verdict — the run does not close.
 
@@ -322,7 +322,7 @@ If I were building a similar system from scratch, I would not start with the cho
 
 The system has limits and they matter. I do not consider it a universal replacement for an engineering team or for a product owner's personal decision.
 
-Production release is automated but lives in a separate loop. The engineering team finishes at "verified on staging, queued for release". After that I start the release autopilot separately: it has its own protocol, its own checks and the right to stop. The boundary matters: the team does not ship to production itself. It prepares a verified candidate, and the release loop takes it to production after a separate decision.
+Production release is automated but lives in a separate loop. The engineering team finishes at "verified on staging, queued for release". After that I start the release pipeline separately: it has its own protocol, its own checks and the right to stop. The boundary matters: the team does not ship to production itself. It prepares a verified candidate, and the release loop takes it to production after a separate decision.
 
 Taste is not automated either. The UX reviewer catches inaccessible controls, missing states, a broken mobile layout, a homemade component instead of a system one. But once the argument reaches "I do not like it", after two rounds it comes to me.
 
