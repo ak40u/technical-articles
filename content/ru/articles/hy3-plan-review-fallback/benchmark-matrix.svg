@@ -24,13 +24,13 @@
     <text class="header" x="50" y="82">Tencent Hunyuan 3</text>
     <text class="subtext" x="50" y="100">MoE · 262k контекст · OpenRouter</text>
 
-    <text class="metric-title" x="50" y="130">НАЙДЕНО ДЕФЕКТОВ</text>
-    <text class="metric-val-winner" x="50" y="155">9 из 9 (100%)</text>
+    <text class="metric-title" x="50" y="130">НАХОДКИ (4 ПРОГОНА)</text>
+    <text class="metric-val-winner" x="50" y="155">9, 9, 9, 9</text>
     <rect class="bar-bg" x="50" y="165" width="215" height="6"/>
     <rect class="bar-fill" x="50" y="165" width="215" height="6"/>
 
-    <text class="metric-title" x="50" y="195">СТАБИЛЬНОСТЬ (4 ПРОГОНА)</text>
-    <text class="metric-val" x="50" y="215">4 / 4 (100%)</text>
+    <text class="metric-title" x="50" y="195">РАЗБРОС МЕЖДУ ПРОГОНАМИ</text>
+    <text class="metric-val" x="50" y="215">нулевой (4 / 4)</text>
 
     <text class="metric-title" x="50" y="245">ВРЕМЯ РАССУЖДЕНИЯ</text>
     <text class="metric-val" x="50" y="265">12–18 мин</text>
@@ -38,63 +38,63 @@
     <text class="metric-title" x="50" y="295">СТОИМОСТЬ ЗА 1M ТОКЕНОВ</text>
     <text class="metric-val-winner" x="50" y="318">$0.13 in / $0.53 out</text>
 
-    <!-- Card 2: OpenAI Codex GPT-5.6-sol -->
+    <!-- Card 2: OpenAI Codex CLI -->
     <rect class="card-primary" x="305" y="30" width="255" height="320"/>
     <text class="badge-primary" x="325" y="58">ОСНОВНОЙ РАБОЧИЙ ДВИЖОК</text>
-    <text class="header" x="325" y="82">Codex (GPT-5.6-sol)</text>
+    <text class="header" x="325" y="82">OpenAI Codex CLI</text>
     <text class="subtext" x="325" y="100">Reasoning effort = "xhigh"</text>
 
-    <text class="metric-title" x="325" y="130">НАЙДЕНО ДЕФЕКТОВ</text>
-    <text class="metric-val" x="325" y="155">8 из 9 (89%)</text>
+    <text class="metric-title" x="325" y="130">НАХОДКИ (1 ЧЕСТНЫЙ ПРОГОН)</text>
+    <text class="metric-val" x="325" y="155">8</text>
     <rect class="bar-bg" x="325" y="165" width="215" height="6"/>
     <rect class="bar-fill-blue" x="325" y="165" width="191" height="6"/>
 
-    <text class="metric-title" x="325" y="195">СТАБИЛЬНОСТЬ (4 ПРОГОНА)</text>
-    <text class="metric-val" x="325" y="215">4 / 4 (100%)</text>
+    <text class="metric-title" x="325" y="195">РАЗБРОС МЕЖДУ ПРОГОНАМИ</text>
+    <text class="metric-val" x="325" y="215">не измерялся</text>
 
     <text class="metric-title" x="325" y="245">ВРЕМЯ РАССУЖДЕНИЯ</text>
-    <text class="metric-val" x="325" y="265">4–7 мин</text>
+    <text class="metric-val" x="325" y="265">~4,5 мин</text>
 
     <text class="metric-title" x="325" y="295">СТОИМОСТЬ ЗА 1M ТОКЕНОВ</text>
     <text class="metric-val" x="325" y="318">Pro Tier (квоты)</text>
 
-    <!-- Card 3: DeepSeek V4 Reasoning -->
+    <!-- Card 3: Claude Opus -->
     <rect class="card" x="580" y="30" width="255" height="320"/>
-    <text class="subtext" x="600" y="58" font-weight="bold">БЫСТРЫЙ ПРЕ-ФИЛЬТР</text>
-    <text class="header" x="600" y="82">DeepSeek V4</text>
-    <text class="subtext" x="600" y="100">Reasoning / OpenRouter</text>
+    <text class="subtext" x="600" y="58" font-weight="bold">ВТОРОЙ ПО ГЛУБИНЕ</text>
+    <text class="header" x="600" y="82">Claude Opus</text>
+    <text class="subtext" x="600" y="100">Claude Code CLI · read-only</text>
 
-    <text class="metric-title" x="600" y="130">НАЙДЕНО ДЕФЕКТОВ</text>
-    <text class="metric-val" x="600" y="155">6 из 9 (67%)</text>
+    <text class="metric-title" x="600" y="130">НАХОДКИ (2 ПРОГОНА)</text>
+    <text class="metric-val" x="600" y="155">7, 7</text>
     <rect class="bar-bg" x="600" y="165" width="215" height="6"/>
-    <rect class="bar-fill-gray" x="600" y="165" width="144" height="6"/>
+    <rect class="bar-fill-gray" x="600" y="165" width="167" height="6"/>
 
-    <text class="metric-title" x="600" y="195">СТАБИЛЬНОСТЬ (4 ПРОГОНА)</text>
-    <text class="metric-val" x="600" y="215">3 / 4 (75%)</text>
+    <text class="metric-title" x="600" y="195">РАЗБРОС МЕЖДУ ПРОГОНАМИ</text>
+    <text class="metric-val" x="600" y="215">нулевой (2 / 2)</text>
 
     <text class="metric-title" x="600" y="245">ВРЕМЯ РАССУЖДЕНИЯ</text>
-    <text class="metric-val" x="600" y="265">2–4 мин</text>
+    <text class="metric-val" x="600" y="265">11–14 мин</text>
 
     <text class="metric-title" x="600" y="295">СТОИМОСТЬ ЗА 1M ТОКЕНОВ</text>
-    <text class="metric-val" x="600" y="318">$0.14 in / $0.28 out</text>
+    <text class="metric-val" x="600" y="318">подписка</text>
 
-    <!-- Card 4: Claude Sonnet 4.6 & Gemini 2.5 Pro -->
+    <!-- Card 4: DeepSeek V4 Pro -->
     <rect class="card" x="855" y="30" width="255" height="320"/>
-    <text class="subtext" x="875" y="58" font-weight="bold">FRONTIER GENERALISTS</text>
-    <text class="header" x="875" y="82">Sonnet 4.6 / Gemini</text>
-    <text class="subtext" x="875" y="100">Флагманские универсальные LLM</text>
+    <text class="subtext" x="875" y="58" font-weight="bold">СТАБИЛЬНАЯ ПЛАТНАЯ АЛЬТЕРНАТИВА</text>
+    <text class="header" x="875" y="82">DeepSeek V4 Pro</text>
+    <text class="subtext" x="875" y="100">OpenRouter</text>
 
-    <text class="metric-title" x="875" y="130">НАЙДЕНО ДЕФЕКТОВ</text>
-    <text class="metric-val" x="875" y="155">6–7 из 9 (67–78%)</text>
+    <text class="metric-title" x="875" y="130">НАХОДКИ (3 ПРОГОНА)</text>
+    <text class="metric-val" x="875" y="155">7, 7, 7</text>
     <rect class="bar-bg" x="875" y="165" width="215" height="6"/>
-    <rect class="bar-fill-gray" x="875" y="165" width="160" height="6"/>
+    <rect class="bar-fill-gray" x="875" y="165" width="167" height="6"/>
 
-    <text class="metric-title" x="875" y="195">СТАБИЛЬНОСТЬ (4 ПРОГОНА)</text>
-    <text class="metric-val" x="875" y="215">2–3 / 4 (50–75%)</text>
+    <text class="metric-title" x="875" y="195">РАЗБРОС МЕЖДУ ПРОГОНАМИ</text>
+    <text class="metric-val" x="875" y="215">нулевой (3 / 3)</text>
 
     <text class="metric-title" x="875" y="245">ВРЕМЯ РАССУЖДЕНИЯ</text>
-    <text class="metric-val" x="875" y="265">1–3 мин</text>
+    <text class="metric-val" x="875" y="265">4–9 мин</text>
 
     <text class="metric-title" x="875" y="295">СТОИМОСТЬ ЗА 1M ТОКЕНОВ</text>
-    <text class="metric-val" x="875" y="318">$1.25–$3.00 in / $5–$15 out</text>
+    <text class="metric-val" x="875" y="318">$0.44 in / $0.87 out</text>
 </svg>

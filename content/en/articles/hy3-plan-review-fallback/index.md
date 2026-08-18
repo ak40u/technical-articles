@@ -8,11 +8,11 @@ image: "og/sdd-in-production-hero-en.png"
 
 In autonomous agent development (Agentic SDD), one of the most critical stages is **reviewing implementation plans and specs before writing any code**. If a logical defect slips past the planning stage, the implementing agent wastes dozens of minutes and API dollars implementing a broken architecture, while QA agents inherit false-positive test assertions.
 
-Our primary engine for deep plan review is **OpenAI Codex powered by flagship GPT-5.6-sol** running at maximum reasoning effort (`reasoning_effort="xhigh"`). However, in fully autonomous overnight batches, we periodically hit token quotas and provider rate limits. Furthermore, single-vendor dependency represented a single point of failure.
+Our primary engine for deep plan review is the **OpenAI Codex CLI** running at maximum reasoning effort (`reasoning_effort="xhigh"`). However, in fully autonomous overnight batches, we periodically hit token quotas and provider rate limits. Furthermore, single-vendor dependency represented a single point of failure.
 
 Following the end of our Antigravity-Gemini subscription on July 14, 2026, we benchmarked **12 LLMs** on a real-world task to select an uncompromising fallback reviewer. The winner was **Tencent Hunyuan 3 (`tencent/hy3`)**.
 
-Below is an analysis of Hunyuan 3's architecture, the benchmark methodology, comparative metrics against GPT-5.6-sol, and the implementation of our `codex-exec-safe.sh` execution harness.
+Below is an analysis of Hunyuan 3's architecture, the benchmark methodology, comparative metrics against Codex and Claude Opus, and the implementation of our `codex-exec-safe.sh` execution harness.
 
 ![Fallback Architecture](fallback-architecture.svg)
 
@@ -55,20 +55,22 @@ In production, these strengths translate into methodical step-by-step verificati
 
 ---
 
-## 3. The Testbed: Unimplemented Plan `86cb2ckwe`
+## 3. The Testbed: Unimplemented Plan `tg-webhook-timeout`
 
-We evaluated candidates on an authentic task from the **Findrates** backlog: `plans/86cb2ckwe-parser-option-loss/` (remedying commercial offer option loss in inbound email parsing).
+Our first testbed wasn't honest, and it took a while to notice. We took three real **Findrates** backlog plans that had already shipped and merged, and ran the reviewers against current `HEAD`. Models racked up points for findings like "this phase is a no-op, it's already done" — a class of finding that never occurs in the live pipeline, because plan review always runs **before** implementation. Ranking on that testbed was misleading: Grok 4.5 scored 10 findings, GLM-5.2 scored 8 in 71 seconds, and both looked stronger than they turned out to be.
 
-The plan contained **9 documented defect vectors** across database contracts, input validation, and boundary conditions. Three specific traps proved decisive:
+We rebuilt the decisive testbed around `tg-webhook-timeout` (the Telegram webhook intake budget and timeout plan — inbound message lock leasing, `message-id` dedup, and a "no silent 200 ACKs" invariant for both the voice and text paths), on a worktree pinned to commit `0bcafc42^` — the code state **before** this plan was implemented. All twelve models got the same prompt, the same checkout, and the same read-only access, including a symlink to `node_modules` so both sides could see inside `grammY` identically.
 
-1. **Non-discriminating anchor test:**
-   In Phase 2, the test-anchor instructed an SDK fake to "return one option per `Option N` block in received text". However, in the test fixture, `Option 3` began at character position 1909, while `truncateInput` in production code truncated input at exactly 2000 characters. The `Option 3` header was present in the prompt on *both* legacy and target builds, causing the test to pass unconditionally without proving the fix.
-2. **Hidden payload truncation:**
-   The parser received the `Option 3` header, but the tariff schedule payload was truncated, creating empty database rate records without raising errors.
-3. **Idempotency contract breakage on resend:**
-   The plan proposed updating rate records using an incomplete composite key, overwriting valid previously saved options.
+Manually verifying findings against the code surfaced three defect classes that different models caught:
 
-The remaining 6 defects covered unhandled SDK exceptions, schema type mismatches, and missing transaction rollback cleanups.
+1. **Missing caller abort signal:**
+   The `parse_new` branch (`parse-quote-request.ts:166`) has no timeout on the calling side — the code itself carries a comment: "callWithFallback has no caller signal." The plan raises the wait bound to 50 seconds, but that turns the current redelivery into a silent 200 ACK — a direct violation of the plan's own "must-not 7." Claude Opus and Hunyuan 3 flagged this independently.
+2. **Contract-test blind spot:**
+   `telegram-webhook-contract.test.ts:46` imports the mutable route handler directly, so it falls outside the blast radius the plan declares — meaning the very test meant to catch a regression physically cannot catch it. Of twelve models, only Hunyuan 3 found this.
+3. **Dedup running after the rate-limit check:**
+   Message-id dedup runs **after** the rate-limit check, so a duplicate that arrives once the caller is already rate-limited still slips a second visible message to the client. Codex found this; Hunyuan 3 confirmed it independently.
+
+A separate artifact of the testbed itself surfaced along the way: `opencode`'s `glob`/`grep` respect `.gitignore`, so `node_modules/` and `.claude/` are invisible to search even though a direct read at the full path works fine. Because of this, one model refused to verify `grammY` calls ("cannot check — search finds nothing"), and another declared a file "nonexistent" that actually exists in the main repository, just not in the isolated test worktree. We added a one-line fix for this blind spot to the review prompt.
 
 ![Model Benchmark Comparison](benchmark-matrix.svg)
 
@@ -76,36 +78,45 @@ The remaining 6 defects covered unhandled SDK exceptions, schema type mismatches
 
 ## 4. Benchmark Results Across 12 Models
 
-Each model received identical instructions, read-only repository permissions, and an isolated execution environment. Metrics:
-* Verified defect detection count (Ground Truth: 9 confirmed flaws).
-* False positive rate.
-* Consistency across 4 independent evaluation runs.
-* Runtime duration and token cost.
+Each model received identical instructions, read-only repository permissions, and an isolated execution environment on the `0bcafc42^` worktree. Metrics:
+* Findings per run and variance across repeat runs.
+* Share of findings confirmed by manual code verification, and false positives.
+* Runtime and cost by OpenRouter pricing, where the engine wasn't subscription-based.
 
 ### Comparative Evaluation Matrix
 
-| Model | Flaws Detected (of 9) | Consistency (4 runs) | Runtime | Cost (Input / Output per 1M) | Role in Pipeline |
+| Model | Findings (runs) | Variance | Runtime | Cost (Input / Output per 1M) | Role in Pipeline |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Tencent Hunyuan 3 (`hy3`)** | **9 / 9** | **100% (9 on all 4)** | 12–18 min | **$0.13 / $0.53** | **Primary Plan Review Fallback** |
-| **OpenAI Codex (GPT-5.6-sol, `xhigh`)** | 8 / 9 | 100% | 4–7 min | Codex Pro Tier | Primary Workhorse Engine |
-| **DeepSeek V4 (Reasoning)** | 6 / 9 | 75% | 2–4 min | $0.14 / $0.28 | Fast Pre-filter |
-| **Anthropic Claude Sonnet 4.6** | 7 / 9 | 75% | 1–2 min | $3.00 / $15.00 | Cost-prohibitive for high-volume fallback |
-| **Google Gemini 2.5 Pro** | 6 / 9 | 50% | 1–3 min | $1.25 / $5.00 | Legacy Fallback (pre-July) |
-| **Qwen 2.5 Coder / Qwen 3 (235B)** | 5 / 9 | 50% | 2–3 min | $0.20 / $0.60 | Missed character offset boundaries |
-| **Mistral Large / Codestral** | 5 / 9 | 50% | 1–2 min | $2.00 / $6.00 | Biased toward approving proposed plans |
-| *Remaining Evaluated Candidates* | ≤ 4 / 9 | < 50% | — | — | Failed strictness bar |
+| **Tencent Hunyuan 3 (`hy3`)** | **9, 9, 9, 9** | **zero (4/4)** | 12–18 min | **$0.13 / $0.53** | **Chosen fallback for every review stage** |
+| **OpenAI Codex (`xhigh`)** | 8 | 1 honest run | ~4.5 min | Codex Pro Tier | Primary workhorse engine |
+| **Claude Opus** (Claude Code CLI) | 7, 7 | zero (2/2) | 11–14 min | subscription | Second-deepest, 3x slower than hy3 |
+| **DeepSeek V4 Pro** | 7, 7, 7 | zero (3/3) | 4–9 min | $0.44 / $0.87 | Stable paid alternative |
+| Kimi K3 | 6, 3 | 2x swing | 8–9 min | $3.00 / $15.00 | Too inconsistent to trust as a gate |
+| GPT-5.6 Luna | 5 | 1 run | ~5 min | $0.10 / $0.60 | Cheap, but shallow |
+| DeepSeek V4 Flash | 3, 3, 3, 4 | consistently weak | 12–30 min | $0.09 / $0.18 | Hits a model ceiling, not a harness issue |
+| Grok 4.5 | 3 | 1 run | ~5.5 min | $2.00 / $6.00 | Didn't earn its price on the honest run |
+| Xiaomi MiMo v2.5 | 3 | run timed out mid-pass | > 4 min | $0.14 / $0.28 | Fell short |
+| GLM-5.2 | 2 | 1 run | ~4.5 min | not disclosed | Fast, but shallow on the honest run |
+| Gemini 3.5 Flash | 2 | 1 run | ~3 min | $1.50 / $9.00 | Below the bar |
+| Gemini 3.6 Flash | 2 | 1 run | ~3 min | $1.50 / $7.50 | Below the bar |
+
+A thirteenth candidate, `qwen/qwen3.8-max`, doesn't appear in the table: every current Qwen release on our OpenRouter account hit the account's guardrail privacy policy ("No endpoints available matching your guardrail restrictions") and returned nothing at all — that's missing data, not a low score.
+
+Arguably the single most important result of this testbed: **ranking on already-implemented versions of the same plans does not predict ranking on unimplemented ones.** Grok 4.5 scored 10 findings on the implemented plan and 3 on the honest one. Gemini Flash scored 7 and 2 respectively. Had we decided from the first, dishonest testbed, Grok would have shipped into the pipeline.
 
 ---
 
 ## 5. Why Hunyuan 3 Outperformed Flagship Models
 
-1. **Character-offset and boundary rigor:**
-   Hunyuan 3 was the only model that computed the exact length of the fixture text, compared it with the `truncateInput(2000)` constant in `parse-ai-json.ts`, and reported: *"Option 3 header begins at character 1909; it survives truncation, creating an illusion of data presence while the payload is lost."* Even GPT-5.6-sol initially treated this as expected truncation behavior.
-2. **262k Token Context Window:**
-   Large enough to load the entire plan, acceptance criteria, related source modules, and historical test fixtures simultaneously.
-3. **Economics:**
-   At **$0.13 per 1M input tokens** and **$0.53 per 1M output tokens**, a 15-minute exhaustive reasoning pass costs less than $0.02.
-4. **The Latency Trade-off:**
+1. **The one finding nobody else made:**
+   Of twelve participants, only Hunyuan 3 noticed that the contract test `telegram-webhook-contract.test.ts:46` imports the mutable route handler directly and therefore falls outside the plan's declared blast radius — meaning the safety-net test physically can't catch the regression it was written to catch. Neither Codex, nor Opus, nor any of the paid contenders saw it.
+2. **Reproducibility where everyone else drifted:**
+   Four independent runs, four times exactly 9 findings. DeepSeek V4 Pro matched that zero variance, but at seven findings; Opus matched it too, but at seven findings and three times slower. Every other contender's runs swung by 2x or more.
+3. **262k Token Context Window:**
+   Large enough to load the entire plan, acceptance criteria, and related source modules and tests simultaneously.
+4. **Economics:**
+   At **$0.13 per 1M input tokens** and **$0.53 per 1M output tokens**, one exhaustive 12–18-minute reasoning pass costs a few cents — an order of magnitude cheaper than paid alternatives like DeepSeek V4 Pro or Kimi K3, and without eating into the subscription quota Codex and Opus share.
+5. **The Latency Trade-off:**
    12–18 minutes is too slow for interactive code completion in an IDE, but **ideal for background autonomous pipelines**, where catching a flaw during planning saves hours of agentic rework and human debugging.
 
 ---
@@ -166,7 +177,7 @@ Switching to Hunyuan 3 requires setting one environment variable:
 CODEX_ENGINE=opencode codex-exec-safe.sh "<prompt>"
 ```
 
-Unsetting it restores default execution through `Codex (GPT-5.6-sol)`.
+Unsetting it restores default execution through the primary engine — the Codex CLI at `reasoning_effort="xhigh"`.
 
 ---
 
@@ -174,4 +185,4 @@ Unsetting it restores default execution through `Codex (GPT-5.6-sol)`.
 
 1. **Decouple generation from verification:** The model drafting code must never be the sole authority verifying its own assumptions.
 2. **Never compromise on verification latency:** A 15-minute verification delay during planning pays for itself by eliminating downstream production regressions.
-3. **Specialized reasoning models outperform general frontier models in niche tasks:** At $0.13/$0.53, Tencent Hunyuan 3 achieved superior defect detection over $15/1M models through relentless methodical reasoning.
+3. **Specialized reasoning models outperform general frontier models in niche tasks:** At $0.13/$0.53, Tencent Hunyuan 3 found more confirmed defects with less variance than Kimi K3 at $3/$15 per 1M, and out-found even the subscription-tier Codex and Opus — through relentless, unhurried reasoning.

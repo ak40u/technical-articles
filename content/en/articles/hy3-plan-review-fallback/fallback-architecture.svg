@@ -37,7 +37,7 @@
 
     <rect class="gate-box" x="30" y="175" width="220" height="70"/>
     <text class="title" x="140" y="202">Quota &amp; Limit Guard</text>
-    <text class="subtitle" x="140" y="220">Codex GPT-5.6-sol exhausted?</text>
+    <text class="subtitle" x="140" y="220">Codex CLI limit exhausted?</text>
     <text class="tag" x="140" y="235">CODEX_ENGINE=opencode</text>
 
     <path d="M 250 210 C 285 210, 285 110, 315 110" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
@@ -80,9 +80,9 @@
 
     <rect class="artifact-box" x="885" y="60" width="220" height="110"/>
     <text class="title" x="995" y="88">Plan Defect Report</text>
-    <text class="subtitle" x="995" y="108">9 critical findings</text>
-    <text class="subtitle" x="995" y="126">Offset 1909 vs 2000 char trap</text>
-    <text class="subtitle" x="995" y="144">100% consistency across 4 runs</text>
+    <text class="subtitle" x="995" y="108">9 findings per run</text>
+    <text class="subtitle" x="995" y="126">1 of 9 false (testbed artifact)</text>
+    <text class="subtitle" x="995" y="144">Zero variance across 4 runs</text>
 
     <line x1="995" y1="170" x2="995" y2="210" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
 
