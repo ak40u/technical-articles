@@ -55,22 +55,19 @@ In production, these strengths translate into methodical step-by-step verificati
 
 ---
 
-## 3. The Testbed: Unimplemented Plan `tg-webhook-timeout`
+## 3. The Testbed: A Plan That Wasn't Implemented Yet
 
-Our first testbed wasn't honest, and it took a while to notice. We took three real **Findrates** backlog plans that had already shipped and merged, and ran the reviewers against current `HEAD`. Models racked up points for findings like "this phase is a no-op, it's already done" — a class of finding that never occurs in the live pipeline, because plan review always runs **before** implementation. Ranking on that testbed was misleading: Grok 4.5 scored 10 findings, GLM-5.2 scored 8 in 71 seconds, and both looked stronger than they turned out to be.
+Our first testbed wasn't honest, and it took a while to notice. We took three real **Findrates** backlog plans that had already shipped and merged, and had the reviewers judge them against the finished code. Models started racking up points for findings like "this phase is already done, nothing to check here" — a class of finding that never occurs in the live pipeline, because plan review always runs before the code is written, not after. Ranking on that testbed would have misled us: Grok 4.5 scored 10 findings, GLM-5.2 scored 8 in 71 seconds, and both looked stronger than they turned out to be.
 
-We rebuilt the decisive testbed around `tg-webhook-timeout` (the Telegram webhook intake budget and timeout plan — inbound message lock leasing, `message-id` dedup, and a "no silent 200 ACKs" invariant for both the voice and text paths), on a worktree pinned to commit `0bcafc42^` — the code state **before** this plan was implemented. All twelve models got the same prompt, the same checkout, and the same read-only access, including a symlink to `node_modules` so both sides could see inside `grammY` identically.
+We rebuilt the decisive test around a plan for how our Telegram bot handles incoming messages under time pressure: how long to wait on a slow upstream call, how to avoid sending the customer the same message twice, and what to do if the bot silently swallows a request instead of answering it. This time, all twelve models saw the plan against the code as it stood **before** that plan was implemented — the exact conditions our pipeline actually reviews under — with the same prompt and the same read-only access to the repository.
 
-Manually verifying findings against the code surfaced three defect classes that different models caught:
+Manually checking the findings against the code surfaced three classes of defect that different models caught:
 
-1. **Missing caller abort signal:**
-   The `parse_new` branch (`parse-quote-request.ts:166`) has no timeout on the calling side — the code itself carries a comment: "callWithFallback has no caller signal." The plan raises the wait bound to 50 seconds, but that turns the current redelivery into a silent 200 ACK — a direct violation of the plan's own "must-not 7." Claude Opus and Hunyuan 3 flagged this independently.
-2. **Contract-test blind spot:**
-   `telegram-webhook-contract.test.ts:46` imports the mutable route handler directly, so it falls outside the blast radius the plan declares — meaning the very test meant to catch a regression physically cannot catch it. Of twelve models, only Hunyuan 3 found this.
-3. **Dedup running after the rate-limit check:**
-   Message-id dedup runs **after** the rate-limit check, so a duplicate that arrives once the caller is already rate-limited still slips a second visible message to the client. Codex found this; Hunyuan 3 confirmed it independently.
+1. **A missing timeout on the calling side.** One of the message-handling paths had no timeout of its own — the code itself carried a developer's comment admitting as much. The plan raised the allowed wait to 50 seconds, but at that length, a retried delivery from Telegram turns into a silent "OK" with no real processing behind it — a direct violation of the plan's own "no silent acknowledgments" rule. Claude Opus and Hunyuan 3 flagged this independently.
+2. **A test that can't catch its own bug.** One of the tests written specifically to guard against this regression was actually pointed at the wrong piece of code, and so couldn't physically catch it. Of twelve models, only Hunyuan 3 spotted this.
+3. **Duplicate checking that runs too late.** The system checked whether a request had hit its rate limit before checking whether it was a duplicate. Because of that ordering, a duplicate that arrived after the limit was hit still went through and reached the customer a second time. Codex found this; Hunyuan 3 confirmed it independently.
 
-A separate artifact of the testbed itself surfaced along the way: `opencode`'s `glob`/`grep` respect `.gitignore`, so `node_modules/` and `.claude/` are invisible to search even though a direct read at the full path works fine. Because of this, one model refused to verify `grammY` calls ("cannot check — search finds nothing"), and another declared a file "nonexistent" that actually exists in the main repository, just not in the isolated test worktree. We added a one-line fix for this blind spot to the review prompt.
+A separate wrinkle in the testbed itself surfaced along the way: one of the engines' code search didn't look inside certain folders, even though it could read a file just fine if it already knew the exact path. Because of this, one model refused to verify part of its own findings ("can't check — search finds nothing"), and another wrongly declared a file "nonexistent" when it actually existed. We patched the review prompt so the rest of the field wouldn't trip on the same thing.
 
 ![Model Benchmark Comparison](benchmark-matrix.svg)
 
@@ -78,7 +75,7 @@ A separate artifact of the testbed itself surfaced along the way: `opencode`'s `
 
 ## 4. Benchmark Results Across 12 Models
 
-Each model received identical instructions, read-only repository permissions, and an isolated execution environment on the `0bcafc42^` worktree. Metrics:
+Each model received identical instructions, read-only repository permissions, and the same snapshot of the code — from before the plan was implemented. Metrics:
 * Findings per run and variance across repeat runs.
 * Share of findings confirmed by manual code verification, and false positives.
 * Runtime and cost by OpenRouter pricing, where the engine wasn't subscription-based.
@@ -109,7 +106,7 @@ Arguably the single most important result of this testbed: **ranking on already-
 ## 5. Why Hunyuan 3 Outperformed Flagship Models
 
 1. **The one finding nobody else made:**
-   Of twelve participants, only Hunyuan 3 noticed that the contract test `telegram-webhook-contract.test.ts:46` imports the mutable route handler directly and therefore falls outside the plan's declared blast radius — meaning the safety-net test physically can't catch the regression it was written to catch. Neither Codex, nor Opus, nor any of the paid contenders saw it.
+   Of twelve participants, only Hunyuan 3 noticed that one of the tests written specifically for this check was actually pointed at the wrong code — meaning the safety-net test physically can't catch the regression it was written to catch. Neither Codex, nor Opus, nor any of the paid contenders saw it.
 2. **Reproducibility where everyone else drifted:**
    Four independent runs, four times exactly 9 findings. DeepSeek V4 Pro matched that zero variance, but at seven findings; Opus matched it too, but at seven findings and three times slower. Every other contender's runs swung by 2x or more.
 3. **262k Token Context Window:**
