@@ -279,6 +279,8 @@ def main() -> int:
         "og/digital-employee-18-days-hero-en.png",
         "og/sdd-in-production-hero.png",
         "og/sdd-in-production-hero-en.png",
+        "og/asic-climate-guardian-hero.png",
+        "og/asic-climate-guardian-hero-en.png",
         "articles/sdd-in-production/sdd-pipeline.svg",
         "en/articles/sdd-in-production/sdd-pipeline.svg",
         "articles/sdd-in-production/spec-synthesis.svg",
@@ -358,8 +360,8 @@ def main() -> int:
         "en/articles/sdd-in-production/": "og/sdd-in-production-hero-en.png",
         "articles/hy3-plan-review-fallback/": "og/sdd-in-production-hero.png",
         "en/articles/hy3-plan-review-fallback/": "og/sdd-in-production-hero-en.png",
-        "articles/asic-climate-guardian/": "og/sdd-in-production-hero.png",
-        "en/articles/asic-climate-guardian/": "og/sdd-in-production-hero-en.png",
+        "articles/asic-climate-guardian/": "og/asic-climate-guardian-hero.png",
+        "en/articles/asic-climate-guardian/": "og/asic-climate-guardian-hero-en.png",
     }
     for route, image in page_og.items():
         path = page_file(public, route)

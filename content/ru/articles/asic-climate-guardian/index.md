@@ -3,7 +3,7 @@ title: "Как ИИ превратил пять асиков на даче в с
 date: 2026-08-19
 description: "Как автономный ИИ-агент решил инженерную задачу отопления дачи с помощью пяти асиков Jasminer X16-Q, свел математику ступенчатых тарифов и удержал температуру в пяти комнатах строго в коридоре от +10°C до +33°C."
 author: "Pavel Volkov"
-image: "og/sdd-in-production-hero.png"
+image: "og/asic-climate-guardian-hero.png"
 translationKey: "asic-climate-guardian"
 ---
 

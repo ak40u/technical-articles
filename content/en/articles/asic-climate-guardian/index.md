@@ -3,7 +3,7 @@ title: "How AI Turned Five ASICs in a Country House Into a Self-Funding Climate 
 date: 2026-08-19
 description: "How an autonomous AI agent solved the thermal heating challenge of a country house using five Jasminer X16-Q ASICs, balanced tiered electricity tariffs, and strictly maintained room temperatures between +10°C and +33°C across five zones."
 author: "Pavel Volkov"
-image: "og/sdd-in-production-hero-en.png"
+image: "og/asic-climate-guardian-hero-en.png"
 translationKey: "asic-climate-guardian"
 ---
 
