@@ -21,6 +21,7 @@ PAGE_PAIRS = (
     ("articles/digital-employee-18-days/", "en/articles/digital-employee-18-days/"),
     ("articles/sdd-in-production/", "en/articles/sdd-in-production/"),
     ("articles/hy3-plan-review-fallback/", "en/articles/hy3-plan-review-fallback/"),
+    ("articles/asic-climate-guardian/", "en/articles/asic-climate-guardian/"),
 )
 EN_DIAGRAMS = (
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg",
@@ -71,6 +72,8 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/sdd-in-production/": "Agentic SDD: Forcing AI Agents to Write Code by Strict Contract",
     "articles/hy3-plan-review-fallback/": "Выбор модели-фолбека для ревью планов: бенчмарк 12 LLM и внедрение Tencent Hunyuan 3",
     "en/articles/hy3-plan-review-fallback/": "Choosing a Fallback LLM for Plan Review: Benchmarking 12 Models and Adopting Tencent Hunyuan 3",
+    "articles/asic-climate-guardian/": "Как ИИ превратил пять асиков на даче в самоокупаемую климатическую систему",
+    "en/articles/asic-climate-guardian/": "How AI Turned Five ASICs in a Country House Into a Self-Funding Climate System",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
@@ -355,6 +358,8 @@ def main() -> int:
         "en/articles/sdd-in-production/": "og/sdd-in-production-hero-en.png",
         "articles/hy3-plan-review-fallback/": "og/sdd-in-production-hero.png",
         "en/articles/hy3-plan-review-fallback/": "og/sdd-in-production-hero-en.png",
+        "articles/asic-climate-guardian/": "og/sdd-in-production-hero.png",
+        "en/articles/asic-climate-guardian/": "og/sdd-in-production-hero-en.png",
     }
     for route, image in page_og.items():
         path = page_file(public, route)
