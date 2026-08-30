@@ -159,16 +159,41 @@ According to the supplied current Avito listing snapshot, Jasminer X16-Q asking 
 | Used, selected for 3920+ memory banks and ETHW | ₽30,000–40,000 | extra validation raises the price, although this project mines ETC |
 | Fast reseller buyout | ₽11,000–18,000 | a seller’s liquidation reference, not a normal acquisition price |
 
-For Voronezh, payback is better expressed in calendar years. The current [SP 131.13330.2025 climatic standard](https://protect.gost.ru/sp/details/0634a74e-9f91-4571-82a8-b04c3a9b6c99) gives the city **186 days** with an average daily temperature no higher than +8°C, equivalent to about **6.5 full-load months** per year even in the theoretical case of uninterrupted operation. Summer operation is excluded from the heating calculation.
+For Voronezh, payback is better expressed in calendar years. The current [SP 131.13330.2025 climatic standard](https://protect.gost.ru/sp/details/0634a74e-9f91-4571-82a8-b04c3a9b6c99) gives the city **186 days** with an average daily temperature no higher than +8°C.
 
-| Operating scenario | Full-load equivalent per year | Three working used ASICs at ₽60,000–93,000 | Five-ASIC fleet at ₽100,000–155,000 |
+The payback calculation below uses resistive electric heaters as the baseline. They would consume the same electricity to deliver the same heat, so the ASIC’s economic benefit is the entire ETC offset. Subtracting the electricity bill from that offset a second time would be incorrect.
+
+| Operating scenario | Three active ASICs | Annual ETC offset | Three working used ASICs at ₽60,000–93,000 | Five-ASIC fleet at ₽100,000–155,000 |
+|---|---:|---:|---:|---:|
+| all 186 cold days without interruption | 8.44 MWh of heat | ₽46,100 | 1.3–2.0 years | 2.2–3.4 years |
+| autopilot uses 60–80% of the cold period | 5.06–6.75 MWh | ₽27,600–36,800 | **1.6–3.4 years** | **2.7–5.6 years** |
+| the property is occupied only in summer; `AWAY` runs September through May | 12.38 MWh | ₽67,600 | **0.9–1.4 years** | **1.5–2.3 years** |
+
+The final row is an upper bound for 273 days: three units run continuously and the rooms can absorb their heat up to the `AWAY` limit throughout the period. A warm autumn or spring, a zone reaching its temperature ceiling, downtime, and repairs extend the payback period.
+
+There is also an arithmetic constraint. Three 630 W ASICs consume only **1,361–1,406 kWh** in a full month. For the ASICs themselves to reach 1,600 kWh, average load must be 2.22 kW, or roughly 3.5 units; a fourth ASIC would need to run for 13–16 days each month. With the hard limit of three active units, the 1,600 kWh target has to apply to the whole-property meter: the ASICs contribute up to 1.36–1.41 MWh, and the remaining 0.19–0.24 MWh comes from the heating cable and other loads.
+
+This is a scenario estimate, not a payback promise. ETC price and difficulty change, hardware has downtime and maintenance, and an asking price is not a completed-sale price.
+
+### Comparison with natural gas in the Voronezh region
+
+Under Russia’s completion-gasification program, the pipe is brought [to the property boundary free of charge](https://connectgas.ru/stages/dogasification) when a registered house is in a gasified settlement and the program’s conditions are met. The owner pays for all work inside the property, equipment, and heat distribution.
+
+The [regulated 2026 rates from Gazprom Gas Distribution Voronezh](https://gazpromvrn.ru/upload/2025/prikazi/prikaz_68_11_25122025.pdf) provide an order of magnitude: ₽5,906 before VAT for the consumption-network design and ₽1,272,990 per kilometre before VAT for an underground polyethylene gas pipe up to 63 mm. At the [current 22% VAT rate](https://www.nalog.gov.ru/rn36/news/activities_fts/16596970/), that is about **₽7,200 for the design** and **₽1,550 per metre of pipe**. These are individual bill-of-quantities components; the boiler, meter, regulator, flue, ventilation, commissioning, and heating system cost extra.
+
+Current regional market offers start near [₽160,000](https://voronezh.profgazservis.ru/) for house gasification and [₽250,000](https://gazbyt-torg.ru/pdet-tsena-gazifikatsii-doma-voronezh/) for a turnkey package. A preliminary **₽160,000–250,000** range is reasonable for one house. A five-zone compound with long trenches, buried heat lines, or several appliances is safer to budget at **₽250,000–500,000** until the route is surveyed and designed.
+
+[Residential heating gas](https://base.garant.ru/413331598/89300effb84a59912210b23abe10a68f/) costs ₽8.565 per cubic metre. At 9.3 kWh/m³ and 90% boiler efficiency, that is about **₽1.02 per kWh of useful heat**. For summer-only occupancy and three ASICs running from September through May, the comparison is:
+
+| Option | Initial cost | Annual cost of 12.38 MWh of heat | Simple payback versus resistive heaters |
 |---|---:|---:|---:|
-| all 186 cold days without interruption | 6.5 months | 5.7–8.8 years | 9.5–14.7 years |
-| autopilot uses 60–80% of the cold period | 3.9–5.2 months | **7–15 years** | **12–25 years** |
+| 3 used ASICs | ₽60,000–93,000 | ₽52,100 power bill − ₽67,600 ETC = **−₽15,500** | **0.9–1.4 years** |
+| Gas, one house | ₽160,000–250,000 | about ₽12,700 for gas, excluding service | 4.1–6.3 years |
+| Gas, five separated zones | ₽250,000–500,000 | from ₽12,700 plus losses and service | 6.3–12.7 years |
 
-The second row allows for warm days, rooms that have already reached their temperature limit, acoustic constraints, and downtime. The five-unit case retains the hard limit of three simultaneously active ASICs: spare units add zone choice and redundancy, but not instantaneous ETC offset. Buying three used units is therefore substantially easier to justify than buying five when return on capital is the only criterion.
+The ASIC row assumes that electrical capacity, the server, sensors, and smart plugs already exist, as they do in this project. A greenfield installation must add their cost. The gas ranges are preliminary as well: the final quote depends on the connection conditions, route length, and the heating design for the five zones.
 
-This is a scenario estimate, not a payback promise. ETC price and difficulty change, hardware has downtime and maintenance, and an asking price is not a completed-sale price. The calculation shows the conditions under which inexpensive used ASICs can offset an unavoidable electric-heating expense.
+Under this snapshot’s assumptions, the ASICs have lower upfront cost and lower current net heating cost. Gas becomes cheaper to operate if the ETC offset falls below roughly **58%** of the level used here. The actual decision depends on route length, completion-gasification eligibility, the rooms’ ability to absorb heat, and sustained pool-side hashrate.
 
 Why does the autopilot still cap normal operation at three units? In a 31-day month, three 630 W ASICs project to about 1,407 kWh, below both the soft 1,500 kWh target and the hard 1,600 kWh tariff boundary. In this particular economic snapshot, a fourth unit reduces net heating cost by only another ₽308, while continuous operation would project to about 1,876 kWh, add unwanted heat and noise, and risk Tier 2 pricing.
 
