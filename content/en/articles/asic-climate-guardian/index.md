@@ -117,18 +117,18 @@ The tariff model used by the system has no mandatory minimum consumption: unused
 
 ![ASIC heating economics: the same 630 W produces the same heat, but a Jasminer also creates ETC; its offset is subtracted from the bill, while the soft 1,500 kWh target remains below the 1,600 kWh tariff boundary](heating-economics.svg "Useful-heat economics and Monthly Energy Pacing. There is no under-use penalty, so comfort remains more important than consuming the cheap allowance.")
 
-The fleet is heterogeneous: the registry contains measured snapshots ranging from **1.81 to 3.37 GH/s** at an assumed **630 W** per unit, or **13.33 GH/s** in total.
+The economic model treats each Jasminer X16-Q as a nameplate **1.85 GH/s** and **630 W** unit. This matches the [manufacturer’s specification](https://www.jasminer.eu/blogs/news/introducing-the-future-of-crypto-mining-the-jasminer-x16-series) of 1.845 GH/s ±10% at 630 W ±10%. The five-unit modeled fleet is therefore **9.25 GH/s** at **3.15 kW**. Point-in-time dashboard readings above nameplate are excluded: real performance needs to be established from sustained average hashrate and pool-accepted shares.
 
 The calculation below is a snapshot from **August 30, 2026 at 17:12 Moscow time**, with ETC at **$7.47**, USD/RUB at **85.60**, network difficulty near **1.97 PH**, and a 28.5-day modeled period.
 
 | Heating mode | Thermal output | Useful heat | Power bill | ETC offset | Net heating cost |
 |---|---:|---:|---:|---:|---:|
-| Best single ASIC | 0.63 kW | 430.9 kWh | ₽1,814 | ₽4,291 | **−₽2,477** |
-| Best three ASICs | 1.89 kW | 1,292.8 kWh | ₽5,443 | ₽12,293 | **−₽6,850** |
-| Four ASICs | 2.52 kW | 1,723.7 kWh | ₽7,487 | ₽14,645 | **−₽7,159** |
-| All five ASICs | 3.15 kW | 2,154.6 kWh | ₽10,102 | ₽16,950 | **−₽6,847** |
+| One ASIC | 0.63 kW | 430.9 kWh | ₽1,814 | ₽2,352 | **−₽538** |
+| Three ASICs | 1.89 kW | 1,292.8 kWh | ₽5,443 | ₽7,057 | **−₽1,615** |
+| Four ASICs | 2.52 kW | 1,723.7 kWh | ₽7,487 | ₽9,410 | **−₽1,923** |
+| All five ASICs | 3.15 kW | 2,154.6 kWh | ₽10,102 | ₽11,762 | **−₽1,660** |
 
-A negative number in the final column does not mean the electricity itself is free: the utility bill still has to be paid. It means mined ETC covers that bill completely, with a remainder available for hardware depreciation and maintenance. For the best three units, the modeled cost of one kWh of useful heat in this snapshot is **−₽5.30**, compared with **+₽4.21** for an ordinary resistive heater.
+A negative number in the final column does not mean the electricity itself is free: the utility bill still has to be paid. It means mined ETC covers that bill completely, with a remainder available for hardware depreciation and maintenance. For three units, the modeled cost of one kWh of useful heat in this snapshot is **−₽1.25**, compared with **+₽4.21** for an ordinary resistive heater.
 
 ### Energy pacing: a soft 1,500 kWh target
 
@@ -159,33 +159,20 @@ According to the supplied current Avito listing snapshot, Jasminer X16-Q asking 
 | Used, selected for 3920+ memory banks and ETHW | ₽30,000–40,000 | extra validation raises the price, although this project mines ETC |
 | Fast reseller buyout | ₽11,000–18,000 | a seller’s liquidation reference, not a normal acquisition price |
 
-The heating case is strongest on the used market. If three working used units ran continuously under the unchanged conditions of this snapshot, the compensation remaining after the heat’s electricity bill would cover their asking price in roughly **9–14 full-load months**. A complete five-zone fleet priced at ₽100,000–155,000 would correspond to roughly **15–23 full-load months**.
+For Voronezh, payback is better expressed in calendar years. The current [SP 131.13330.2025 climatic standard](https://protect.gost.ru/sp/details/0634a74e-9f91-4571-82a8-b04c3a9b6c99) gives the city **186 days** with an average daily temperature no higher than +8°C, equivalent to about **6.5 full-load months** per year even in the theoretical case of uninterrupted operation. Summer operation is excluded from the heating calculation.
 
-Those are not calendar payback promises. The autopilot shuts unnecessary zones down in warm weather, ETC price and difficulty change, hardware has downtime and maintenance, and an asking price is not a completed-sale price. The calculation demonstrates the core point: inexpensive used ASICs can turn an unavoidable electric-heating expense into fully offset heat instead of merely adding a mining farm to the property.
+| Operating scenario | Full-load equivalent per year | Three working used ASICs at ₽60,000–93,000 | Five-ASIC fleet at ₽100,000–155,000 |
+|---|---:|---:|---:|
+| all 186 cold days without interruption | 6.5 months | 5.7–8.8 years | 9.5–14.7 years |
+| autopilot uses 60–80% of the cold period | 3.9–5.2 months | **7–15 years** | **12–25 years** |
+
+The second row allows for warm days, rooms that have already reached their temperature limit, acoustic constraints, and downtime. The five-unit case retains the hard limit of three simultaneously active ASICs: spare units add zone choice and redundancy, but not instantaneous ETC offset. Buying three used units is therefore substantially easier to justify than buying five when return on capital is the only criterion.
+
+This is a scenario estimate, not a payback promise. ETC price and difficulty change, hardware has downtime and maintenance, and an asking price is not a completed-sale price. The calculation shows the conditions under which inexpensive used ASICs can offset an unavoidable electric-heating expense.
 
 Why does the autopilot still cap normal operation at three units? In a 31-day month, three 630 W ASICs project to about 1,407 kWh, below both the soft 1,500 kWh target and the hard 1,600 kWh tariff boundary. In this particular economic snapshot, a fourth unit reduces net heating cost by only another ₽308, while continuous operation would project to about 1,876 kWh, add unwanted heat and noise, and risk Tier 2 pricing.
 
 One limitation matters: the table models **ASIC and cable plugs only**, not the property’s entire utility meter. Baseline household consumption must be added before claiming that the whole property stays inside Tier 1. Pool fees, downtime, and the difference between instantaneous and sustained average hashrate are also excluded. This is an operating model for heating cost, not a profit promise.
-
----
-
-## What was verified on the live system
-
-The August 30 verification covered source code, automated tests, and the deployed system. Server files matched the verified source byte for byte.
-
-- 15 automated tests passed, including monthly energy-budget scenarios;
-- Home Assistant and the Telegram bot start automatically and are supervised by a process manager;
-- local `qwen2.5:14b` is available inside the control loop;
-- Home Assistant returns all five plug states, room telemetry, and heating-cable state;
-- the outdoor-weather source reported a temperature above the protection threshold, so the cable remained off;
-- Telegram and Qwen’s prompt already receive the 1,500 kWh energy-budget projection;
-- the first verification cycle selected a suitable non-residential zone and actually changed its assigned plug from `OFF` to `ON`.
-
-That final step produced a valuable end-to-end test. The physical power switch on the selected ASIC was off, so the smart plug drew only 9–10 W. The hardware watchdog did not misreport the command as successful heating or mining. It classified the state as `PHYSICALLY_OFF`, excluded the unit from the actively hashing list, and prepared an owner alert.
-
-That is the difference between an autonomous system and a polished demo: it verifies the physical outcome, not merely the command that was sent.
-
----
 
 ## Telegram control
 
@@ -205,8 +192,8 @@ Server services restart automatically after a failure.
 
 ## Result
 
-The five ASICs are more than substitutes for electric space heaters. They form a small autonomous energy system that controls five climate zones, protects the incoming water pipe, accounts for noise, monitors real hardware state, and continuously recalculates net heating cost.
+The five ASICs form a small autonomous energy system that controls five climate zones, protects the incoming water pipe, accounts for noise, monitors real hardware state, and continuously recalculates net heating cost.
 
-The most valuable part is not the model size. **The local AI is allowed to decide and act, but it operates inside verifiable boundaries: temperature, fans, physical power, tariff quota, and emergency shutdown remain deterministic.**
+The main value lies in verifiable autonomy boundaries. **The local AI is allowed to decide and act, while temperature, fans, physical power, tariff quota, and emergency shutdown remain deterministic.**
 
 The system has only just entered continuous operation, so season-long reliability still needs to be earned over time. The complete path, however—from telemetry and Qwen’s decision to relay actuation and independent power verification—is already working on live hardware.
