@@ -130,4 +130,6 @@ QA rounds per task went up: 2.7 against 1.4 in July. I am still working out why.
 
 The precedent search is lexical. It finds cases with similar words and misses cases similar in meaning. For 52 of my 157 Telegram answers the question text was never saved, so the search cannot use them.
 
-My job has shrunk to three things. Split the work. Answer six kinds of questions. Give a verdict on the shift report. AI agents do the rest, and their decisions stay in logs where I can check them.
+I do not work less. The work goes elsewhere. I shape the product and cut the tasks, answer the questions that stayed mine and accept every shift by its report.
+
+The output shows in the history of the Logicore repository. In the last 30 days 425 pull requests were merged into it across 124 tasks, and production got 3 releases and 9 hotfixes. Since the July article, changes for 287 tasks have reached develop. The lead is there so that this pace does not stall on me.
