@@ -61,7 +61,7 @@
   <text class="small" x="905.0" y="450">побеждает правило,</text>
   <text class="small" x="905.0" y="476">спор уходит мне в отчёт</text>
   <rect class="core" x="1130" y="380" width="410" height="140" rx="14"/>
-  <text class="label" x="1335.0" y="420">Решение в пределах мандата</text>
+  <text class="label" x="1335.0" y="420">Решение в его полномочиях</text>
   <text class="small" x="1335.0" y="450">ссылки на прецеденты по дате</text>
   <text class="small" x="1335.0" y="476">без сырого текста корпуса</text>
   <line class="line" x1="250" y1="260" x2="452.5" y2="376"/>

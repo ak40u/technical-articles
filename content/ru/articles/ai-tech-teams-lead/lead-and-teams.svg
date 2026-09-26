@@ -46,7 +46,7 @@
   <text class="small" x="230.0" y="262">ставлю вердикт по отчёту</text>
   <rect class="core" x="630" y="140" width="440" height="170" rx="14"/>
   <text class="label" x="850.0" y="180">ИИ-руководитель</text>
-  <text class="small" x="850.0" y="210">работает по мандату</text>
+  <text class="small" x="850.0" y="210">действует в своих полномочиях</text>
   <text class="small" x="850.0" y="236">решает по моим прецедентам</text>
   <text class="small" x="850.0" y="262">следит за зависаниями</text>
   <rect class="project" x="1200" y="140" width="340" height="170" rx="14"/>

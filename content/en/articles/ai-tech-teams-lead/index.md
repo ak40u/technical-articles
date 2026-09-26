@@ -2,7 +2,7 @@
 title: "How I Handed My AI Tech Teams to an AI Lead"
 translationKey: "ai-tech-teams-lead"
 date: 2026-09-26
-description: "Five parallel AI teams made me the bottleneck again. What changed in two and a half months: a lead with a written mandate, rules drawn from the statistics of my answers, a search over my decision corpus, and stall detection from outside."
+description: "Five parallel AI teams made me the bottleneck again. What changed in two and a half months: a lead with written authority, rules drawn from the statistics of my answers, a search over my decision corpus, and stall detection from outside."
 summary: "A follow-up to the July article on autonomous AI tech teams: an AI lead now sits above the teams, decides from my precedents, catches sessions that stop for good and checks every closure itself."
 tags: ["AI agents", "autonomous development", "management", "Claude Code", "Codex"]
 image: "og/ai-tech-teams-lead-hero-en.png"
@@ -11,6 +11,8 @@ image: "og/ai-tech-teams-lead-hero-en.png"
 *What changed in the two and a half months after the article on autonomous AI tech teams: a lead now sits above them, and it decides from my past decisions.*
 
 Over the last 30 days my Claude Code and Codex sessions processed 139.9 billion tokens. That is what the AgentKit counter shows. There were 396 sessions in that time, 13 a day on average.
+
+All of them are visible in Agent Dashboard, an app I built for multi-agent development. From it I launch Claude Code and Codex sessions, see what each one is doing and steer them.
 
 No one person can follow that flow by hand. Not even with nothing else to do.
 
@@ -24,17 +26,17 @@ I am the only human in this setup. The lead, the tech leads, QA, the auditors an
 
 Every team wrote to me directly. Questions arrived in Telegram in no particular order. One team asked whether it could run another review round. Another reported that the stand had been busy for three hours. A third went quiet, and I did not know why.
 
-Silence cost the most. A session can stop for good and still look alive. It waits for a background-task notification that will never come. Or it waits for a task whose process died long ago. Runs have timers, but a timer lives inside the same session that stopped. I learned about such stops only when I opened the dashboard myself. Sometimes hours later.
+Silence cost the most. A session can stop for good and still look alive. It waits for a background-task notification that will never come. Or it waits for a task whose process died long ago. Runs have timers, but a timer lives inside the same session that stopped. I learned about such stops only when I opened Agent Dashboard myself. Sometimes hours later.
 
 Then conflicts. Five teams share one staging, common stands and sometimes common files. Someone has to decide who goes first. I did, whenever I got to Telegram.
 
 And reports. A team writes "task closed". Rechecking every such claim by hand across five teams is a job of its own.
 
-## The lead and its mandate
+## The lead and its authority
 
 Here is how the work runs now. In a separate session the AI lead and I go through the tasks and split them across teams. It launches the teams through Agent Dashboard and adds them to its roster. Then I say "take over". From that moment the lead works in my place.
 
-Its authority is written in a mandate. The mandate is built from my answers to direct questions. May it restart a dead session? May it merge green PRs? Where does urgent news go? I answered: yes, yes, Telegram.
+Its authority is written down in a separate file. The file is built from my answers to direct questions. May it restart a dead session? May it merge green PRs? Where does urgent news go? I answered: yes, yes, Telegram.
 
 The lead settles disputes between teams over a PR, a stand or the staging window. It allows a test run over two hours, as long as only machine time is at stake. It decides whether a review gets one more round or the remainder closes as separate tasks. It reorders the queue. It sends a team back to an earlier stage when its closure fails the gate. It restarts a dead session, at most once an hour per task. It merges a green PR into develop after reading the review and every failed job.
 
