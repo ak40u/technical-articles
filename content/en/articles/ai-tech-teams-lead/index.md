@@ -132,4 +132,4 @@ The precedent search is lexical. It finds cases with similar words and misses ca
 
 I do not work less. The work goes elsewhere. I shape the product and cut the tasks, answer the questions that stayed mine and accept every shift by its report.
 
-The output shows in the history of my main work repository. In the last 30 days 425 pull requests were merged into it across 124 tasks, and production got 3 releases and 9 hotfixes. Since the July article, changes for 287 tasks have reached develop. The lead is there so that this pace does not stall on me.
+The output shows in the history of the repository behind [findrates.ai](https://findrates.ai), the product I work on. In the last 30 days 425 pull requests were merged into it across 124 tasks, and production got 3 releases and 9 hotfixes. Since the July article, changes for 287 tasks have reached develop. The lead is there so that this pace does not stall on me.
