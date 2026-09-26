@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">How the process learns from mistakes</title>
+  <desc id="desc">A lesson from a retrospective becomes a rule after an external review or after a second case. An escaped bug adds a check to the QA protocol. The log shows whether rules and checks pay for themselves; one that does not is removed, and the reason is recorded.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">How the process learns from mistakes</text>
+  <text class="subtitle" x="60" y="98">A lesson becomes a rule after an external review or a second case, and a rule can be removed</text>
+  <rect class="task" x="60" y="150" width="220" height="100" rx="14"/>
+  <text class="label" x="170.0" y="208">Run</text>
+  <rect class="core" x="340" y="150" width="260" height="100" rx="14"/>
+  <text class="label" x="470.0" y="208">Retrospective</text>
+  <rect class="core" x="660" y="140" width="360" height="120" rx="14"/>
+  <text class="label" x="840.0" y="180">An obvious fix?</text>
+  <text class="small" x="840.0" y="210">or a recurring case</text>
+  <line class="line" x1="280" y1="200" x2="336" y2="200"/>
+  <line class="line" x1="600" y1="200" x2="656" y2="200"/>
+  <line class="line" x1="760" y1="260" x2="710" y2="356"/>
+  <text class="edge" x="695" y="318">yes</text>
+  <line class="line" x1="920" y1="260" x2="1150" y2="356"/>
+  <text class="edge" x="1060" y="300">no, but it recurs</text>
+  <rect class="project" x="560" y="360" width="300" height="120" rx="14"/>
+  <text class="label" x="710.0" y="400">External review</text>
+  <text class="small" x="710.0" y="430">does the problem recur,</text>
+  <text class="small" x="710.0" y="456">is the rule broader than needed</text>
+  <rect class="task" x="1060" y="360" width="340" height="120" rx="14"/>
+  <text class="label" x="1230.0" y="400">Wait for a second case</text>
+  <text class="small" x="1230.0" y="430">the finding is not a rule yet</text>
+  <line class="line" x1="710" y1="480" x2="710" y2="556"/>
+  <text class="edge" x="724" y="524">accept</text>
+  <line class="line" x1="1230" y1="480" x2="1230" y2="556"/>
+  <text class="edge" x="1244" y="524">second case</text>
+  <rect class="core" x="560" y="560" width="300" height="100" rx="14"/>
+  <text class="label" x="710.0" y="618">Rule in the handbook</text>
+  <rect class="project" x="1060" y="560" width="340" height="100" rx="14"/>
+  <text class="label" x="1230.0" y="618">Promotion</text>
+  <line class="line" x1="1060" y1="610" x2="864" y2="610"/>
+  <rect class="warn" x="60" y="360" width="420" height="150" rx="14"/>
+  <text class="label" x="270.0" y="400">Escaped bug</text>
+  <text class="small" x="270.0" y="430">found after QA and audit approval</text>
+  <text class="small" x="270.0" y="456">what check would have caught</text>
+  <text class="small" x="270.0" y="482">this class of bug?</text>
+  <line class="line" x1="270" y1="510" x2="270" y2="556"/>
+  <rect class="project" x="60" y="560" width="420" height="100" rx="14"/>
+  <text class="label" x="270.0" y="618">New check in the QA protocol</text>
+  <path class="line" d="M 270 660 V 790 H 476"/>
+  <line class="line" x1="710" y1="660" x2="710" y2="736"/>
+  <rect class="project" x="480" y="740" width="460" height="100" rx="14"/>
+  <text class="label" x="710.0" y="780">Log and rule value check</text>
+  <text class="small" x="710.0" y="810">do QA rounds grow, are there false rejections</text>
+  <line class="line" x1="940" y1="790" x2="1056" y2="790"/>
+  <rect class="warn" x="1060" y="740" width="340" height="100" rx="14"/>
+  <text class="label" x="1230.0" y="780">Rule removal</text>
+  <text class="small" x="1230.0" y="810">a note on the reason stays</text>
+</svg>

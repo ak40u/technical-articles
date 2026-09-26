@@ -48,6 +48,8 @@ jobs:
           python3 scripts/check-diagram-ux.py public/en/articles/hy3-plan-review-fallback/index.html assets/css/main.css 2
           python3 scripts/check-diagram-ux.py public/articles/ai-tech-teams-lead/index.html assets/css/main.css 4
           python3 scripts/check-diagram-ux.py public/en/articles/ai-tech-teams-lead/index.html assets/css/main.css 4
+          python3 scripts/check-diagram-ux.py public/articles/ai-tech-teams-workflow/index.html assets/css/main.css 4
+          python3 scripts/check-diagram-ux.py public/en/articles/ai-tech-teams-workflow/index.html assets/css/main.css 4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

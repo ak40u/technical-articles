@@ -50,6 +50,8 @@ BUNDLE_DIAGRAM_COUNTS = {
     "en/articles/hy3-plan-review-fallback/": 2,
     "articles/ai-tech-teams-lead/": 4,
     "en/articles/ai-tech-teams-lead/": 4,
+    "articles/ai-tech-teams-workflow/": 4,
+    "en/articles/ai-tech-teams-workflow/": 4,
 }
 MERMAID_HEADINGS = {
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg": (

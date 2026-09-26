@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Как проходит один запуск</title>
+  <desc id="desc">Пять групп стадий: подготовка, план, реализация, проверка и завершение. От предпроверки до уборки, с финальной проверкой на стадии 10.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">Как проходит один запуск</text>
+  <text class="subtitle" x="60" y="98">Стадии от предпроверки до уборки</text>
+  <rect class="task" x="60" y="128" width="276" height="56" rx="12"/>
+  <text class="label" x="198" y="164">Подготовка</text>
+  <rect class="project" x="60" y="204" width="276" height="66" rx="12"/>
+  <text class="label-l" x="76" y="244.0">0</text>
+  <text class="small-l" x="140" y="243.0">предпроверка</text>
+  <rect class="project" x="60" y="282" width="276" height="66" rx="12"/>
+  <text class="label-l" x="76" y="322.0">1</text>
+  <text class="small-l" x="140" y="321.0">постановка</text>
+  <rect class="task" x="60" y="360" width="276" height="66" rx="12"/>
+  <text class="label-l" x="76" y="400.0">1b</text>
+  <text class="small-l" x="140" y="389.0">воспроизведение бага</text>
+  <text class="small-l" x="140" y="411.0">до исправления</text>
+  <rect class="task" x="360" y="128" width="276" height="56" rx="12"/>
+  <text class="label" x="498" y="164">План</text>
+  <line class="line" x1="336" y1="156" x2="356" y2="156"/>
+  <rect class="project" x="360" y="204" width="276" height="66" rx="12"/>
+  <text class="label-l" x="376" y="244.0">2</text>
+  <text class="small-l" x="440" y="243.0">план</text>
+  <rect class="task" x="360" y="282" width="276" height="66" rx="12"/>
+  <text class="label-l" x="376" y="322.0">2b</text>
+  <text class="small-l" x="440" y="311.0">сравнение вариантов</text>
+  <text class="small-l" x="440" y="333.0">без подсказок</text>
+  <rect class="task" x="360" y="360" width="276" height="66" rx="12"/>
+  <text class="label-l" x="376" y="400.0">2c</text>
+  <text class="small-l" x="440" y="399.0">UX-договорённость</text>
+  <rect class="project" x="360" y="438" width="276" height="66" rx="12"/>
+  <text class="label-l" x="376" y="478.0">3</text>
+  <text class="small-l" x="440" y="477.0">ревью плана</text>
+  <rect class="task" x="360" y="516" width="276" height="66" rx="12"/>
+  <text class="label-l" x="376" y="556.0">3b</text>
+  <text class="small-l" x="440" y="545.0">заявка на область</text>
+  <text class="small-l" x="440" y="567.0">изменений</text>
+  <rect class="task" x="360" y="594" width="276" height="66" rx="12"/>
+  <text class="label-l" x="376" y="634.0">3c</text>
+  <text class="small-l" x="440" y="633.0">критерии → задача</text>
+  <rect class="task" x="660" y="128" width="276" height="56" rx="12"/>
+  <text class="label" x="798" y="164">Реализация</text>
+  <line class="line" x1="636" y1="156" x2="656" y2="156"/>
+  <rect class="project" x="660" y="204" width="276" height="66" rx="12"/>
+  <text class="label-l" x="676" y="244.0">4</text>
+  <text class="small-l" x="740" y="243.0">реализация</text>
+  <rect class="project" x="660" y="282" width="276" height="66" rx="12"/>
+  <text class="label-l" x="676" y="322.0">5</text>
+  <text class="small-l" x="740" y="321.0">тесты</text>
+  <rect class="task" x="660" y="360" width="276" height="66" rx="12"/>
+  <text class="label-l" x="676" y="400.0">5.5</text>
+  <text class="small-l" x="740" y="399.0">сверка с планом</text>
+  <rect class="project" x="660" y="438" width="276" height="66" rx="12"/>
+  <text class="label-l" x="676" y="478.0">6</text>
+  <text class="small-l" x="740" y="477.0">PR, CI, слияние</text>
+  <rect class="project" x="660" y="516" width="276" height="66" rx="12"/>
+  <text class="label-l" x="676" y="556.0">7</text>
+  <text class="small-l" x="740" y="545.0">деплой на</text>
+  <text class="small-l" x="740" y="567.0">тестовый стенд</text>
+  <rect class="task" x="960" y="128" width="276" height="56" rx="12"/>
+  <text class="label" x="1098" y="164">Проверка</text>
+  <line class="line" x1="936" y1="156" x2="956" y2="156"/>
+  <rect class="project" x="960" y="204" width="276" height="66" rx="12"/>
+  <text class="label-l" x="976" y="244.0">8</text>
+  <text class="small-l" x="1040" y="243.0">QA до разрешения</text>
+  <rect class="task" x="960" y="282" width="276" height="66" rx="12"/>
+  <text class="label-l" x="976" y="322.0">8.5</text>
+  <text class="small-l" x="1040" y="321.0">аудит QA</text>
+  <rect class="task" x="960" y="360" width="276" height="66" rx="12"/>
+  <text class="label-l" x="976" y="400.0">8.6</text>
+  <text class="small-l" x="1040" y="399.0">UX-ревью</text>
+  <rect class="project" x="960" y="438" width="276" height="66" rx="12"/>
+  <text class="label-l" x="976" y="478.0">9</text>
+  <text class="small-l" x="1040" y="477.0">подтверждение</text>
+  <rect class="core" x="960" y="516" width="276" height="66" rx="12"/>
+  <text class="label-l" x="976" y="556.0">10</text>
+  <text class="small-l" x="1040" y="555.0">финальная проверка</text>
+  <rect class="task" x="1260" y="128" width="276" height="56" rx="12"/>
+  <text class="label" x="1398" y="164">Завершение</text>
+  <line class="line" x1="1236" y1="156" x2="1256" y2="156"/>
+  <rect class="project" x="1260" y="204" width="276" height="66" rx="12"/>
+  <text class="label-l" x="1276" y="244.0">11</text>
+  <text class="small-l" x="1340" y="243.0">ретроспектива</text>
+  <rect class="project" x="1260" y="282" width="276" height="66" rx="12"/>
+  <text class="label-l" x="1276" y="322.0">12–13</text>
+  <text class="small-l" x="1340" y="321.0">уборка</text>
+  <rect class="dark" x="60" y="740" width="1476" height="110" rx="16"/>
+  <text class="on-dark" x="90" y="782">Каждая стадия оставляет доказательства</text>
+  <text class="on-dark-2" x="90" y="820">Поэтому запуск восстанавливается после падения процесса, и по каждой стадии видно, что сделано.</text>
+</svg>

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Несколько команд параллельно</title>
+  <desc id="desc">Пачка задач уходит в очередь, очередь раскладывает её по автономным командам. Каждая команда проходит PR, окно общего стенда и QA до итога. Узкое место — инфраструктура.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">Несколько команд параллельно</text>
+  <text class="subtitle" x="60" y="98">Очередь раскладывает пачку задач по автономным техкомандам</text>
+  <rect class="owner" x="60" y="320" width="250" height="180" rx="14"/>
+  <text class="label" x="185.0" y="368">Пачка задач</text>
+  <text class="small" x="185.0" y="398">12 багов</text>
+  <text class="small" x="185.0" y="424">5 UI-полировок</text>
+  <text class="small" x="185.0" y="450">3 интеграционных долга</text>
+  <rect class="core" x="380" y="360" width="200" height="100" rx="14"/>
+  <text class="label" x="480.0" y="400">Очередь</text>
+  <text class="small" x="480.0" y="430">раздаёт задачи</text>
+  <line class="line" x1="310" y1="410" x2="376" y2="410"/>
+  <line class="plain" x1="580" y1="410" x2="630" y2="410"/>
+  <line class="plain" x1="630" y1="190" x2="630" y2="670"/>
+  <text class="edge" x="1100" y="142">общий стенд, окна по очереди</text>
+  <line class="line" x1="630" y1="190" x2="676" y2="190"/>
+  <rect class="project" x="680" y="145" width="220" height="90" rx="14"/>
+  <text class="label" x="790.0" y="197">Команда A</text>
+  <line class="line" x1="900" y1="190" x2="946" y2="190"/>
+  <rect class="project" x="950" y="158" width="110" height="64" rx="12"/>
+  <text class="small" x="1005.0" y="197">PR</text>
+  <line class="line" x1="1060" y1="190" x2="1096" y2="190"/>
+  <rect class="warn" x="1100" y="158" width="180" height="64" rx="12"/>
+  <text class="small" x="1190.0" y="197">окно стенда</text>
+  <line class="line" x1="1280" y1="190" x2="1316" y2="190"/>
+  <rect class="project" x="1320" y="158" width="90" height="64" rx="12"/>
+  <text class="small" x="1365.0" y="197">QA</text>
+  <line class="line" x1="1410" y1="190" x2="1446" y2="190"/>
+  <rect class="project" x="1450" y="158" width="110" height="64" rx="12"/>
+  <text class="small" x="1505.0" y="197">итог</text>
+  <line class="line" x1="630" y1="350" x2="676" y2="350"/>
+  <rect class="project" x="680" y="305" width="220" height="90" rx="14"/>
+  <text class="label" x="790.0" y="357">Команда B</text>
+  <line class="line" x1="900" y1="350" x2="946" y2="350"/>
+  <rect class="project" x="950" y="318" width="110" height="64" rx="12"/>
+  <text class="small" x="1005.0" y="357">PR</text>
+  <line class="line" x1="1060" y1="350" x2="1096" y2="350"/>
+  <rect class="warn" x="1100" y="318" width="180" height="64" rx="12"/>
+  <text class="small" x="1190.0" y="357">окно стенда</text>
+  <line class="line" x1="1280" y1="350" x2="1316" y2="350"/>
+  <rect class="project" x="1320" y="318" width="90" height="64" rx="12"/>
+  <text class="small" x="1365.0" y="357">QA</text>
+  <line class="line" x1="1410" y1="350" x2="1446" y2="350"/>
+  <rect class="project" x="1450" y="318" width="110" height="64" rx="12"/>
+  <text class="small" x="1505.0" y="357">итог</text>
+  <line class="line" x1="630" y1="510" x2="676" y2="510"/>
+  <rect class="project" x="680" y="465" width="220" height="90" rx="14"/>
+  <text class="label" x="790.0" y="517">Команда C</text>
+  <line class="line" x1="900" y1="510" x2="946" y2="510"/>
+  <rect class="project" x="950" y="478" width="110" height="64" rx="12"/>
+  <text class="small" x="1005.0" y="517">PR</text>
+  <line class="line" x1="1060" y1="510" x2="1096" y2="510"/>
+  <rect class="warn" x="1100" y="478" width="180" height="64" rx="12"/>
+  <text class="small" x="1190.0" y="517">окно стенда</text>
+  <line class="line" x1="1280" y1="510" x2="1316" y2="510"/>
+  <rect class="project" x="1320" y="478" width="90" height="64" rx="12"/>
+  <text class="small" x="1365.0" y="517">QA</text>
+  <line class="line" x1="1410" y1="510" x2="1446" y2="510"/>
+  <rect class="project" x="1450" y="478" width="110" height="64" rx="12"/>
+  <text class="small" x="1505.0" y="517">итог</text>
+  <line class="line" x1="630" y1="670" x2="676" y2="670"/>
+  <rect class="task" x="680" y="625" width="220" height="90" rx="14"/>
+  <text class="label" x="790.0" y="677">Команда N</text>
+  <line class="line" x1="900" y1="670" x2="946" y2="670"/>
+  <rect class="project" x="950" y="638" width="110" height="64" rx="12"/>
+  <text class="small" x="1005.0" y="677">PR</text>
+  <line class="line" x1="1060" y1="670" x2="1096" y2="670"/>
+  <rect class="warn" x="1100" y="638" width="180" height="64" rx="12"/>
+  <text class="small" x="1190.0" y="677">окно стенда</text>
+  <line class="line" x1="1280" y1="670" x2="1316" y2="670"/>
+  <rect class="project" x="1320" y="638" width="90" height="64" rx="12"/>
+  <text class="small" x="1365.0" y="677">QA</text>
+  <line class="line" x1="1410" y1="670" x2="1446" y2="670"/>
+  <rect class="project" x="1450" y="638" width="110" height="64" rx="12"/>
+  <text class="small" x="1505.0" y="677">итог</text>
+  <rect class="task" x="60" y="755" width="1480" height="100" rx="16"/>
+  <text class="band-b" x="90" y="795">Узкое место — инфраструктура: CI, тестовый стенд, лимиты моделей, окна QA</text>
+  <text class="band" x="90" y="830">Рабочая копия, изолированное хранилище, очередь и окно QA дают ещё одну автономную команду.</text>
+</svg>
