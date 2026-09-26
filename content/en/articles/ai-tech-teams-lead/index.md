@@ -12,9 +12,9 @@ image: "og/ai-tech-teams-lead-hero-en.png"
 
 Over the last 30 days my Claude Code and Codex sessions went through 139.9 billion tokens. That is what the AgentKit counter shows. There were 396 sessions in that time, 13 a day on average.
 
-The number is impressive and a little misleading. I recounted the tokens from the session transcripts myself and got 113 billion: AgentKit counts its own way. The proportion matters more. In my count, 98.6% of the tokens are cache reads. Every session rereads its context at every step: the protocol, the plan, the code, the history. The models wrote about 193 million tokens in the month.
+The volume builds up simply. Every session rereads its context at every step: the protocol, the plan, the code, the history.
 
-I cannot read even those 193 million. I do not try.
+I cannot read that. I do not try.
 
 In July I [described](/en/articles/ai-tech-teams-workflow/) how I set up autonomous AI tech teams: roles, evidence, a final gate, recovery after a crash. One team could go from task to closure without me. The trouble came with scale. With five teams running in parallel, I am the bottleneck again.
 
@@ -114,7 +114,7 @@ Now every verdict is stamped with the run that produced it. The gate rejects an 
 
 Two roles joined the team over the summer. The acceptance analyst writes the criteria and the "must not break" list separately from the tech lead. Otherwise the tech lead bends the criteria to fit its plan. The load reviewer checks server code for races, unbounded queries and the behavior of several replicas. It runs in parallel with CI and blocks only on critical findings.
 
-Self-learning had to be capped. After every run the team writes a retrospective, and its lessons become protocol rules. In July there were 93 retrospectives; now there are 274. The protocol grew with them, and every session rereads every rule at every step. The protocol is a large part of that 98% read from cache.
+Self-learning had to be capped. After every run the team writes a retrospective, and its lessons become protocol rules. In July there were 93 retrospectives; now there are 274. The protocol grew with them, and every session rereads every rule at every step. So every new rule is multiplied by every step of every session.
 
 The autopilot protocol is now capped at 400 KB, and a script enforces it. A lesson that resurfaces a second time as a text rule has to become an automated check or go. The protocol weighs 399.6 KB today. A new rule competes for space with the old ones.
 
@@ -130,4 +130,4 @@ The precedent search is lexical. It finds cases with similar words and misses ca
 
 The lead has worked for a day. It has not yet gone through its first handback with my verdicts. How often I will disagree with it is still unknown.
 
-My job has shrunk to three things. Split the work. Answer six kinds of questions. Give a verdict on the shift report. The rest lives in 193 million tokens I do not read.
+My job has shrunk to three things. Split the work. Answer six kinds of questions. Give a verdict on the shift report. The rest lives in 139.9 billion tokens I do not read.
