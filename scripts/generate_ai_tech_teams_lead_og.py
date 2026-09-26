@@ -88,7 +88,7 @@ LABELS = {
     "ai-tech-teams-lead-hero.png": {
         "kicker": "ИИ-РУКОВОДИТЕЛЬ · CLAUDE CODE + CODEX",
         "title": "Как я передал ИИ\u2011команды ИИ\u2011руководителю",
-        "lede": "Пять команд работают параллельно. Руководитель решает за меня по моим прошлым решениям.",
+        "lede": "Пять ИИ-команд работают параллельно. Руководитель решает за меня по моим прошлым решениям.",
         "metrics": [("139,9 млрд", "токенов за 30 дней"), ("396", "сессий"), ("11 138", "моих решений")],
         "panel": "КТО РЕШАЕТ",
         "me": "Я", "me_1": "задачи · вердикт", "me_2": "6 видов вопросов",
@@ -102,7 +102,7 @@ LABELS = {
     "ai-tech-teams-lead-hero-en.png": {
         "kicker": "AI LEAD · CLAUDE CODE + CODEX",
         "title": "How I handed my AI teams to an AI lead",
-        "lede": "Five teams run in parallel. The lead decides for me from my past decisions.",
+        "lede": "Five AI teams run in parallel. The lead decides for me from my past decisions.",
         "metrics": [("139.9B", "tokens in 30 days"), ("396", "sessions"), ("11,138", "of my decisions")],
         "panel": "WHO DECIDES",
         "me": "Me", "me_1": "tasks · verdict", "me_2": "6 kinds of questions",

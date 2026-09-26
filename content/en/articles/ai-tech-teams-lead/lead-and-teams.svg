@@ -38,7 +38,7 @@
   </defs>
   <rect class="bg" width="1600" height="900"/>
   <text class="title" x="60" y="62">A lead between me and the teams</text>
-  <text class="subtitle" x="60" y="98">I split the work and give the verdict. The lead does everything in between.</text>
+  <text class="subtitle" x="60" y="98">I am the only human here. The lead and every team role are AI agents.</text>
   <rect class="owner" x="60" y="140" width="340" height="170" rx="14"/>
   <text class="label" x="230.0" y="180">Me</text>
   <text class="small" x="230.0" y="210">split the work</text>
@@ -87,7 +87,7 @@
   <text class="edge-owner" x="134" y="346">Telegram: production,</text>
   <text class="edge-owner" x="134" y="368">product, client numbers, spend</text>
   <rect class="task" x="75" y="640" width="1450" height="70" rx="14"/>
-  <text class="band" x="100" y="682">Every team has: tech lead, plan reviewer, acceptance analyst, load reviewer, QA, QA auditor, UX reviewer, environment engineer</text>
+  <text class="band" x="100" y="682">Every team is AI agents: tech lead, plan reviewer, acceptance analyst, load reviewer, QA, QA auditor, UX reviewer, environment engineer</text>
   <rect class="warn" x="75" y="730" width="1450" height="70" rx="14"/>
   <text class="band" x="100" y="772">Every two minutes the lead checks every session's transcript against processes and open files</text>
   <text class="footer" x="800" y="856">The teams ask me themselves for six reasons only. They or the lead decide the rest.</text>

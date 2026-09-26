@@ -10,15 +10,15 @@ image: "og/ai-tech-teams-lead-hero-en.png"
 
 *What changed in the two and a half months after the article on autonomous AI tech teams: a lead now sits above them, and it decides from my past decisions.*
 
-Over the last 30 days my Claude Code and Codex sessions went through 139.9 billion tokens. That is what the AgentKit counter shows. There were 396 sessions in that time, 13 a day on average.
+Over the last 30 days my Claude Code and Codex sessions processed 139.9 billion tokens. That is what the AgentKit counter shows. There were 396 sessions in that time, 13 a day on average.
 
-The volume builds up simply. Every session rereads its context at every step: the protocol, the plan, the code, the history.
-
-I cannot read that. I do not try.
+No one person can follow that flow by hand. Not even with nothing else to do.
 
 In July I [described](/en/articles/ai-tech-teams-workflow/) how I set up autonomous AI tech teams: roles, evidence, a final gate, recovery after a crash. One team could go from task to closure without me. The trouble came with scale. With five teams running in parallel, I am the bottleneck again.
 
 This article is about how I handed the teams to an AI lead. It decides the way I would, because it looks for the answer in my past decisions. And it takes nobody's word for anything, its own included.
+
+I am the only human in this setup. The lead, the tech leads, QA, the auditors and the reviewers are AI agents, each with its own role.
 
 ## What broke at five teams
 
@@ -28,7 +28,7 @@ Silence cost the most. A session can stop for good and still look alive. It wait
 
 Then conflicts. Five teams share one staging, common stands and sometimes common files. Someone has to decide who goes first. I did, whenever I got to Telegram.
 
-And reports. A team writes "task closed". I could not recheck that by hand five times a day.
+And reports. A team writes "task closed". Rechecking every such claim by hand across five teams is a job of its own.
 
 ## The lead and its mandate
 
@@ -68,7 +68,7 @@ Six reasons to interrupt me are left. The team decides everything else and logs 
 
 ## Deciding as me
 
-The first version of the lead was built from a summary. The summary is a file of rules and counts like "21 out of 21". It is short and convenient. It holds none of the decisions themselves.
+An AI agent built the first version of the lead from a summary. The summary is a file of rules and counts like "21 out of 21". It is short and convenient. It holds none of the decisions themselves.
 
 I noticed the same day. I have a decision corpus, and the lead has to read it.
 
@@ -102,7 +102,7 @@ A scheduled check does not save such a session. The session wakes up, sees the t
 
 ## The lead does not take its own word either
 
-In the first days a team reported that its task was closed. The lead believed it and asked the team to release its lock. Then it ran the final gate itself. The gate answered: blocked. There was no QA verdict, no QA audit and no UX review. The team pointed to QA on an old branch, but no artifact stood behind the claim.
+Once a team reported that its task was closed. The lead believed it and asked the team to release its lock. Then it ran the final gate itself. The gate answered: blocked. There was no QA verdict, no QA audit and no UX review. The team pointed to QA on an old branch, but no artifact stood behind the claim.
 
 The lead corrected its request in the same message and sent the team back to QA. Since then it runs the final gate on every closure itself. For the lead, the word "closed" is only a reason to run it.
 
@@ -112,9 +112,9 @@ Now every verdict is stamped with the run that produced it. The gate rejects an 
 
 ## New roles and a budget for lessons
 
-Two roles joined the team over the summer. The acceptance analyst writes the criteria and the "must not break" list separately from the tech lead. Otherwise the tech lead bends the criteria to fit its plan. The load reviewer checks server code for races, unbounded queries and the behavior of several replicas. It runs in parallel with CI and blocks only on critical findings.
+Two new AI roles joined the teams over the summer. The acceptance analyst writes the criteria and the "must not break" list separately from the tech lead. Otherwise the tech lead bends the criteria to fit its plan. The load reviewer checks server code for races, unbounded queries and the behavior of several replicas. It runs in parallel with CI and blocks only on critical findings.
 
-Self-learning had to be capped. After every run the team writes a retrospective, and its lessons become protocol rules. In July there were 93 retrospectives; now there are 274. The protocol grew with them, and every session rereads every rule at every step. So every new rule is multiplied by every step of every session.
+Self-learning had to be capped. After every run the team writes a retrospective, and its lessons become protocol rules. In July there were 93 retrospectives; now there are 274. The protocol grew with them, and a model's context is finite. A rule that catches no mistakes takes the place of rules that do.
 
 The autopilot protocol is now capped at 400 KB, and a script enforces it. A lesson that resurfaces a second time as a text rule has to become an automated check or go. The protocol weighs 399.6 KB today. A new rule competes for space with the old ones.
 
@@ -124,10 +124,8 @@ Retrospectives no longer come to me in Telegram. The lead collects them into the
 
 Since July the log has recorded 111 more runs. 108 closed. Two stopped and asked for my decision. I closed one myself. One bug got through every check.
 
-QA rounds per task went up: 2.7 against 1.4 in July. I do not know why yet. There are three hypotheses: a stricter auditor, bigger tasks, a worse-prepared first round. None is verified.
+QA rounds per task went up: 2.7 against 1.4 in July. I am still working out why. There are three hypotheses: a stricter auditor, bigger tasks, a worse-prepared first round. None is verified.
 
 The precedent search is lexical. It finds cases with similar words and misses cases similar in meaning. For 52 of my 157 Telegram answers the question text was never saved, so the search cannot use them.
 
-The lead has worked for a day. It has not yet gone through its first handback with my verdicts. How often I will disagree with it is still unknown.
-
-My job has shrunk to three things. Split the work. Answer six kinds of questions. Give a verdict on the shift report. The rest lives in 139.9 billion tokens I do not read.
+My job has shrunk to three things. Split the work. Answer six kinds of questions. Give a verdict on the shift report. AI agents do the rest, and their decisions stay in logs where I can check them.
