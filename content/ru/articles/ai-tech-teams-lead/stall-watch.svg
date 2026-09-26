@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">Зависания видно только снаружи</title>
-  <desc id="desc">Руководитель раз в две минуты сверяет журналы сессий, список процессов и открытые файлы. Детектор различает 11 видов вечной остановки. Находку руководитель подтверждает по системе, затем будит сессию, перезапускает её или сообщает мне. Пример: канал, который держали серверы стенда.</desc>
+  <desc id="desc">Раз в две минуты скрипт без модели сверяет журналы сессий, список процессов и открытые файлы. Детектор различает 12 видов зависания, включая сессию, которая повторяет один вызов по кругу. Находку руководитель подтверждает по системе, затем будит сессию, перезапускает её или сообщает мне. За самим наблюдателем следит системный сторож вне всех сессий. Пример: канал, который держали серверы стенда.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
@@ -38,7 +38,7 @@
   </defs>
   <rect class="bg" width="1600" height="900"/>
   <text class="title" x="60" y="62">Зависания видно только снаружи</text>
-  <text class="subtitle" x="60" y="98">Раз в две минуты руководитель сверяет журналы сессий с процессами и открытыми файлами</text>
+  <text class="subtitle" x="60" y="98">Раз в две минуты скрипт сверяет журналы сессий с процессами и открытыми файлами</text>
   <rect class="task" x="60" y="150" width="300" height="120" rx="14"/>
   <text class="label" x="210.0" y="192">Журналы сессий</text>
   <text class="small" x="210.0" y="222">последняя запись, чего ждёт</text>
@@ -51,31 +51,38 @@
   <text class="label" x="210.0" y="492">Открытые файлы</text>
   <text class="small" x="210.0" y="522">lsof: кто держит канал</text>
   <line class="line" x1="360" y1="510" x2="456" y2="510"/>
+  <rect class="owner" x="60" y="600" width="300" height="110" rx="14"/>
+  <text class="label" x="210.0" y="640">Сторож вне сессий</text>
+  <text class="small" x="210.0" y="670">раз в 5 минут: жив ли детектор</text>
+  <text class="small" x="210.0" y="696">15 мин без него → Telegram</text>
+  <line class="ownerline" x1="360" y1="655" x2="456" y2="655"/>
   <rect class="core" x="460" y="130" width="440" height="580" rx="16"/>
-  <text class="label" x="680" y="172">Детектор: 11 видов остановки</text>
+  <text class="label" x="680" y="172">Детектор: 12 видов зависания</text>
   <line class="rule" x1="484" y1="194" x2="876" y2="194"/>
-  <text class="mono" x="488" y="230">LOST_NOTIFY</text>
-  <text class="small-l" x="648" y="230">уведомление не дошло</text>
-  <text class="mono" x="488" y="274">PIPE_HELD</text>
-  <text class="small-l" x="648" y="274">канал держит чужой процесс</text>
-  <text class="mono" x="488" y="318">DEAD_TASK</text>
-  <text class="small-l" x="648" y="318">задача умерла молча</text>
-  <text class="mono" x="488" y="362">NO_WAKE</text>
-  <text class="small-l" x="648" y="362">сессию нечему разбудить</text>
-  <text class="mono" x="488" y="406">DELEGATE_HUNG</text>
-  <text class="small-l" x="648" y="406">завис субагент</text>
-  <text class="mono" x="488" y="450">OWNER_Q</text>
-  <text class="small-l" x="648" y="450">ждёт моего ответа</text>
-  <text class="mono" x="488" y="494">API_ERROR</text>
-  <text class="small-l" x="648" y="494">ошибка API</text>
-  <text class="mono" x="488" y="538">MODEL_HUNG</text>
-  <text class="small-l" x="648" y="538">модель не ответила</text>
-  <text class="mono" x="488" y="582">TOOL_HUNG</text>
-  <text class="small-l" x="648" y="582">инструмент висит 20 минут</text>
-  <text class="mono" x="488" y="626">LONG_IDLE</text>
-  <text class="small-l" x="648" y="626">долгий простой</text>
-  <text class="mono" x="488" y="670">SESSION_DEAD</text>
-  <text class="small-l" x="648" y="670">процесс Claude пропал</text>
+  <text class="mono" x="488" y="226">LOST_NOTIFY</text>
+  <text class="small-l" x="648" y="226">уведомление не дошло</text>
+  <text class="mono" x="488" y="266">PIPE_HELD</text>
+  <text class="small-l" x="648" y="266">канал держит чужой процесс</text>
+  <text class="mono" x="488" y="306">DEAD_TASK</text>
+  <text class="small-l" x="648" y="306">задача умерла молча</text>
+  <text class="mono" x="488" y="346">NO_WAKE</text>
+  <text class="small-l" x="648" y="346">сессию нечему разбудить</text>
+  <text class="mono" x="488" y="386">DELEGATE_HUNG</text>
+  <text class="small-l" x="648" y="386">завис субагент</text>
+  <text class="mono" x="488" y="426">OWNER_Q</text>
+  <text class="small-l" x="648" y="426">ждёт моего ответа</text>
+  <text class="mono" x="488" y="466">API_ERROR</text>
+  <text class="small-l" x="648" y="466">ошибка API</text>
+  <text class="mono" x="488" y="506">MODEL_HUNG</text>
+  <text class="small-l" x="648" y="506">модель не ответила</text>
+  <text class="mono" x="488" y="546">TOOL_HUNG</text>
+  <text class="small-l" x="648" y="546">инструмент висит 20 минут</text>
+  <text class="mono" x="488" y="586">LONG_IDLE</text>
+  <text class="small-l" x="648" y="586">долгий простой</text>
+  <text class="mono" x="488" y="626">SESSION_DEAD</text>
+  <text class="small-l" x="648" y="626">процесс Claude пропал</text>
+  <text class="mono" x="488" y="666">SPINNING</text>
+  <text class="small-l" x="648" y="666">один вызов по кругу</text>
   <line class="line" x1="900" y1="420" x2="996" y2="420"/>
   <rect class="task" x="1000" y="130" width="540" height="120" rx="14"/>
   <text class="label" x="1270.0" y="174">Подтвердить по системе</text>

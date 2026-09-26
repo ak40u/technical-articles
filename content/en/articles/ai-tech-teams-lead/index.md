@@ -42,6 +42,8 @@ The lead settles disputes between teams over a PR, a stand or the staging window
 
 Production and everything a client sees stay with me. Product decisions, legal and safety. A number a client has already seen. New spend. Merging into master. Any change that makes a gate easier to pass. Overturning a decision a person made. A production database write happens only from my terminal, after a confirmation phrase I type myself.
 
+Only I change the authority file. A hook lets a commit that touches it through only when the message records my approval and its date. The rules for when to call me and the cap on the protocol's size, both described below, are protected the same way.
+
 The teams ask me these questions directly, in Telegram. The lead does not intercept them. It can only add facts to a team's context.
 
 The teams know the lead exists. At first the teams did not understand who was writing to them, and said so. Now the autopilot protocol states it plainly: the lead is your supervisor, and here is how to recognize it.
@@ -90,9 +92,11 @@ The summary was not thrown away. It became a product of the corpus. At handback 
 
 ## Stalls are visible only from outside
 
-A timer inside a run is useless when the session itself has stopped. So the lead watches from outside. Every two minutes it reads every session's transcript, the process list and the open files.
+A timer inside a run is useless when the session itself has stopped. So the watching happens from outside. Every two minutes a script reads every session's transcript, the process list and the open files. No model runs in this loop, so it costs almost nothing, and the lead receives only its findings.
 
 The detector tells 11 kinds of permanent stop apart. A background-task notification never reached the session. A task's process died without an exit code. The session is idle, and nothing is left to wake it. The model returned an API error. The Claude process is gone altogether.
+
+The twelfth kind is the opposite case: the session is working, but idly. It repeats the same call and waits for the result to change. The worst such case in two weeks was 638 identical `wc -l` calls on one log in 24 minutes, about 490 million tokens per half hour. Normal work spends 50 to 90 million, mostly on cache reads, so tokens alone cannot tell such a session apart. The count of identical calls can. In 99% of 1,058 session and subagent transcripts over two weeks, it stays at 13 or fewer in 15 minutes. The detector's threshold is 20. All eight transcripts that reached it were polling something in a loop.
 
 Each kind has an action: wake the session, show it the output, restart it. The lead acts only after confirming the finding against the system itself. One signal is not yet a stop.
 
@@ -100,7 +104,9 @@ The most telling case came on Saturday morning. A team restarted its stand with 
 
 A scheduled check does not save such a session. The session wakes up, sees the task as "running" and goes back to sleep. The lead used `lsof` to find who held the pipe and told the team: stop waiting, the stand is up, go to QA. That case produced a rule for the teams and a separate kind in the detector.
 
-![Watching for stalls](stall-watch.svg "Every two minutes the lead checks session transcripts against processes and open files.")
+The watcher itself runs in the lead's session and dies with it. So a system process outside every session watches the watcher. Every five minutes it checks that the watching is running. If it has been gone for 15 minutes, a Telegram message reaches me with what the detector sees right now. At night the message waits until 08:30, like the teams' questions.
+
+![Watching for stalls](stall-watch.svg "Every two minutes a script checks session transcripts against processes and open files. A system process outside every session watches the watcher itself.")
 
 ## The lead does not take its own word either
 
@@ -112,13 +118,17 @@ Then a hole turned up in the gate itself. The audit script always signed its fil
 
 Now every verdict is stamped with the run that produced it. The gate rejects an auditor's verdict from someone else's run. The new tests failed on the old script first, then passed on the fixed one.
 
+A QA verdict names the commit it tested. The final gate requires that commit to contain what was merged: the PR's merge commit or its last commit. That is how it found a UI copy change merged after the QA verdict. No QA round had seen it, so it went into the release QA brief.
+
+Teams fix the final gate themselves when they find a mistake in it. Each such change states in its commit what it now lets through or stops. The lead reads all of them in its cycle and reverts a change that lets through what the gate exists to stop. Only I can make the gate weaker.
+
 ## New roles and a budget for lessons
 
 Two new AI roles joined the teams over the summer. The acceptance analyst writes the criteria and the "must not break" list separately from the tech lead. Otherwise the tech lead bends the criteria to fit its plan. The load reviewer checks server code for races, unbounded queries and the behavior of several replicas. It runs in parallel with CI and blocks only on critical findings.
 
 Self-learning had to be capped. After every run the team writes a retrospective, and its lessons become protocol rules. In July there were 93 retrospectives; now there are 274. The protocol grew with them, and a model's context is finite. A rule that catches no mistakes takes the place of rules that do.
 
-The autopilot protocol is now capped at 400 KB, and a script enforces it. A lesson that resurfaces a second time as a text rule has to become an automated check or go. The protocol weighs 399.6 KB today. A new rule competes for space with the old ones.
+The autopilot protocol is now capped at 400 KB, and a script enforces it. A lesson that resurfaces a second time as a text rule has to become an automated check or go. The protocol weighs 399.9 KB today. A new rule competes for space with the old ones.
 
 Retrospectives no longer come to me in Telegram. The lead collects them into the shift report. The QA fallback engine changed too: when Codex runs out of quota, QA switches to Devin.
 
@@ -126,7 +136,9 @@ Retrospectives no longer come to me in Telegram. The lead collects them into the
 
 Since July the AI teams have made 111 more runs, each a task or a batch of tasks taken from plan to closure. 108 closed. Two stopped and asked for my decision. I closed one myself. One bug got through every check.
 
-QA rounds per task went up: 2.7 against 1.4 in July. I am still working out why. There are three hypotheses: a stricter auditor, bigger tasks, a worse-prepared first round. None is verified.
+QA rounds per task went up: 2.7 against 1.4 in early July. By month, the rise happened once, from the second half of July into early August. August ran at 3.19 rounds per task and September at 3.04. No single protocol change lines up with a step.
+
+Tasks did get bigger, but that explains 7 to 17% of the rise: within every size bucket, rounds roughly doubled. A round-by-round reading of the retrospectives splits the extra rounds this way. 46% are re-runs after a product defect or change, and they grow with task size. 30% are coverage and evidence rework with the product unchanged, nearly the same at every size. 13% went to the task brief and the environment, and the retrospectives do not explain 12%. The coverage rework coincides with the July process changes: separate acceptance criteria, a "must not break" list and gaps sent back to QA. Whether the auditor became stricter cannot be checked: its July files did not survive.
 
 The precedent search is lexical. It finds cases with similar words and misses cases similar in meaning. For 52 of my 157 Telegram answers the question text was never saved, so the search cannot use them.
 

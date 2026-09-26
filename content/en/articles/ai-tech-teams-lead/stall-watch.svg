@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">Stalls are visible only from outside</title>
-  <desc id="desc">Every two minutes the lead checks session transcripts, the process list and open files. The detector tells 11 kinds of permanent stop apart. The lead confirms a finding against the system, then wakes the session, restarts it or tells me. Example: a pipe held by the stand's servers.</desc>
+  <desc id="desc">Every two minutes a script with no model checks session transcripts, the process list and open files. The detector tells 12 kinds of stall apart, including a session that repeats one call over and over. The lead confirms a finding against the system, then wakes the session, restarts it or tells me. A system watchdog outside every session watches the watcher itself. Example: a pipe held by the stand's servers.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
@@ -38,7 +38,7 @@
   </defs>
   <rect class="bg" width="1600" height="900"/>
   <text class="title" x="60" y="62">Stalls are visible only from outside</text>
-  <text class="subtitle" x="60" y="98">Every two minutes the lead checks session transcripts against processes and open files</text>
+  <text class="subtitle" x="60" y="98">Every two minutes a script checks session transcripts against processes and open files</text>
   <rect class="task" x="60" y="150" width="300" height="120" rx="14"/>
   <text class="label" x="210.0" y="192">Session transcripts</text>
   <text class="small" x="210.0" y="222">last entry, what it waits for</text>
@@ -51,31 +51,38 @@
   <text class="label" x="210.0" y="492">Open files</text>
   <text class="small" x="210.0" y="522">lsof: who holds the pipe</text>
   <line class="line" x1="360" y1="510" x2="456" y2="510"/>
+  <rect class="owner" x="60" y="600" width="300" height="110" rx="14"/>
+  <text class="label" x="210.0" y="640">Outside watchdog</text>
+  <text class="small" x="210.0" y="670">every 5 min: is the detector up</text>
+  <text class="small" x="210.0" y="696">15 min without it → Telegram</text>
+  <line class="ownerline" x1="360" y1="655" x2="456" y2="655"/>
   <rect class="core" x="460" y="130" width="440" height="580" rx="16"/>
-  <text class="label" x="680" y="172">Detector: 11 kinds of stop</text>
+  <text class="label" x="680" y="172">Detector: 12 kinds of stall</text>
   <line class="rule" x1="484" y1="194" x2="876" y2="194"/>
-  <text class="mono" x="488" y="230">LOST_NOTIFY</text>
-  <text class="small-l" x="648" y="230">a notification never arrived</text>
-  <text class="mono" x="488" y="274">PIPE_HELD</text>
-  <text class="small-l" x="648" y="274">another process holds the pipe</text>
-  <text class="mono" x="488" y="318">DEAD_TASK</text>
-  <text class="small-l" x="648" y="318">a task died silently</text>
-  <text class="mono" x="488" y="362">NO_WAKE</text>
-  <text class="small-l" x="648" y="362">nothing can wake the session</text>
-  <text class="mono" x="488" y="406">DELEGATE_HUNG</text>
-  <text class="small-l" x="648" y="406">a subagent hung</text>
-  <text class="mono" x="488" y="450">OWNER_Q</text>
-  <text class="small-l" x="648" y="450">waiting for my answer</text>
-  <text class="mono" x="488" y="494">API_ERROR</text>
-  <text class="small-l" x="648" y="494">an API error</text>
-  <text class="mono" x="488" y="538">MODEL_HUNG</text>
-  <text class="small-l" x="648" y="538">the model never replied</text>
-  <text class="mono" x="488" y="582">TOOL_HUNG</text>
-  <text class="small-l" x="648" y="582">a tool hung for 20 minutes</text>
-  <text class="mono" x="488" y="626">LONG_IDLE</text>
-  <text class="small-l" x="648" y="626">a long idle</text>
-  <text class="mono" x="488" y="670">SESSION_DEAD</text>
-  <text class="small-l" x="648" y="670">the Claude process is gone</text>
+  <text class="mono" x="488" y="226">LOST_NOTIFY</text>
+  <text class="small-l" x="648" y="226">a notification never arrived</text>
+  <text class="mono" x="488" y="266">PIPE_HELD</text>
+  <text class="small-l" x="648" y="266">another process holds the pipe</text>
+  <text class="mono" x="488" y="306">DEAD_TASK</text>
+  <text class="small-l" x="648" y="306">a task died silently</text>
+  <text class="mono" x="488" y="346">NO_WAKE</text>
+  <text class="small-l" x="648" y="346">nothing can wake the session</text>
+  <text class="mono" x="488" y="386">DELEGATE_HUNG</text>
+  <text class="small-l" x="648" y="386">a subagent hung</text>
+  <text class="mono" x="488" y="426">OWNER_Q</text>
+  <text class="small-l" x="648" y="426">waiting for my answer</text>
+  <text class="mono" x="488" y="466">API_ERROR</text>
+  <text class="small-l" x="648" y="466">an API error</text>
+  <text class="mono" x="488" y="506">MODEL_HUNG</text>
+  <text class="small-l" x="648" y="506">the model never replied</text>
+  <text class="mono" x="488" y="546">TOOL_HUNG</text>
+  <text class="small-l" x="648" y="546">a tool hung for 20 minutes</text>
+  <text class="mono" x="488" y="586">LONG_IDLE</text>
+  <text class="small-l" x="648" y="586">a long idle</text>
+  <text class="mono" x="488" y="626">SESSION_DEAD</text>
+  <text class="small-l" x="648" y="626">the Claude process is gone</text>
+  <text class="mono" x="488" y="666">SPINNING</text>
+  <text class="small-l" x="648" y="666">one call over and over</text>
   <line class="line" x1="900" y1="420" x2="996" y2="420"/>
   <rect class="task" x="1000" y="130" width="540" height="120" rx="14"/>
   <text class="label" x="1270.0" y="174">Confirm against the system</text>

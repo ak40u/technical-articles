@@ -163,11 +163,14 @@ def stall_watch(L):
     for i, (label, lines) in enumerate(L["inputs"]):
         b += box(60, 150 + i * 150, 300, 120, "task", label, lines, label_dy=42)
         b += line(360, 210 + i * 150, 456, 210 + i * 150)
+    label, lines = L["sentry"]
+    b += box(60, 600, 300, 110, "owner", label, lines, label_dy=40)
+    b += line(360, 655, 456, 655, "ownerline")
     b.append('  <rect class="core" x="460" y="130" width="440" height="580" rx="16"/>')
     b.append(t(680, 172, L["detector"], "label"))
     b.append('  <line class="rule" x1="484" y1="194" x2="876" y2="194"/>')
     for i, (code, text) in enumerate(L["kinds"]):
-        y = 230 + i * 44
+        y = 226 + i * 40
         b.append(t(488, y, code, "mono"))
         b.append(t(648, y, text, "small-l"))
     b += line(900, 420, 996, 420, "line")
@@ -271,15 +274,16 @@ TEXT = {
         }),
         "stall-watch.svg": (stall_watch, {
             "title": "Зависания видно только снаружи",
-            "desc": "Руководитель раз в две минуты сверяет журналы сессий, список процессов и открытые файлы. Детектор различает 11 видов вечной остановки. Находку руководитель подтверждает по системе, затем будит сессию, перезапускает её или сообщает мне. Пример: канал, который держали серверы стенда.",
+            "desc": "Раз в две минуты скрипт без модели сверяет журналы сессий, список процессов и открытые файлы. Детектор различает 12 видов зависания, включая сессию, которая повторяет один вызов по кругу. Находку руководитель подтверждает по системе, затем будит сессию, перезапускает её или сообщает мне. За самим наблюдателем следит системный сторож вне всех сессий. Пример: канал, который держали серверы стенда.",
             "heading": "Зависания видно только снаружи",
-            "subheading": "Раз в две минуты руководитель сверяет журналы сессий с процессами и открытыми файлами",
+            "subheading": "Раз в две минуты скрипт сверяет журналы сессий с процессами и открытыми файлами",
             "inputs": [
                 ("Журналы сессий", ["последняя запись, чего ждёт"]),
                 ("Процессы", ["ps: кто ещё жив"]),
                 ("Открытые файлы", ["lsof: кто держит канал"]),
             ],
-            "detector": "Детектор: 11 видов остановки",
+            "sentry": ("Сторож вне сессий", ["раз в 5 минут: жив ли детектор", "15 мин без него → Telegram"]),
+            "detector": "Детектор: 12 видов зависания",
             "kinds": [
                 ("LOST_NOTIFY", "уведомление не дошло"),
                 ("PIPE_HELD", "канал держит чужой процесс"),
@@ -292,6 +296,7 @@ TEXT = {
                 ("TOOL_HUNG", "инструмент висит 20 минут"),
                 ("LONG_IDLE", "долгий простой"),
                 ("SESSION_DEAD", "процесс Claude пропал"),
+                ("SPINNING", "один вызов по кругу"),
             ],
             "steps": [
                 ("Подтвердить по системе", ["один сигнал — ещё не остановка"]),
@@ -389,15 +394,16 @@ TEXT = {
         }),
         "stall-watch.svg": (stall_watch, {
             "title": "Stalls are visible only from outside",
-            "desc": "Every two minutes the lead checks session transcripts, the process list and open files. The detector tells 11 kinds of permanent stop apart. The lead confirms a finding against the system, then wakes the session, restarts it or tells me. Example: a pipe held by the stand's servers.",
+            "desc": "Every two minutes a script with no model checks session transcripts, the process list and open files. The detector tells 12 kinds of stall apart, including a session that repeats one call over and over. The lead confirms a finding against the system, then wakes the session, restarts it or tells me. A system watchdog outside every session watches the watcher itself. Example: a pipe held by the stand's servers.",
             "heading": "Stalls are visible only from outside",
-            "subheading": "Every two minutes the lead checks session transcripts against processes and open files",
+            "subheading": "Every two minutes a script checks session transcripts against processes and open files",
             "inputs": [
                 ("Session transcripts", ["last entry, what it waits for"]),
                 ("Processes", ["ps: who is still alive"]),
                 ("Open files", ["lsof: who holds the pipe"]),
             ],
-            "detector": "Detector: 11 kinds of stop",
+            "sentry": ("Outside watchdog", ["every 5 min: is the detector up", "15 min without it → Telegram"]),
+            "detector": "Detector: 12 kinds of stall",
             "kinds": [
                 ("LOST_NOTIFY", "a notification never arrived"),
                 ("PIPE_HELD", "another process holds the pipe"),
@@ -410,6 +416,7 @@ TEXT = {
                 ("TOOL_HUNG", "a tool hung for 20 minutes"),
                 ("LONG_IDLE", "a long idle"),
                 ("SESSION_DEAD", "the Claude process is gone"),
+                ("SPINNING", "one call over and over"),
             ],
             "steps": [
                 ("Confirm against the system", ["one signal is not yet a stop"]),

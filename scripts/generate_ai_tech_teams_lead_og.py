@@ -97,7 +97,7 @@ LABELS = {
         "fanout": "споры · очередь · перезапуск · develop",
         "teams": [("Команда 1", "план"), ("Команда 2", "код"), ("Команда 3", "QA"), ("Команда 4", "аудит"), ("Команда 5", "стоит")],
         "watch": "Наблюдение снаружи",
-        "watch_1": "11 видов вечной остановки · проверка раз в две минуты",
+        "watch_1": "12 видов зависания · проверка раз в две минуты",
     },
     "ai-tech-teams-lead-hero-en.png": {
         "kicker": "AI LEAD · CLAUDE CODE + CODEX",
@@ -111,7 +111,7 @@ LABELS = {
         "fanout": "disputes · queue · restarts · develop",
         "teams": [("Team 1", "plan"), ("Team 2", "code"), ("Team 3", "QA"), ("Team 4", "audit"), ("Team 5", "stuck")],
         "watch": "Watching from outside",
-        "watch_1": "11 kinds of permanent stop · checked every two minutes",
+        "watch_1": "12 kinds of stall · checked every two minutes",
     },
 }
 
