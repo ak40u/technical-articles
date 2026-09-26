@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">How the lead decides for me</title>
+  <desc id="desc">A situation goes into a precedent search over three sources: calibration, session decisions and Telegram answers. A written rule beats a precedent. The decision, with dated precedents, goes into the shift report, and my verdict returns to the corpus as calibration.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">How the lead decides for me</text>
+  <text class="subtitle" x="60" y="98">A decision starts from precedents and ends with my verdict</text>
+  <rect class="project" x="110" y="140" width="280" height="120" rx="14"/>
+  <text class="label" x="250.0" y="178">Calibration</text>
+  <text class="small" x="250.0" y="208">prediction versus my choice</text>
+  <rect class="project" x="420" y="140" width="280" height="120" rx="14"/>
+  <text class="label" x="560.0" y="178">Session decisions</text>
+  <text class="small" x="560.0" y="208">11,138, Claude Code and Codex</text>
+  <rect class="project" x="730" y="140" width="280" height="120" rx="14"/>
+  <text class="label" x="870.0" y="178">Telegram answers</text>
+  <text class="small" x="870.0" y="208">question, options, my choice</text>
+  <rect class="task" x="60" y="380" width="250" height="140" rx="14"/>
+  <text class="label" x="185.0" y="420">Situation</text>
+  <text class="small" x="185.0" y="450">“the stand has been</text>
+  <text class="small" x="185.0" y="476">busy for three hours”</text>
+  <rect class="core" x="380" y="380" width="300" height="140" rx="14"/>
+  <text class="label" x="530.0" y="420">Precedent search</text>
+  <text class="small" x="530.0" y="450">by words, not by meaning</text>
+  <text class="small" x="530.0" y="476">recent beats old</text>
+  <rect class="core" x="750" y="380" width="310" height="140" rx="14"/>
+  <text class="label" x="905.0" y="420">Rule or precedent</text>
+  <text class="small" x="905.0" y="450">the rule wins,</text>
+  <text class="small" x="905.0" y="476">the conflict goes to my report</text>
+  <rect class="core" x="1130" y="380" width="410" height="140" rx="14"/>
+  <text class="label" x="1335.0" y="420">A decision within the mandate</text>
+  <text class="small" x="1335.0" y="450">precedents cited by date</text>
+  <text class="small" x="1335.0" y="476">no raw corpus text</text>
+  <line class="line" x1="250" y1="260" x2="452.5" y2="376"/>
+  <line class="line" x1="560" y1="260" x2="530.0" y2="376"/>
+  <line class="line" x1="870" y1="260" x2="607.5" y2="376"/>
+  <line class="line" x1="310" y1="450" x2="376" y2="450"/>
+  <line class="line" x1="680" y1="450" x2="746" y2="450"/>
+  <line class="line" x1="1060" y1="450" x2="1126" y2="450"/>
+  <rect class="core" x="1130" y="630" width="410" height="130" rx="14"/>
+  <text class="label" x="1335.0" y="670">Shift report</text>
+  <text class="small" x="1335.0" y="700">decisions, facts, precedents</text>
+  <text class="small" x="1335.0" y="726">my new answers against the rules</text>
+  <rect class="owner" x="700" y="630" width="330" height="130" rx="14"/>
+  <text class="label" x="865.0" y="670">My verdict</text>
+  <text class="small" x="865.0" y="700">agree or not</text>
+  <text class="small" x="865.0" y="726">I change the rules</text>
+  <line class="line" x1="1335" y1="520" x2="1335" y2="626"/>
+  <line class="line" x1="1130" y1="695" x2="1034" y2="695"/>
+  <path class="ownerline" d="M 700 695 H 40 V 200 H 106"/>
+  <text class="edge-owner" x="80" y="682">a disagreement returns to the corpus as calibration</text>
+  <text class="footer" x="800" y="856">The index is refreshed at every takeover. The first time, it was three weeks behind.</text>
+</svg>

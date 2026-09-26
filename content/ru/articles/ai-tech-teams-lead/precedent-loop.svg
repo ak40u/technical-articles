@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Как руководитель решает за меня</title>
+  <desc id="desc">Ситуация уходит в поиск прецедентов по трём источникам: калибровке, решениям из сессий и ответам в Telegram. Записанное правило побеждает прецедент. Решение с датами прецедентов попадает в отчёт о смене, мой вердикт возвращается в корпус как калибровка.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">Как руководитель решает за меня</text>
+  <text class="subtitle" x="60" y="98">Решение начинается с прецедентов и заканчивается моим вердиктом</text>
+  <rect class="project" x="110" y="140" width="280" height="120" rx="14"/>
+  <text class="label" x="250.0" y="178">Калибровка</text>
+  <text class="small" x="250.0" y="208">прогноз против моего выбора</text>
+  <rect class="project" x="420" y="140" width="280" height="120" rx="14"/>
+  <text class="label" x="560.0" y="178">Решения из сессий</text>
+  <text class="small" x="560.0" y="208">11 138, Claude Code и Codex</text>
+  <rect class="project" x="730" y="140" width="280" height="120" rx="14"/>
+  <text class="label" x="870.0" y="178">Ответы в Telegram</text>
+  <text class="small" x="870.0" y="208">вопрос, варианты, мой выбор</text>
+  <rect class="task" x="60" y="380" width="250" height="140" rx="14"/>
+  <text class="label" x="185.0" y="420">Ситуация</text>
+  <text class="small" x="185.0" y="450">«стенд занят</text>
+  <text class="small" x="185.0" y="476">три часа»</text>
+  <rect class="core" x="380" y="380" width="300" height="140" rx="14"/>
+  <text class="label" x="530.0" y="420">Поиск прецедентов</text>
+  <text class="small" x="530.0" y="450">по словам, не по смыслу</text>
+  <text class="small" x="530.0" y="476">свежий побеждает старый</text>
+  <rect class="core" x="750" y="380" width="310" height="140" rx="14"/>
+  <text class="label" x="905.0" y="420">Правило или прецедент</text>
+  <text class="small" x="905.0" y="450">побеждает правило,</text>
+  <text class="small" x="905.0" y="476">спор уходит мне в отчёт</text>
+  <rect class="core" x="1130" y="380" width="410" height="140" rx="14"/>
+  <text class="label" x="1335.0" y="420">Решение в пределах мандата</text>
+  <text class="small" x="1335.0" y="450">ссылки на прецеденты по дате</text>
+  <text class="small" x="1335.0" y="476">без сырого текста корпуса</text>
+  <line class="line" x1="250" y1="260" x2="452.5" y2="376"/>
+  <line class="line" x1="560" y1="260" x2="530.0" y2="376"/>
+  <line class="line" x1="870" y1="260" x2="607.5" y2="376"/>
+  <line class="line" x1="310" y1="450" x2="376" y2="450"/>
+  <line class="line" x1="680" y1="450" x2="746" y2="450"/>
+  <line class="line" x1="1060" y1="450" x2="1126" y2="450"/>
+  <rect class="core" x="1130" y="630" width="410" height="130" rx="14"/>
+  <text class="label" x="1335.0" y="670">Отчёт о смене</text>
+  <text class="small" x="1335.0" y="700">решения, факты, прецеденты</text>
+  <text class="small" x="1335.0" y="726">мои новые ответы против правил</text>
+  <rect class="owner" x="700" y="630" width="330" height="130" rx="14"/>
+  <text class="label" x="865.0" y="670">Мой вердикт</text>
+  <text class="small" x="865.0" y="700">согласен или нет</text>
+  <text class="small" x="865.0" y="726">правило меняю я</text>
+  <line class="line" x1="1335" y1="520" x2="1335" y2="626"/>
+  <line class="line" x1="1130" y1="695" x2="1034" y2="695"/>
+  <path class="ownerline" d="M 700 695 H 40 V 200 H 106"/>
+  <text class="edge-owner" x="80" y="682">несогласие возвращается в корпус как калибровка</text>
+  <text class="footer" x="800" y="856">Индекс обновляется при каждой приёмке смены. В первый раз он отставал на три недели.</text>
+</svg>

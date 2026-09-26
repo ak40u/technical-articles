@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Stalls are visible only from outside</title>
+  <desc id="desc">Every two minutes the lead checks session transcripts, the process list and open files. The detector tells 11 kinds of permanent stop apart. The lead confirms a finding against the system, then wakes the session, restarts it or tells me. Example: a pipe held by the stand's servers.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">Stalls are visible only from outside</text>
+  <text class="subtitle" x="60" y="98">Every two minutes the lead checks session transcripts against processes and open files</text>
+  <rect class="task" x="60" y="150" width="300" height="120" rx="14"/>
+  <text class="label" x="210.0" y="192">Session transcripts</text>
+  <text class="small" x="210.0" y="222">last entry, what it waits for</text>
+  <line class="line" x1="360" y1="210" x2="456" y2="210"/>
+  <rect class="task" x="60" y="300" width="300" height="120" rx="14"/>
+  <text class="label" x="210.0" y="342">Processes</text>
+  <text class="small" x="210.0" y="372">ps: who is still alive</text>
+  <line class="line" x1="360" y1="360" x2="456" y2="360"/>
+  <rect class="task" x="60" y="450" width="300" height="120" rx="14"/>
+  <text class="label" x="210.0" y="492">Open files</text>
+  <text class="small" x="210.0" y="522">lsof: who holds the pipe</text>
+  <line class="line" x1="360" y1="510" x2="456" y2="510"/>
+  <rect class="core" x="460" y="130" width="440" height="580" rx="16"/>
+  <text class="label" x="680" y="172">Detector: 11 kinds of stop</text>
+  <line class="rule" x1="484" y1="194" x2="876" y2="194"/>
+  <text class="mono" x="488" y="230">LOST_NOTIFY</text>
+  <text class="small-l" x="648" y="230">a notification never arrived</text>
+  <text class="mono" x="488" y="274">PIPE_HELD</text>
+  <text class="small-l" x="648" y="274">another process holds the pipe</text>
+  <text class="mono" x="488" y="318">DEAD_TASK</text>
+  <text class="small-l" x="648" y="318">a task died silently</text>
+  <text class="mono" x="488" y="362">NO_WAKE</text>
+  <text class="small-l" x="648" y="362">nothing can wake the session</text>
+  <text class="mono" x="488" y="406">DELEGATE_HUNG</text>
+  <text class="small-l" x="648" y="406">a subagent hung</text>
+  <text class="mono" x="488" y="450">OWNER_Q</text>
+  <text class="small-l" x="648" y="450">waiting for my answer</text>
+  <text class="mono" x="488" y="494">API_ERROR</text>
+  <text class="small-l" x="648" y="494">an API error</text>
+  <text class="mono" x="488" y="538">MODEL_HUNG</text>
+  <text class="small-l" x="648" y="538">the model never replied</text>
+  <text class="mono" x="488" y="582">TOOL_HUNG</text>
+  <text class="small-l" x="648" y="582">a tool hung for 20 minutes</text>
+  <text class="mono" x="488" y="626">LONG_IDLE</text>
+  <text class="small-l" x="648" y="626">a long idle</text>
+  <text class="mono" x="488" y="670">SESSION_DEAD</text>
+  <text class="small-l" x="648" y="670">the Claude process is gone</text>
+  <line class="line" x1="900" y1="420" x2="996" y2="420"/>
+  <rect class="task" x="1000" y="130" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="174">Confirm against the system</text>
+  <text class="small" x="1270.0" y="204">one signal is not yet a stop</text>
+  <rect class="project" x="1000" y="280" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="324">Wake it or show the output</text>
+  <text class="small" x="1270.0" y="354">a message with the facts and the next step</text>
+  <line class="line" x1="1270" y1="250" x2="1270" y2="276"/>
+  <rect class="project" x="1000" y="430" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="474">Restart</text>
+  <text class="small" x="1270.0" y="504">two signals, at most once an hour per task</text>
+  <line class="line" x1="1270" y1="400" x2="1270" y2="426"/>
+  <rect class="owner" x="1000" y="580" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="624">Tell me</text>
+  <text class="small" x="1270.0" y="654">the session died again within the hour</text>
+  <line class="line" x1="1270" y1="550" x2="1270" y2="576"/>
+  <rect class="warn" x="60" y="740" width="1480" height="120" rx="16"/>
+  <text class="band-b" x="90" y="780">Saturday morning: PIPE_HELD</text>
+  <text class="band" x="90" y="810">The stand script had exited, but the servers it started inherited the write end of the pipe. tail waited for end of data; the session waited for tail.</text>
+  <text class="band" x="90" y="838">The lead found the pipe's holders with lsof and told the team: the stand is up, stop waiting, go to QA.</text>
+</svg>

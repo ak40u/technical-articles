@@ -48,6 +48,8 @@ BUNDLE_DIAGRAM_COUNTS = {
     "en/articles/sdd-in-production/": 3,
     "articles/hy3-plan-review-fallback/": 2,
     "en/articles/hy3-plan-review-fallback/": 2,
+    "articles/ai-tech-teams-lead/": 4,
+    "en/articles/ai-tech-teams-lead/": 4,
 }
 MERMAID_HEADINGS = {
     "en/articles/autonomous-digital-employee/hypothesis-pipeline.svg": (
@@ -74,6 +76,8 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/hy3-plan-review-fallback/": "Choosing a Fallback LLM for Plan Review: Benchmarking 12 Models and Adopting Tencent Hunyuan 3",
     "articles/asic-climate-guardian/": "Как ИИ превратил пять асиков на даче в самоокупаемую климатическую систему",
     "en/articles/asic-climate-guardian/": "How AI Turned Five ASICs in a Country House Into a Self-Funding Climate System",
+    "articles/ai-tech-teams-lead/": "Как я передал управление ИИ-техкомандами ИИ-руководителю",
+    "en/articles/ai-tech-teams-lead/": "How I Handed My AI Tech Teams to an AI Lead",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"

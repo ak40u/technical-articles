@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Руководитель между мной и командами</title>
+  <desc id="desc">Я запускаю руководителя словом «принимай» и получаю отчёт о смене. Руководитель берёт прецеденты из моего корпуса решений, запускает пять команд и решает их споры. Команды сами спрашивают меня в Telegram только о проде, продукте, цифрах клиента и тратах.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">Руководитель между мной и командами</text>
+  <text class="subtitle" x="60" y="98">Я раскладываю задачи и ставлю вердикт. Всё между этим делает руководитель.</text>
+  <rect class="owner" x="60" y="140" width="340" height="170" rx="14"/>
+  <text class="label" x="230.0" y="180">Я</text>
+  <text class="small" x="230.0" y="210">раскладываю задачи</text>
+  <text class="small" x="230.0" y="236">отвечаю на шесть видов вопросов</text>
+  <text class="small" x="230.0" y="262">ставлю вердикт по отчёту</text>
+  <rect class="core" x="630" y="140" width="440" height="170" rx="14"/>
+  <text class="label" x="850.0" y="180">ИИ-руководитель</text>
+  <text class="small" x="850.0" y="210">работает по мандату</text>
+  <text class="small" x="850.0" y="236">решает по моим прецедентам</text>
+  <text class="small" x="850.0" y="262">следит за зависаниями</text>
+  <rect class="project" x="1200" y="140" width="340" height="170" rx="14"/>
+  <text class="label" x="1370.0" y="180">Мой корпус</text>
+  <text class="small" x="1370.0" y="210">11 138 решений из сессий</text>
+  <text class="small" x="1370.0" y="236">ответы в Telegram</text>
+  <text class="small" x="1370.0" y="262">калибровка</text>
+  <line class="line" x1="400" y1="200" x2="626" y2="200"/>
+  <text class="edge" x="420" y="188">«принимай»</text>
+  <line class="line" x1="630" y1="262" x2="404" y2="262"/>
+  <text class="edge" x="420" y="290">отчёт о смене</text>
+  <line class="line" x1="1200" y1="225" x2="1074" y2="225"/>
+  <text class="edge" x="1082" y="213">прецеденты</text>
+  <line class="plain" x1="850" y1="310" x2="850" y2="390"/>
+  <line class="plain" x1="210" y1="390" x2="1390" y2="390"/>
+  <line class="line" x1="210" y1="390" x2="210" y2="466"/>
+  <line class="line" x1="505" y1="390" x2="505" y2="466"/>
+  <line class="line" x1="800" y1="390" x2="800" y2="466"/>
+  <line class="line" x1="1095" y1="390" x2="1095" y2="466"/>
+  <line class="line" x1="1390" y1="390" x2="1390" y2="466"/>
+  <text class="edge" x="868" y="362">запускает, решает споры, перезапускает, вливает в develop</text>
+  <rect class="project" x="75" y="470" width="270" height="110" rx="14"/>
+  <text class="label" x="210.0" y="510">Команда 1</text>
+  <text class="small" x="210.0" y="540">этап: план</text>
+  <rect class="project" x="370" y="470" width="270" height="110" rx="14"/>
+  <text class="label" x="505.0" y="510">Команда 2</text>
+  <text class="small" x="505.0" y="540">этап: код и PR</text>
+  <rect class="project" x="665" y="470" width="270" height="110" rx="14"/>
+  <text class="label" x="800.0" y="510">Команда 3</text>
+  <text class="small" x="800.0" y="540">этап: QA на стенде</text>
+  <rect class="project" x="960" y="470" width="270" height="110" rx="14"/>
+  <text class="label" x="1095.0" y="510">Команда 4</text>
+  <text class="small" x="1095.0" y="540">этап: аудит QA</text>
+  <rect class="warn" x="1255" y="470" width="270" height="110" rx="14"/>
+  <text class="label" x="1390.0" y="510">Команда 5</text>
+  <text class="small" x="1390.0" y="540">ждёт staging</text>
+  <line class="ownerline" x1="120" y1="470" x2="120" y2="314"/>
+  <text class="edge-owner" x="134" y="346">Telegram: прод, продукт,</text>
+  <text class="edge-owner" x="134" y="368">цифры клиента, траты</text>
+  <rect class="task" x="75" y="640" width="1450" height="70" rx="14"/>
+  <text class="band" x="100" y="682">В каждой команде: техлид, ревьюер плана, аналитик приёмки, ревьюер нагрузки, QA, аудитор QA, UX-ревьюер, инженер окружения</text>
+  <rect class="warn" x="75" y="730" width="1450" height="70" rx="14"/>
+  <text class="band" x="100" y="772">Раз в две минуты руководитель сверяет журналы всех сессий с процессами и открытыми файлами</text>
+  <text class="footer" x="800" y="856">Команды спрашивают меня сами только по шести причинам. Остальное решают они или руководитель.</text>
+</svg>

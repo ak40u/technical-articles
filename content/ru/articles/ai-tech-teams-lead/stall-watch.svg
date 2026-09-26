@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Зависания видно только снаружи</title>
+  <desc id="desc">Руководитель раз в две минуты сверяет журналы сессий, список процессов и открытые файлы. Детектор различает 11 видов вечной остановки. Находку руководитель подтверждает по системе, затем будит сессию, перезапускает её или сообщает мне. Пример: канал, который держали серверы стенда.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 2.5; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 2.5; }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 2.5; stroke-dasharray: 9 7; marker-end: url(#arrow-owner); }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 38px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 21px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 19px Arial, Helvetica, sans-serif; }
+      .small { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 16px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 16px Arial, Helvetica, sans-serif; }
+      .edge-owner { fill: #8f4f2f; font: 700 16px Arial, Helvetica, sans-serif; }
+      .band { fill: #1d1d1b; font: 400 18px Arial, Helvetica, sans-serif; }
+      .band-b { fill: #1d1d1b; font: 700 18px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 21px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 18px Arial, Helvetica, sans-serif; }
+      .mono { fill: #1d1d1b; font: 400 15px Menlo, Consolas, monospace; }
+      .footer { fill: #245f73; font: 700 20px Arial, Helvetica, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="title" x="60" y="62">Зависания видно только снаружи</text>
+  <text class="subtitle" x="60" y="98">Раз в две минуты руководитель сверяет журналы сессий с процессами и открытыми файлами</text>
+  <rect class="task" x="60" y="150" width="300" height="120" rx="14"/>
+  <text class="label" x="210.0" y="192">Журналы сессий</text>
+  <text class="small" x="210.0" y="222">последняя запись, чего ждёт</text>
+  <line class="line" x1="360" y1="210" x2="456" y2="210"/>
+  <rect class="task" x="60" y="300" width="300" height="120" rx="14"/>
+  <text class="label" x="210.0" y="342">Процессы</text>
+  <text class="small" x="210.0" y="372">ps: кто ещё жив</text>
+  <line class="line" x1="360" y1="360" x2="456" y2="360"/>
+  <rect class="task" x="60" y="450" width="300" height="120" rx="14"/>
+  <text class="label" x="210.0" y="492">Открытые файлы</text>
+  <text class="small" x="210.0" y="522">lsof: кто держит канал</text>
+  <line class="line" x1="360" y1="510" x2="456" y2="510"/>
+  <rect class="core" x="460" y="130" width="440" height="580" rx="16"/>
+  <text class="label" x="680" y="172">Детектор: 11 видов остановки</text>
+  <line class="rule" x1="484" y1="194" x2="876" y2="194"/>
+  <text class="mono" x="488" y="230">LOST_NOTIFY</text>
+  <text class="small-l" x="648" y="230">уведомление не дошло</text>
+  <text class="mono" x="488" y="274">PIPE_HELD</text>
+  <text class="small-l" x="648" y="274">канал держит чужой процесс</text>
+  <text class="mono" x="488" y="318">DEAD_TASK</text>
+  <text class="small-l" x="648" y="318">задача умерла молча</text>
+  <text class="mono" x="488" y="362">NO_WAKE</text>
+  <text class="small-l" x="648" y="362">сессию нечему разбудить</text>
+  <text class="mono" x="488" y="406">DELEGATE_HUNG</text>
+  <text class="small-l" x="648" y="406">завис субагент</text>
+  <text class="mono" x="488" y="450">OWNER_Q</text>
+  <text class="small-l" x="648" y="450">ждёт моего ответа</text>
+  <text class="mono" x="488" y="494">API_ERROR</text>
+  <text class="small-l" x="648" y="494">ошибка API</text>
+  <text class="mono" x="488" y="538">MODEL_HUNG</text>
+  <text class="small-l" x="648" y="538">модель не ответила</text>
+  <text class="mono" x="488" y="582">TOOL_HUNG</text>
+  <text class="small-l" x="648" y="582">инструмент висит 20 минут</text>
+  <text class="mono" x="488" y="626">LONG_IDLE</text>
+  <text class="small-l" x="648" y="626">долгий простой</text>
+  <text class="mono" x="488" y="670">SESSION_DEAD</text>
+  <text class="small-l" x="648" y="670">процесс Claude пропал</text>
+  <line class="line" x1="900" y1="420" x2="996" y2="420"/>
+  <rect class="task" x="1000" y="130" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="174">Подтвердить по системе</text>
+  <text class="small" x="1270.0" y="204">один сигнал — ещё не остановка</text>
+  <rect class="project" x="1000" y="280" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="324">Разбудить или показать вывод</text>
+  <text class="small" x="1270.0" y="354">сообщение сессии с фактами и шагом</text>
+  <line class="line" x1="1270" y1="250" x2="1270" y2="276"/>
+  <rect class="project" x="1000" y="430" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="474">Перезапустить</text>
+  <text class="small" x="1270.0" y="504">два сигнала, не чаще раза в час на задачу</text>
+  <line class="line" x1="1270" y1="400" x2="1270" y2="426"/>
+  <rect class="owner" x="1000" y="580" width="540" height="120" rx="14"/>
+  <text class="label" x="1270.0" y="624">Сообщить мне</text>
+  <text class="small" x="1270.0" y="654">сессия снова умерла в течение часа</text>
+  <line class="line" x1="1270" y1="550" x2="1270" y2="576"/>
+  <rect class="warn" x="60" y="740" width="1480" height="120" rx="16"/>
+  <text class="band-b" x="90" y="780">Суббота, утро: PIPE_HELD</text>
+  <text class="band" x="90" y="810">Скрипт стенда завершился, но запущенные им серверы унаследовали пишущий конец канала. tail ждал конца данных, сессия ждала tail.</text>
+  <text class="band" x="90" y="838">Руководитель нашёл держателей канала через lsof и написал команде: стенд поднят, не жди, иди на QA.</text>
+</svg>
