@@ -16,7 +16,7 @@ All of them are visible in Agent Dashboard, an app I built for multi-agent devel
 
 No one person can follow that flow by hand. Not even with nothing else to do.
 
-In July I [described](/en/articles/ai-tech-teams-workflow/) how I set up autonomous AI tech teams: roles, evidence, a final gate, recovery after a crash. One team could go from task to closure without me. The trouble came with scale. With five teams running in parallel, I am the bottleneck again.
+In July I [described](/en/articles/ai-tech-teams-workflow/) how I set up autonomous AI tech teams: roles, evidence, a final gate, recovery after a crash. One team could go from task to closure without me. I call one such pass, a task or a batch of related tasks taken from plan to closure, a run. The trouble came with scale. With five teams running in parallel, I am the bottleneck again.
 
 This article is about how I handed the teams to an AI lead. It decides the way I would, because it looks for the answer in my past decisions. And it takes nobody's word for anything, its own included.
 
@@ -44,7 +44,7 @@ Production and everything a client sees stay with me. Product decisions, legal a
 
 The teams ask me these questions directly, in Telegram. The lead does not intercept them. It can only add facts to a team's context.
 
-The teams know the lead exists. At first the runs did not understand who was writing to them, and said so. Now the autopilot protocol states it plainly: the lead is your supervisor, and here is how to recognize it.
+The teams know the lead exists. At first the teams did not understand who was writing to them, and said so. Now the autopilot protocol states it plainly: the lead is your supervisor, and here is how to recognize it.
 
 When I come back, the lead hands the shift over with a report. The report lists each of its decisions, the facts behind it and the precedents it relied on. I give a verdict. A disagreement becomes calibration for next time.
 
@@ -124,7 +124,7 @@ Retrospectives no longer come to me in Telegram. The lead collects them into the
 
 ## Numbers and weak spots
 
-Since July the log has recorded 111 more runs. 108 closed. Two stopped and asked for my decision. I closed one myself. One bug got through every check.
+Since July the AI teams have made 111 more runs, each a task or a batch of tasks taken from plan to closure. 108 closed. Two stopped and asked for my decision. I closed one myself. One bug got through every check.
 
 QA rounds per task went up: 2.7 against 1.4 in July. I am still working out why. There are three hypotheses: a stricter auditor, bigger tasks, a worse-prepared first round. None is verified.
 
