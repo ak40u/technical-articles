@@ -9,7 +9,7 @@ translationKey: "jev-classification"
 
 I have a task that reads like a sales example for Jev.
 
-My bot, Derzhi Lida (Russian for "grab the lead"), reads working chats in Telegram and looks for jobs for paid-ads and social media specialists. Regular expressions drop the obvious noise, and a model decides the rest. About 1,600 decisions a day. The answer is always one of three: a client request, a job opening, or irrelevant. Plus a list of ad platforms. Nothing to write, only something to choose.
+My bot, [Derzhi Lida](https://t.me/derzhi_lida_bot) (Russian for "grab the lead"), reads more than 300 working chats in Telegram and looks for client requests and job openings for paid-ads and social media specialists. Regular expressions drop the obvious noise, and a model decides the rest. About 1,600 decisions a day. The answer is always one of three: a client request, a job opening, or irrelevant. Plus a list of ad platforms. Nothing to write, only something to choose.
 
 That is exactly what Jev is sold for. I ran it on our tests next to three general-purpose models. It came last.
 
