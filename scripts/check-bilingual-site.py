@@ -80,6 +80,8 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/asic-climate-guardian/": "How AI Turned Five ASICs in a Country House Into a Self-Funding Climate System",
     "articles/ai-tech-teams-lead/": "Как я передал управление ИИ-техкомандами ИИ-руководителю",
     "en/articles/ai-tech-teams-lead/": "How I Handed My AI Tech Teams to an AI Lead",
+    "articles/jev-classification/": "Идеальная задача для Jev: модель для классификации проиграла универсальным LLM",
+    "en/articles/jev-classification/": "The Perfect Task for Jev: A Classification Model Lost to General-Purpose LLMs",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
@@ -287,6 +289,8 @@ def main() -> int:
         "og/sdd-in-production-hero-en.png",
         "og/asic-climate-guardian-hero.png",
         "og/asic-climate-guardian-hero-en.png",
+        "og/jev-classification-hero.png",
+        "og/jev-classification-hero-en.png",
         "articles/sdd-in-production/sdd-pipeline.svg",
         "en/articles/sdd-in-production/sdd-pipeline.svg",
         "articles/sdd-in-production/spec-synthesis.svg",
