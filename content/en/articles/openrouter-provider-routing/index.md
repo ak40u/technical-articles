@@ -10,7 +10,7 @@ tags: ["OpenRouter", "LLM infrastructure", "AI costs", "quantization", "DeepSeek
 translationKey: "openrouter-provider-routing"
 ---
 
-In the Logicore development pipeline, code review is done by DeepSeek V4.1 Flash through OpenRouter. In the catalogue that is one line: `deepseek/deepseek-v4.1-flash`. Behind that line, as of 6 October 2026, are 32 endpoints from 30 providers. Their input price runs from $0.011 to $0.45 per million tokens; 15 endpoints are labelled fp8, three fp4, and fourteen carry no label.
+In the FindRates development pipeline, the fallback model for code review is DeepSeek V4.1 Flash through OpenRouter: it reviews the code when the primary reviewer is unavailable. In the catalogue that is one line: `deepseek/deepseek-v4.1-flash`. Behind that line, as of 6 October 2026, are 32 endpoints from 30 providers. Their input price runs from $0.011 to $0.45 per million tokens; 15 endpoints are labelled fp8, three fp4, and fourteen carry no label.
 
 By default OpenRouter decides where each request goes. I measured what that costs on a reference set built from real commits. At similar quality, the same code review cost $0.107 on automatic routing, $0.063 pinned to DeepInfra and $0.193 pinned to Fireworks. The fp4-labelled provider did not finish a single review in 30 minutes and charged $0.56 for each attempt.
 
