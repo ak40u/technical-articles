@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 730" role="img">
+<rect width="1000" height="730" fill="#f8fafc" rx="8"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}.t{font-size:15px;font-weight:bold;fill:#0f172a}.n{font-size:12px;fill:#0f172a}.nb{font-size:12px;font-weight:bold;fill:#0f172a}.v{font-size:11px;fill:#475569}.h{font-size:12px;font-weight:bold;fill:#475569}</style>
+<text class="t" x="30" y="34">DeepSeek V4.1 Flash в OpenRouter: 32 эндпоинта, цена за 1M токенов на 6 октября 2026</text>
+<rect x="30" y="50" width="14" height="14" rx="3" fill="#f59e0b"/><text class="v" x="50" y="62">fp4</text>
+<rect x="150" y="50" width="14" height="14" rx="3" fill="#3b82f6"/><text class="v" x="170" y="62">fp8</text>
+<rect x="270" y="50" width="14" height="14" rx="3" fill="#94a3b8"/><text class="v" x="290" y="62">без метки</text>
+<text class="v" x="400" y="62">● участвовал в бенчмарке</text>
+<text class="h" x="250" y="84">вход ($0–0.45)</text><text class="h" x="660" y="84">чтение из кэша ($0–0.055)</text>
+<text class="nb" x="30" y="105">● Relace</text>
+<rect x="250" y="95" width="8.4" height="12" rx="2" fill="#94a3b8"/><text class="v" x="264.4" y="105">0.011</text>
+<rect x="660" y="95" width="65.5" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="731.5" y="105">0.015</text>
+<text class="nb" x="30" y="124">● OpenInference</text>
+<rect x="250" y="114" width="9.2" height="12" rx="2" fill="#f59e0b"/><text class="v" x="265.2" y="124">0.013</text>
+<rect x="660" y="114" width="54.8" height="12" rx="2" fill="#f59e0b" opacity="0.7"/><text class="v" x="720.8" y="124">0.013</text>
+<text class="n" x="30" y="143">Wafer</text>
+<rect x="250" y="133" width="44.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="300.0" y="143">0.06</text>
+<rect x="660" y="133" width="240.0" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="906.0" y="143">0.055</text>
+<text class="nb" x="30" y="162">● InferenceNet</text>
+<rect x="250" y="152" width="51.3" height="12" rx="2" fill="#94a3b8"/><text class="v" x="307.3" y="162">0.07</text>
+<rect x="660" y="152" width="78.5" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="744.5" y="162">0.018</text>
+<text class="n" x="30" y="181">Sail Research</text>
+<rect x="250" y="171" width="58.7" height="12" rx="2" fill="#f59e0b"/><text class="v" x="314.7" y="181">0.08</text>
+<rect x="660" y="171" width="43.6" height="12" rx="2" fill="#f59e0b" opacity="0.7"/><text class="v" x="709.6" y="181">0.01</text>
+<text class="n" x="30" y="200">Decart</text>
+<rect x="250" y="190" width="66.0" height="12" rx="2" fill="#f59e0b"/><text class="v" x="322.0" y="200">0.09</text>
+<rect x="660" y="190" width="78.5" height="12" rx="2" fill="#f59e0b" opacity="0.7"/><text class="v" x="744.5" y="200">0.018</text>
+<text class="nb" x="30" y="219">● Morph</text>
+<rect x="250" y="209" width="71.9" height="12" rx="2" fill="#3b82f6"/><text class="v" x="327.9" y="219">0.098</text>
+<rect x="660" y="209" width="39.3" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="705.3" y="219">0.009</text>
+<text class="n" x="30" y="238">DekaLLM</text>
+<rect x="250" y="228" width="88.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="344.0" y="238">0.12</text>
+<rect x="660" y="228" width="21.8" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="687.8" y="238">0.005</text>
+<text class="n" x="30" y="257">Ionstream</text>
+<rect x="250" y="247" width="101.6" height="12" rx="2" fill="#94a3b8"/><text class="v" x="357.6" y="257">0.14</text>
+<rect x="660" y="247" width="24.0" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="690.0" y="257">0.0055</text>
+<text class="nb" x="30" y="276">● DeepInfra</text>
+<rect x="250" y="266" width="102.7" height="12" rx="2" fill="#3b82f6"/><text class="v" x="358.7" y="276">0.14</text>
+<rect x="660" y="266" width="18.3" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="684.3" y="276">0.0042</text>
+<text class="n" x="30" y="295">StreamLake</text>
+<rect x="250" y="285" width="103.4" height="12" rx="2" fill="#3b82f6"/><text class="v" x="359.4" y="295">0.14</text>
+<rect x="660" y="285" width="12.3" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="678.3" y="295">0.0028</text>
+<text class="n" x="30" y="314">AtlasCloud</text>
+<rect x="250" y="304" width="103.4" height="12" rx="2" fill="#3b82f6"/><text class="v" x="359.4" y="314">0.14</text>
+<rect x="660" y="304" width="61.5" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="727.5" y="314">0.014</text>
+<text class="n" x="30" y="333">DeepSeek</text>
+<rect x="250" y="323" width="110.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="366.0" y="333">0.15</text>
+<rect x="660" y="323" width="13.1" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="679.1" y="333">0.003</text>
+<text class="nb" x="30" y="352">● DigitalOcean</text>
+<rect x="250" y="342" width="132.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="388.0" y="352">0.18</text>
+<rect x="660" y="342" width="15.7" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="681.7" y="352">0.0036</text>
+<text class="n" x="30" y="371">GMICloud</text>
+<rect x="250" y="361" width="132.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="388.0" y="371">0.18</text>
+<rect x="660" y="361" width="15.7" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="681.7" y="371">0.0036</text>
+<text class="n" x="30" y="390">Reka</text>
+<rect x="250" y="380" width="132.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="388.0" y="390">0.18</text>
+<rect x="660" y="380" width="39.3" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="705.3" y="390">0.009</text>
+<text class="n" x="30" y="409">Novita</text>
+<rect x="250" y="399" width="143.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="399.0" y="409">0.2</text>
+<rect x="660" y="399" width="17.0" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="683.0" y="409">0.0039</text>
+<text class="n" x="30" y="428">CoreWeave</text>
+<rect x="250" y="418" width="146.7" height="12" rx="2" fill="#3b82f6"/><text class="v" x="402.7" y="428">0.2</text>
+<rect x="660" y="418" width="130.9" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="796.9" y="428">0.03</text>
+<text class="n" x="30" y="447">NextBit</text>
+<rect x="250" y="437" width="154.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="410.0" y="447">0.21</text>
+<rect x="660" y="437" width="17.5" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="683.5" y="447">0.004</text>
+<text class="n" x="30" y="466">Phala</text>
+<rect x="250" y="456" width="154.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="410.0" y="466">0.21</text>
+<rect x="660" y="456" width="18.3" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="684.3" y="466">0.0042</text>
+<text class="n" x="30" y="485">Makora</text>
+<rect x="250" y="475" width="198.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="454.0" y="485">0.27</text>
+<rect x="660" y="475" width="39.3" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="705.3" y="485">0.009</text>
+<text class="n" x="30" y="504">Baidu</text>
+<rect x="250" y="494" width="220.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="476.0" y="504">0.3</text>
+<rect x="660" y="494" width="26.2" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="692.2" y="504">0.006</text>
+<text class="n" x="30" y="523">BaseTen</text>
+<rect x="250" y="513" width="220.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="476.0" y="523">0.3</text>
+<rect x="660" y="513" width="30.5" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="696.5" y="523">0.007</text>
+<text class="n" x="30" y="542">Alibaba</text>
+<rect x="250" y="532" width="220.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="476.0" y="542">0.3</text>
+<rect x="660" y="532" width="130.9" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="796.9" y="542">0.03</text>
+<text class="nb" x="30" y="561">● Together</text>
+<rect x="250" y="551" width="220.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="476.0" y="561">0.3</text>
+<rect x="660" y="551" width="26.2" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="692.2" y="561">0.006</text>
+<text class="n" x="30" y="580">SiliconFlow</text>
+<rect x="250" y="570" width="220.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="476.0" y="580">0.3</text>
+<rect x="660" y="570" width="26.2" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="692.2" y="580">0.006</text>
+<text class="n" x="30" y="599">Modal</text>
+<rect x="250" y="589" width="220.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="476.0" y="599">0.3</text>
+<rect x="660" y="589" width="130.9" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="796.9" y="599">0.03</text>
+<text class="n" x="30" y="618">BaseTen</text>
+<rect x="250" y="608" width="220.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="476.0" y="618">0.3</text>
+<rect x="660" y="608" width="30.5" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="696.5" y="618">0.007</text>
+<text class="n" x="30" y="637">Parasail</text>
+<rect x="250" y="627" width="220.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="476.0" y="637">0.3</text>
+<rect x="660" y="627" width="26.2" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="692.2" y="637">0.006</text>
+<text class="nb" x="30" y="656">● Fireworks</text>
+<rect x="250" y="646" width="220.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="476.0" y="656">0.3</text>
+<rect x="660" y="646" width="26.2" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="692.2" y="656">0.006</text>
+<text class="n" x="30" y="675">Venice</text>
+<rect x="250" y="665" width="220.0" height="12" rx="2" fill="#3b82f6"/><text class="v" x="476.0" y="675">0.3</text>
+<rect x="660" y="665" width="32.7" height="12" rx="2" fill="#3b82f6" opacity="0.7"/><text class="v" x="698.7" y="675">0.0075</text>
+<text class="n" x="30" y="694">Fireworks (us)</text>
+<rect x="250" y="684" width="330.0" height="12" rx="2" fill="#94a3b8"/><text class="v" x="586.0" y="694">0.45</text>
+<rect x="660" y="684" width="39.3" height="12" rx="2" fill="#94a3b8" opacity="0.7"/><text class="v" x="705.3" y="694">0.009</text>
+</svg>

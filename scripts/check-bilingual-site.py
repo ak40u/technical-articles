@@ -82,6 +82,8 @@ EXPECTED_ARTICLE_TITLES = {
     "en/articles/ai-tech-teams-lead/": "How I Handed My AI Tech Teams to an AI Lead",
     "articles/jev-classification/": "Идеальная задача для Jev: модель для классификации проиграла универсальным LLM",
     "en/articles/jev-classification/": "The Perfect Task for Jev: A Classification Model Lost to General-Purpose LLMs",
+    "articles/openrouter-provider-routing/": "Одна модель, 32 провайдера: почему маршрут OpenRouter надо проверять, закреплять и отслеживать",
+    "en/articles/openrouter-provider-routing/": "One model, 32 endpoints: why an OpenRouter route has to be tested, pinned and watched",
 }
 CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 TELEGRAM_URL = "https://t.me/sueta_localna"
@@ -291,12 +293,18 @@ def main() -> int:
         "og/asic-climate-guardian-hero-en.png",
         "og/jev-classification-hero.png",
         "og/jev-classification-hero-en.png",
+        "og/openrouter-provider-routing-hero.png",
+        "og/openrouter-provider-routing-hero-en.png",
         "articles/sdd-in-production/sdd-pipeline.svg",
         "en/articles/sdd-in-production/sdd-pipeline.svg",
         "articles/sdd-in-production/spec-synthesis.svg",
         "en/articles/sdd-in-production/spec-synthesis.svg",
         "articles/sdd-in-production/qa-verification-loop.svg",
         "en/articles/sdd-in-production/qa-verification-loop.svg",
+        "articles/openrouter-provider-routing/provider-prices.svg",
+        "en/articles/openrouter-provider-routing/provider-prices.svg",
+        "articles/openrouter-provider-routing/review-matrix.svg",
+        "en/articles/openrouter-provider-routing/review-matrix.svg",
         "index.xml",
         "en/index.xml",
         "llms.txt",

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 340" role="img">
+<rect width="1110" height="340" fill="#f8fafc" rx="8"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}.h{font-size:12px;font-weight:bold;fill:#475569}.m{font-size:14px;font-weight:bold;fill:#0f172a}.p{font-size:12px;fill:#64748b}.v{font-size:15px;font-weight:bold;fill:#0f172a}.l{font-size:12px;fill:#475569}</style>
+<text class="h" x="30" y="54">Model · provider</text>
+<text class="h" x="284" y="54" text-anchor="middle">R1</text>
+<text class="h" x="366" y="54" text-anchor="middle">R2</text>
+<text class="h" x="448" y="54" text-anchor="middle">R3</text>
+<text class="h" x="530" y="54" text-anchor="middle">R4</text>
+<text class="h" x="612" y="54" text-anchor="middle">R5</text>
+<text class="h" x="694" y="54" text-anchor="middle">R6</text>
+<text class="h" x="772" y="54" text-anchor="middle">Found</text>
+<text class="h" x="877" y="54" text-anchor="middle">False</text>
+<text class="h" x="962" y="54" text-anchor="middle">$ / review</text>
+<text class="h" x="1052" y="54" text-anchor="middle">Median</text>
+<text class="m" x="30" y="94">DeepSeek V4.1 Flash</text><text class="p" x="30" y="110">auto</text>
+<rect x="250" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="284" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="332" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="366" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="414" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="448" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="496" y="82" width="30" height="30" rx="4" fill="#e2e8f0"/>
+<rect x="530" y="82" width="30" height="30" rx="4" fill="#e2e8f0"/>
+<rect x="578" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="612" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="660" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="694" y="82" width="30" height="30" rx="4" fill="#22c55e"/>
+<text class="v" x="772" y="103" text-anchor="middle">10 / 12</text>
+<text class="v" x="877" y="103" text-anchor="middle">1</text>
+<text class="v" x="962" y="103" text-anchor="middle">0.107</text>
+<text class="v" x="1052" y="103" text-anchor="middle">449 s</text>
+<text class="m" x="30" y="140">DeepSeek V4.1 Flash</text><text class="p" x="30" y="156">DeepInfra</text>
+<rect x="250" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="284" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="332" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="366" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="414" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="448" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="496" y="128" width="30" height="30" rx="4" fill="#e2e8f0"/>
+<rect x="530" y="128" width="30" height="30" rx="4" fill="#e2e8f0"/>
+<rect x="578" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="612" y="128" width="30" height="30" rx="4" fill="#e2e8f0"/>
+<rect x="660" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="694" y="128" width="30" height="30" rx="4" fill="#22c55e"/>
+<text class="v" x="772" y="149" text-anchor="middle">9 / 12</text>
+<text class="v" x="877" y="149" text-anchor="middle">1</text>
+<text class="v" x="962" y="149" text-anchor="middle">0.063</text>
+<text class="v" x="1052" y="149" text-anchor="middle">666 s</text>
+<text class="m" x="30" y="186">DeepSeek V4.1 Flash</text><text class="p" x="30" y="202">Fireworks</text>
+<rect x="250" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="284" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="332" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="366" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="414" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="448" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="496" y="174" width="30" height="30" rx="4" fill="#e2e8f0"/>
+<rect x="530" y="174" width="30" height="30" rx="4" fill="#e2e8f0"/>
+<rect x="578" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="612" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="660" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<rect x="694" y="174" width="30" height="30" rx="4" fill="#22c55e"/>
+<text class="v" x="772" y="195" text-anchor="middle">10 / 12</text>
+<text class="v" x="877" y="195" text-anchor="middle">1</text>
+<text class="v" x="962" y="195" text-anchor="middle">0.193</text>
+<text class="v" x="1052" y="195" text-anchor="middle">456 s</text>
+<text class="m" x="30" y="232">DeepSeek V4.1 Flash</text><text class="p" x="30" y="248">Open Inference</text>
+<rect x="250" y="220" width="30" height="30" rx="4" fill="#64748b"/>
+<rect x="284" y="220" width="30" height="30" rx="4" fill="#64748b"/>
+<rect x="496" y="220" width="30" height="30" rx="4" fill="#64748b"/>
+<rect x="530" y="220" width="30" height="30" rx="4" fill="#64748b"/>
+<text class="v" x="772" y="241" text-anchor="middle">0 / 4</text>
+<text class="v" x="877" y="241" text-anchor="middle">0</text>
+<text class="v" x="962" y="241" text-anchor="middle">0.561</text>
+<text class="v" x="1052" y="241" text-anchor="middle">1800 s</text>
+<rect x="30" y="284" width="16" height="16" rx="3" fill="#22c55e"/><text class="l" x="54" y="297">found</text>
+<rect x="200" y="284" width="16" height="16" rx="3" fill="#e2e8f0"/><text class="l" x="224" y="297">missed</text>
+<rect x="370" y="284" width="16" height="16" rx="3" fill="#64748b"/><text class="l" x="394" y="297">no review in 30 min</text>
+</svg>
