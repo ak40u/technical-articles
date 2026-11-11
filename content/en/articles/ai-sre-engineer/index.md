@@ -7,6 +7,7 @@ summary: "In products with complex logic and conversational interfaces, expensiv
 author: "Pavel Volkov"
 tags: ["AI agents", "SRE", "architecture", "operations", "AI costs"]
 translationKey: "ai-sre-engineer"
+image: "og/ai-sre-engineer-hero-en.png"
 ---
 
 In a typical web service, an outage shows up on the charts right away: error codes climb, response latency grows or the job queue backs up. In products with complex domain logic, external integrations and conversational agents, the most expensive failures look different. Servers are healthy, responses are fast, the error log is empty, yet semantically the deal quietly falls through.
