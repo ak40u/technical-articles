@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="970" viewBox="0 0 1200 970" role="img" aria-labelledby="title desc">
+  <title id="title">Where a finding goes</title>
+  <desc id="desc">A finding reaches the alert channel with an addressee. Client issues go to the AI support agent, platform issues to the AI lead, owner questions to me on Telegram. The support agent hands code defects to the lead.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <marker id="arrow-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7b5d"/>
+    </marker>
+    <marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a34a3f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .chip { fill: #ffffff; stroke: #245f73; stroke-width: 2; }
+      .chip-quiet { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .code { fill: #f3f0e8; stroke: #2b2a27; stroke-width: 3; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2.5; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 3; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 3; }
+      .okline { fill: none; stroke: #4f7b5d; stroke-width: 3; marker-end: url(#arrow-ok); }
+      .warnline { fill: none; stroke: #a34a3f; stroke-width: 3; marker-end: url(#arrow-warn); }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 3; stroke-dasharray: 10 8; marker-end: url(#arrow-owner); }
+      .blocked { fill: none; stroke: #a34a3f; stroke-width: 3; stroke-dasharray: 8 8; }
+      .cross { fill: #fcfbf7; stroke: #a34a3f; stroke-width: 3; }
+      .cross-x { stroke: #a34a3f; stroke-width: 4; stroke-linecap: round; }
+      .divider { stroke: #8b867d; stroke-width: 2.5; stroke-dasharray: 10 8; }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 40px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 23px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 26px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 24px Arial, Helvetica, sans-serif; }
+      .chip-t { fill: #1d1d1b; font: 700 22px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small { fill: #5f5b54; font: 400 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 20px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 19px Arial, Helvetica, sans-serif; }
+      .edge-m { fill: #5f5b54; font: 700 19px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .edge-owner { fill: #8f4f2f; font: 700 19px Arial, Helvetica, sans-serif; }
+      .edge-warn { fill: #a34a3f; font: 700 19px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 22px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 20px Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="970"/>
+  <text class="title" x="60" y="68">Where a finding goes</text>
+  <text class="subtitle" x="60" y="106">Every post in the alert channel names its addressee</text>
+  <rect class="core" x="330" y="140" width="540" height="90" rx="14"/>
+  <text class="label" x="600.0" y="178">Duty engineer's finding</text>
+  <text class="small" x="600.0" y="212">a card in the alert channel</text>
+  <line class="plain" x1="600" y1="230" x2="600" y2="262"/>
+  <line class="plain" x1="230" y1="262" x2="970" y2="262"/>
+  <line class="line" x1="230" y1="262" x2="230" y2="296"/>
+  <line class="line" x1="600" y1="262" x2="600" y2="296"/>
+  <line class="line" x1="970" y1="262" x2="970" y2="296"/>
+  <rect class="task" x="60" y="300" width="340" height="170" rx="14"/>
+  <text class="label" x="230.0" y="342">Client issue</text>
+  <text class="small" x="230.0" y="376">one client's failure,</text>
+  <text class="small" x="230.0" y="404">chats, rates</text>
+  <rect class="task" x="430" y="300" width="340" height="170" rx="14"/>
+  <text class="label" x="600.0" y="342">Platform issue</text>
+  <text class="small" x="600.0" y="376">platform errors,</text>
+  <text class="small" x="600.0" y="404">new kinds of failure,</text>
+  <text class="small" x="600.0" y="432">main branch health</text>
+  <rect class="task" x="800" y="300" width="340" height="170" rx="14"/>
+  <text class="label" x="970.0" y="342">Owner question</text>
+  <text class="small" x="970.0" y="376">platform, money,</text>
+  <text class="small" x="970.0" y="404">security,</text>
+  <text class="small" x="970.0" y="432">the model's doubt</text>
+  <line class="line" x1="230" y1="470" x2="230" y2="546"/>
+  <rect class="project" x="60" y="550" width="340" height="160" rx="14"/>
+  <text class="label" x="230.0" y="592">AI support</text>
+  <text class="small" x="230.0" y="626">answers the client</text>
+  <text class="small" x="230.0" y="654">and the operator</text>
+  <line class="line" x1="600" y1="470" x2="600" y2="546"/>
+  <rect class="project" x="430" y="550" width="340" height="160" rx="14"/>
+  <text class="label" x="600.0" y="592">AI lead</text>
+  <text class="small" x="600.0" y="626">fixes and contains</text>
+  <text class="small" x="600.0" y="654">with reversible steps</text>
+  <line class="ownerline" x1="970" y1="470" x2="970" y2="546"/>
+  <rect class="owner" x="800" y="550" width="340" height="160" rx="14"/>
+  <text class="label" x="970.0" y="592">Me</text>
+  <text class="small" x="970.0" y="626">on Telegram</text>
+  <path class="line" d="M 230 710 V 746 H 600 V 716"/>
+  <text class="edge-m" x="415" y="774">code defect</text>
+  <rect class="dark" x="60" y="810" width="1080" height="120" rx="16"/>
+  <text class="on-dark" x="90" y="852">My phone stays quiet unless the owner is needed</text>
+  <text class="on-dark-2" x="90" y="888">Agents handle client and platform issues without me.</text>
+</svg>

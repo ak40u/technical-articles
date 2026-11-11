@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1260" viewBox="0 0 1200 1260" role="img" aria-labelledby="title desc">
+  <title id="title">Кто что делает на дежурстве</title>
+  <desc id="desc">Облачный сторож и контейнер дежурного на Claude Opus 5.5 наблюдают за продакшеном FindRates. Дежурный только читает код и базу, пути записи в продакшен у него нет. Находки он публикует в канале тревог, откуда их забирают ИИ-техподдержка и ИИ-руководитель; вопросы владельца уходят мне в Telegram.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <marker id="arrow-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7b5d"/>
+    </marker>
+    <marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a34a3f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .chip { fill: #ffffff; stroke: #245f73; stroke-width: 2; }
+      .chip-quiet { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .code { fill: #f3f0e8; stroke: #2b2a27; stroke-width: 3; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2.5; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 3; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 3; }
+      .okline { fill: none; stroke: #4f7b5d; stroke-width: 3; marker-end: url(#arrow-ok); }
+      .warnline { fill: none; stroke: #a34a3f; stroke-width: 3; marker-end: url(#arrow-warn); }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 3; stroke-dasharray: 10 8; marker-end: url(#arrow-owner); }
+      .blocked { fill: none; stroke: #a34a3f; stroke-width: 3; stroke-dasharray: 8 8; }
+      .cross { fill: #fcfbf7; stroke: #a34a3f; stroke-width: 3; }
+      .cross-x { stroke: #a34a3f; stroke-width: 4; stroke-linecap: round; }
+      .divider { stroke: #8b867d; stroke-width: 2.5; stroke-dasharray: 10 8; }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 40px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 23px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 26px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 24px Arial, Helvetica, sans-serif; }
+      .chip-t { fill: #1d1d1b; font: 700 22px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small { fill: #5f5b54; font: 400 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 20px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 19px Arial, Helvetica, sans-serif; }
+      .edge-m { fill: #5f5b54; font: 700 19px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .edge-owner { fill: #8f4f2f; font: 700 19px Arial, Helvetica, sans-serif; }
+      .edge-warn { fill: #a34a3f; font: 700 19px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 22px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 20px Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="1260"/>
+  <text class="title" x="60" y="68">Кто что делает</text>
+  <text class="subtitle" x="60" y="106">Дежурный видит всё, но ничего не меняет</text>
+  <rect class="task" x="60" y="140" width="1080" height="100" rx="14"/>
+  <text class="label" x="600.0" y="180">Продакшен FindRates</text>
+  <text class="small" x="600.0" y="214">сервисы, база, переписки с клиентами, ставки перевозчиков</text>
+  <rect class="task" x="60" y="330" width="440" height="150" rx="14"/>
+  <text class="label" x="280.0" y="372">Облачный сторож</text>
+  <text class="small" x="280.0" y="406">жив ли интерфейс,</text>
+  <text class="small" x="280.0" y="434">ошибки и события в логах</text>
+  <rect class="core" x="640" y="330" width="500" height="150" rx="14"/>
+  <text class="label" x="890.0" y="372">Контейнер дежурного</text>
+  <text class="small" x="890.0" y="406">Claude Opus 5.5</text>
+  <text class="small" x="890.0" y="434">только чтение: код и база</text>
+  <line class="line" x1="280" y1="240" x2="280" y2="326"/>
+  <text class="edge" x="296" y="292">проверяет</text>
+  <line class="line" x1="760" y1="240" x2="760" y2="326"/>
+  <text class="edge" x="776" y="292">читает</text>
+  <path class="blocked" d="M 1040 330 V 240"/>
+  <circle class="cross" cx="1040" cy="285" r="17"/>
+  <line class="cross-x" x1="1031" y1="276" x2="1049" y2="294"/>
+  <line class="cross-x" x1="1049" y1="276" x2="1031" y2="294"/>
+  <text class="edge-warn" x="1066" y="280">записи</text>
+  <text class="edge-warn" x="1066" y="302">нет</text>
+  <line class="line" x1="500" y1="405" x2="636" y2="405"/>
+  <text class="edge-m" x="568" y="393">журнал</text>
+  <line class="line" x1="890" y1="480" x2="890" y2="556"/>
+  <text class="edge" x="906" y="526">карточка</text>
+  <rect class="task" x="60" y="560" width="1080" height="100" rx="14"/>
+  <text class="label" x="600.0" y="600">Канал тревог</text>
+  <text class="small" x="600.0" y="634">у каждого поста источник и адресат</text>
+  <line class="line" x1="280" y1="660" x2="280" y2="736"/>
+  <line class="line" x1="920" y1="660" x2="920" y2="736"/>
+  <rect class="project" x="60" y="740" width="440" height="130" rx="14"/>
+  <text class="label" x="280.0" y="782">ИИ-техподдержка</text>
+  <text class="small" x="280.0" y="816">отвечает клиенту</text>
+  <text class="small" x="280.0" y="844">и оператору</text>
+  <rect class="project" x="700" y="740" width="440" height="130" rx="14"/>
+  <text class="label" x="920.0" y="782">ИИ-руководитель</text>
+  <text class="small" x="920.0" y="816">чинит платформу,</text>
+  <text class="small" x="920.0" y="844">сдерживает инцидент</text>
+  <line class="line" x1="500" y1="805" x2="696" y2="805"/>
+  <text class="edge-m" x="598" y="793">дефект кода</text>
+  <path class="ownerline" d="M 280 870 V 1000 H 396"/>
+  <path class="ownerline" d="M 920 870 V 1000 H 804"/>
+  <text class="edge-owner" x="296" y="940">вопросы владельца</text>
+  <rect class="owner" x="400" y="950" width="400" height="100" rx="14"/>
+  <text class="label" x="600.0" y="990">Я</text>
+  <text class="small" x="600.0" y="1024">в Telegram</text>
+  <rect class="dark" x="60" y="1100" width="1080" height="120" rx="16"/>
+  <text class="on-dark" x="90" y="1142">У дежурного нет прав менять прод</text>
+  <text class="on-dark-2" x="90" y="1178">Он не пишет в данные, не перезапускает сервисы и не правит настройки.</text>
+</svg>

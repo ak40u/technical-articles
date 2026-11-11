@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1300" viewBox="0 0 1200 1300" role="img" aria-labelledby="title desc">
+  <title id="title">Модель судит, код проверяет</title>
+  <desc id="desc">Событие сначала оценивает модель: уведомить, расследовать, отложить в сводку или пропустить. При расследовании она читает код версии в проде и делает запросы к базе только на чтение. Карточку находки проверяет обычный код: номера заявок и суммы должны совпасть с тем, что вернула база. Не сошлось — карточка задержана, сошлось — опубликована в канале тревог.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a776f"/>
+    </marker>
+    <marker id="arrow-owner" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f4f2f"/>
+    </marker>
+    <marker id="arrow-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7b5d"/>
+    </marker>
+    <marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a34a3f"/>
+    </marker>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .owner { fill: #f7eadc; stroke: #8f4f2f; stroke-width: 3; }
+      .core { fill: #e8f2f4; stroke: #245f73; stroke-width: 3; }
+      .chip { fill: #ffffff; stroke: #245f73; stroke-width: 2; }
+      .chip-quiet { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .project { fill: #edf6ef; stroke: #4f7b5d; stroke-width: 2.5; }
+      .task { fill: #f3f0e8; stroke: #8b867d; stroke-width: 2; }
+      .code { fill: #f3f0e8; stroke: #2b2a27; stroke-width: 3; }
+      .warn { fill: #fae9e5; stroke: #a34a3f; stroke-width: 2.5; }
+      .dark { fill: #2b2a27; }
+      .line { fill: none; stroke: #7a776f; stroke-width: 3; marker-end: url(#arrow); }
+      .plain { fill: none; stroke: #7a776f; stroke-width: 3; }
+      .okline { fill: none; stroke: #4f7b5d; stroke-width: 3; marker-end: url(#arrow-ok); }
+      .warnline { fill: none; stroke: #a34a3f; stroke-width: 3; marker-end: url(#arrow-warn); }
+      .ownerline { fill: none; stroke: #8f4f2f; stroke-width: 3; stroke-dasharray: 10 8; marker-end: url(#arrow-owner); }
+      .blocked { fill: none; stroke: #a34a3f; stroke-width: 3; stroke-dasharray: 8 8; }
+      .cross { fill: #fcfbf7; stroke: #a34a3f; stroke-width: 3; }
+      .cross-x { stroke: #a34a3f; stroke-width: 4; stroke-linecap: round; }
+      .divider { stroke: #8b867d; stroke-width: 2.5; stroke-dasharray: 10 8; }
+      .rule { stroke: #ded9cd; stroke-width: 1.5; }
+      .title { fill: #1d1d1b; font: 800 40px Arial, Helvetica, sans-serif; }
+      .subtitle { fill: #6c6860; font: 400 23px Arial, Helvetica, sans-serif; }
+      .label { fill: #1d1d1b; font: 700 26px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .label-l { fill: #1d1d1b; font: 700 24px Arial, Helvetica, sans-serif; }
+      .chip-t { fill: #1d1d1b; font: 700 22px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small { fill: #5f5b54; font: 400 21px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .small-l { fill: #5f5b54; font: 400 20px Arial, Helvetica, sans-serif; }
+      .edge { fill: #5f5b54; font: 700 19px Arial, Helvetica, sans-serif; }
+      .edge-m { fill: #5f5b54; font: 700 19px Arial, Helvetica, sans-serif; text-anchor: middle; }
+      .edge-owner { fill: #8f4f2f; font: 700 19px Arial, Helvetica, sans-serif; }
+      .edge-warn { fill: #a34a3f; font: 700 19px Arial, Helvetica, sans-serif; }
+      .on-dark { fill: #fcfbf7; font: 700 22px Arial, Helvetica, sans-serif; }
+      .on-dark-2 { fill: #d9d4c7; font: 400 20px Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="1300"/>
+  <text class="title" x="60" y="68">Модель судит, код проверяет</text>
+  <text class="subtitle" x="60" y="106">Суждение отдано модели, числа сверяет программа</text>
+  <rect class="task" x="360" y="140" width="480" height="90" rx="14"/>
+  <text class="label" x="600.0" y="178">Событие</text>
+  <text class="small" x="600.0" y="212">журнал, база, переписки, ставки</text>
+  <line class="line" x1="600" y1="230" x2="600" y2="276"/>
+  <rect class="core" x="60" y="280" width="1080" height="210" rx="16"/>
+  <text class="label" x="600" y="322">Оценка моделью</text>
+  <text class="small" x="600" y="354">без инструментов, с историей за неделю</text>
+  <rect class="chip" x="90" y="385" width="210" height="64" rx="32"/>
+  <text class="chip-t" x="195" y="425">уведомить</text>
+  <rect class="chip" x="360" y="385" width="210" height="64" rx="32"/>
+  <text class="chip-t" x="465" y="425">расследовать</text>
+  <rect class="chip-quiet" x="630" y="385" width="210" height="64" rx="32"/>
+  <text class="chip-t" x="735" y="425">в сводку</text>
+  <rect class="chip-quiet" x="900" y="385" width="210" height="64" rx="32"/>
+  <text class="chip-t" x="1005" y="425">пропустить</text>
+  <text class="small" x="870" y="476">без сообщения сейчас</text>
+  <line class="line" x1="465" y1="449" x2="465" y2="546"/>
+  <rect class="core" x="330" y="550" width="540" height="130" rx="14"/>
+  <text class="label" x="600.0" y="592">Расследование</text>
+  <text class="small" x="600.0" y="626">читает код версии в проде,</text>
+  <text class="small" x="600.0" y="654">запросы к базе только на чтение</text>
+  <path class="line" d="M 195 449 V 785 H 326"/>
+  <line class="line" x1="600" y1="680" x2="600" y2="736"/>
+  <rect class="core" x="330" y="740" width="540" height="90" rx="14"/>
+  <text class="label" x="600.0" y="778">Карточка находки</text>
+  <text class="small" x="600.0" y="812">что произошло, дефект, влияние</text>
+  <line class="line" x1="600" y1="830" x2="600" y2="876"/>
+  <rect class="code" x="160" y="880" width="880" height="130" rx="14"/>
+  <text class="label" x="600.0" y="922">Код сверяет карточку с базой</text>
+  <text class="small" x="600.0" y="956">каждый номер заявки и каждая сумма</text>
+  <text class="small" x="600.0" y="984">должны быть в выдаче базы этого прогона</text>
+  <path class="warnline" d="M 400 1010 V 1076"/>
+  <path class="okline" d="M 800 1010 V 1076"/>
+  <text class="edge-warn" x="416" y="1050">не сошлось</text>
+  <text class="edge" x="816" y="1050">сошлось</text>
+  <rect class="warn" x="160" y="1080" width="440" height="110" rx="14"/>
+  <text class="label" x="380.0" y="1120">Карточка задержана</text>
+  <text class="small" x="380.0" y="1154">в канал не попадает</text>
+  <rect class="project" x="640" y="1080" width="400" height="110" rx="14"/>
+  <text class="label" x="840.0" y="1120">Опубликована</text>
+  <text class="small" x="840.0" y="1154">в канале тревог</text>
+  <rect class="core" x="60" y="1236" width="34" height="26" rx="6"/>
+  <text class="small-l" x="106" y="1257">работает модель</text>
+  <rect class="code" x="520" y="1236" width="34" height="26" rx="6"/>
+  <text class="small-l" x="566" y="1257">проверяет обычный код</text>
+</svg>
